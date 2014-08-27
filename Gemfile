@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.16'
 gem 'rake'
 
 gem 'prawn'
@@ -42,6 +42,7 @@ group :development do
   gem "meta_request"
   gem 'capistrano'
   gem 'capistrano-rails'
+  gem 'capistrano-bundler'
   gem 'thin'
 end
 

@@ -2,7 +2,8 @@
 lock '3.2.1'
 
 set :application, 'academyclass'
-set :repo_url, "svn+ssh://svn@arctickiwi.com/rails_website/trunk"
+set :repo_url, "git@bitbucket.org:jonathon-horsman/academyclass.git"
+# set :branch, :master
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
@@ -26,7 +27,7 @@ set :deploy_to, '/home/ubuntu/academyclass'
 set :linked_files, %w{config/database.yml}
 
 # Default value for linked_dirs is []
-# set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets public/system}
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
