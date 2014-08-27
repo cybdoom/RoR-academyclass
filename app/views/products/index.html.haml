@@ -1,0 +1,17 @@
+- content_head do
+  = link_to "Add Product", new_product_path, :class => "button"
+  %h2 Products
+= content_box do
+  %ul.table.products
+    %li.header
+      .title Product Name
+      .manufacturer Manufacturer
+    - @products.each do |p|
+      %li{:class => cycle("alt_row",""), :id => "product_parent_#{p.id}"}
+        - @product = p
+        .image= render :partial => "image"
+        .title= p.name
+        .manufacturer=  p.product_parent.name
+        .edit-link= link_to "Edit", edit_product_path(p)
+        .delete-link= link_to "Delete", product_path(p, :page => @page), :confirm => "Are you sure?", :method => :delete
+  = will_paginate @products

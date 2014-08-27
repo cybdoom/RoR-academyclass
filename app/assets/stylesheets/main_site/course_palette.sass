@@ -1,0 +1,420 @@
+@import "compass"
+
+$nav-height: 29px
+
+.hidden
+  display: none
+  
+.course-details
+  +reset-box-model
+  +no-bullets
+  +float-left
+  width: 216px
+  background: #424242
+  padding: 10px
+  +border-radius
+  margin-bottom: 20px
+  li
+    +float-left
+    width: 200px
+    line-height: 20px
+    span
+      +float-left
+      height: 18px
+      margin-top: 3px
+    .title
+      font-weight: bold
+      width: 70px
+    .course_level
+      width: 22px
+      height: 18px
+      margin: 0 0 0 3px
+    .course_level_1, .course_level_2, .course_level_3, .course_level_4
+      background: transparent image-url("buttons/course_levels.png") no-repeat
+      text-indent: -9999px
+    .course_level_1
+      background-position: -22px 0
+    .course_level_2
+      background-position: -22px -18px
+    .course_level_3
+      background-position: -22px -36px
+    .course_level_4
+      background-position: -22px -52px
+
+.date-picker
+  +float-left
+  margin-bottom: 20px
+  p
+    margin: 5px 0
+    font-weight: bold
+  ul
+    +reset-box-model
+    +no-bullets
+    +float-left
+  .calendar-wrapper
+    border: 1px solid #222
+    +border-radius(5px)
+    overflow: hidden
+    width: 426px
+    position: relative
+    .calendar
+      li
+        +float-left
+      .header
+        clear: both
+        +reset-box-model
+        height: auto
+        background: #93a443
+        +border-top-radius(5px)
+        width: 1500px
+        .month
+          span
+            width: 75px
+          .empty-date
+            width: 0
+      .city
+        clear: both
+        width: 1500px
+      .odd
+        background: #161616
+      .even
+        background: #2c2c2c
+      .city_name
+        +float-left
+        width: 98px
+        height: 18px
+        padding: 2px 4px
+      .months
+        width: 600px
+      .month
+        min-height: 18px
+        border-left: 1px solid #CCC
+        span
+          +float-left
+          line-height: 18px
+          padding: 2px 0
+          text-align: center
+      .collapsed
+        display: none
+      .date, .empty-date
+        text-align: center
+        clear: both
+        padding: 2px 0
+        width: 75px
+        height: 18px
+        a
+          color: #EEE
+          text-decoration: none
+    .calendar-left, .calendar-right
+      position: absolute
+      display: block
+      background: black
+      top: 22px
+      width: 15px
+      text-align: center
+      border-left: 1px solid #CCC
+      height: 0
+      text-decoration: none
+    .calendar-left
+      left: 90px
+    .calendar-right
+      right: 0
+      
+.course_information
+  background: transparent image-url("course_outline_box/course_palette.png") no-repeat 0 0
+  min-height: 526px
+  margin-bottom: 20px
+  color: white
+  +float-left
+  width: 710px
+  .header
+    height: 38px
+    padding: 0 12px
+    .image
+      +float-left
+      height: 38px
+      width: 38px
+      margin-right: 8px
+    h2
+      +float-left
+      +reset-box-model
+      line-height: 38px
+      color: #383838
+  ul.nav
+    +no-bullets
+    +reset-box-model
+    +float-left
+    margin-bottom: 4px
+    width: 100%
+    li
+      +float-left 
+      border-right: 1px solid #7F7F81
+      &.phone
+        color: #FFF
+        float: right
+        border: none
+        height: $nav-height
+        line-height: $nav-height
+        padding: 0 12px
+        font-size: 1.2em
+      a
+        +float-left 
+        height: $nav-height
+        line-height: $nav-height
+        color: white
+        padding: 0 12px
+        text-decoration: none
+        &:hover
+          background: transparent image-url("course_outline_box/nav-hover.png") repeat-x 0 100%
+      &.selected a
+        background: transparent image-url("course_outline_box/nav-hover.png") repeat-x 0 100%
+  .data-container
+    clear: both
+    +float-left
+    min-height: 385px
+    padding: 10px
+    width: 690px
+    background: #7b7b7b
+    @include background(linear-gradient(color_stops(#7b7b7b, #404040)))
+    .left-column
+      +float-left
+      margin-right: 10px
+      width: 236px
+      .course-image
+        +float-left
+        border: 1px solid #222
+        +border-radius(5px)
+        overflow: hidden
+        margin-bottom: 10px
+        img
+          +float-left
+          +border-radius(5px)
+          width: 230px
+          height: 146px
+      .course-description
+        width: 230px
+      .acg-acd-links
+        width: 236px
+        .discount-link a, .guarantee-link a
+          width: 100%
+          margin-bottom: 10px
+    .right-column
+      +float-left
+      width: 444px
+      a
+        color: #FFF
+      .course-details
+        width: 420px
+        li
+          width: 200px
+          &.level_text, &.duration
+            width: 270px
+            .title
+              width: 70px
+          &.time, &.cost
+            width: 150px
+            .title
+              width: 50px
+      .guarantee-link a
+        margin-right: 15px
+      ul.no-dates-options
+        margin: 20px 0 20px 0
+        padding: 0
+        +no-bullets
+        width: 420px
+        background: #424242
+        +border-radius
+        li
+          clear: both
+          padding: 10px 10px 10px 10px
+          &.underline
+            border-bottom: solid #6F6F6F 1px
+          h2
+            color: #FFF
+            font-size: 1.3em
+            font-weight: bold
+          img
+            +float-left
+            margin: 0 10px 10px 2px
+          .phone
+            text-align: right
+            color: #9f9f9f
+            font-size: 1.1em
+    .acg-acd-links
+      +float-left
+      .discount-link a, .guarantee-link a
+        +float-left
+        height: 58px
+        text-indent: -9999px
+      .discount-link a
+        background: transparent image-url("course_outline_box/discount.png") no-repeat 50% 50%
+        width: 201px
+      .guarantee-link a
+        background: transparent image-url("course_outline_box/guarantee.png") no-repeat 50% 50%
+        width: 224px
+    .outline 
+      p
+        margin: 0
+    .outline, .description
+      ul
+        list-style-type: disc
+        margin: 10px 0 10px 15px
+    
+  ul.footer
+    +no-bullets
+    +reset-box-model
+    +float-left
+    clear: both
+    background: transparent image-url("course_outline_box/footer-buttons.png") no-repeat 0 0
+    width: 710px
+    height: 50px
+    
+    li 
+      +float-left
+      a
+        +float-left
+        line-height: 50px
+        height: 50px
+        text-indent: -9999px
+    .book-now a
+      width: 125px
+      margin: 0 25px
+    .download-course a
+      width: 156px
+      margin: 0 15px
+    .live-chat a
+      width: 130px
+      margin: 0 10px      
+    .email-course a
+      width: 179px
+      margin: 0 10px      
+
+.course-enquire
+  p
+    font-size: 1.2em
+  ul
+    +no-bullets
+    +reset_box_model
+  div.info, div.locations, div.dates, div.enquiry
+    position: relative
+    +float-left
+    width: 150px
+    background: #424242
+    height: 250px
+    margin-right: 2.5px
+    +border-radius(5px)
+    padding: 10px
+    margin-top: 20px
+    .heading
+      position: absolute
+      top: -28px
+      left: 7px
+      background: #2c2c2c
+      padding: 5px 3px
+      text-align: center
+      +border-top-radius(5px)
+      font-weight: bold
+      width: 150px
+    input, textarea
+      background: #c5c5c5
+      border: none
+      width: 148px
+      +border-radius(5px)
+      padding: 1px
+    input
+      line-height: 18px
+      height: 22px
+    textarea
+      height: 150px
+    label
+      font-weight: bold
+      letter-spacing: 1px
+      margin: 10px 0 5px
+      display: block
+    .checkbox
+      input
+        width: 12px
+        background: none
+        +float-left
+      small
+        +float-left
+        width: 120px
+        margin-left: 10px
+  .map
+    text-align: center
+    a
+      position: absolute
+      display: block
+      text-indent: -9999px
+      width: 12px
+      height: 11px
+      background: transparent image-url("course_outline_box/map-marker.png") no-repeat 0 0
+      outline: 0
+      &.map_marker_London
+        top: 203px
+        left: 116px
+      &.map_marker_Glasgow
+        top: 91px
+        left: 59px
+      &.map_marker_Manchester
+        top: 149px
+        left: 78px
+      &.map_marker_Cardiff
+        top: 202px
+        left: 66px
+      &.map_marker_Edinburgh
+        top: 112px
+        left: 93px
+      &.map_marker_Leeds
+        top: 142px
+        left: 97px
+      &.selected
+        background-position: 0 100%
+  .dates .month
+    +float-left
+    margin-bottom: 5px
+    span
+      +float-left
+      width: 70px
+      text-transform: uppercase
+      font-weight: bold
+      margin-left: 10px
+    ul
+      +float-left
+      +reset-box-model
+      width: 70px
+      font-weight: bold
+      color: #b5b5b5
+      a
+        +hover-link
+        &.selected
+          color: #9DBC34
+  .submit
+    margin-top: 10px
+    +float-left
+    width: 100%
+    a
+      +float-right
+      padding: 5px 20px
+      color: white
+      background: #8dac01
+      +border-radius(20px)
+      text-decoration: none
+      text-transform: uppercase
+      font-weight: bold
+    .success
+      font-size: 1.2em
+      color: red
+      +float-left
+      
+#guarantee-wrapper, #discount-wrapper
+  width: 740px
+  height: 300px
+  overflow: auto
+
+#email-course-details
+  form
+    li
+      margin-bottom: 5px
+      label
+        display: block

@@ -1,0 +1,26 @@
+= semantic_form_for @course, :html => {:multipart => true} do |f|
+  = f.inputs do
+    = f.input :name
+    = f.input :logo, :hint => "A square JPEG or PNG image which will be resized to 38x38"
+    - if @course.logo.file?
+      %li= image_tag(@course.logo.url(:icon))
+    = f.input :palette_image
+    - if @course.palette_image.file?
+      %li= image_tag(@course.palette_image.url)
+    = f.input :level_number, :as => :select, :collection => [1,2,3,4]
+    = f.input :level
+    = f.input :duration
+    = f.input :hours
+    = f.input :cost
+    = f.input :publish_xml, :label => "Include in XML"
+    = f.input :qa_category, :label => "QA Category", :as => :select, :collection => qa_category_options
+    %li= link_to "Copy outline to overview", "#", :class => "copy-outline"
+    = f.input :overview
+    = f.input :description
+    = f.input :who_for
+    = f.input :assumed_knowledge
+    = f.input :you_will_learn
+    = f.input :outline
+    = f.input :course_template_id, :as => :select, :collection => [["Manually set content", nil]] + CourseTemplate.all.map{|t| [t.name,t.id]}, :label => "What you get template", :include_blank => false
+    = f.input :what_you_get
+  = f.actions

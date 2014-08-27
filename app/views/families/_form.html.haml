@@ -1,0 +1,18 @@
+= semantic_form_for @family, :html => {:multipart => true} do |f|  
+  = f.inputs do
+    = f.input :name
+    = f.input :short_name
+    = f.input :tagline
+    = f.input :slug
+    = f.input :description
+    = f.input :header_image
+    - if @family.header_image.exists?
+      %li
+        %label &nbsp;
+        = image_tag @family.header_image.url
+    = f.input :family_image
+    - if @family.family_image.exists?
+      %li
+        %label &nbsp;
+        = image_tag @family.family_image.url
+  = f.actions

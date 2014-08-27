@@ -1,0 +1,11 @@
+#banner-carousel
+  #image-container
+    - all_banners.each do |b|
+      - target = b.open_in_new_window ? "_blank" : "_self"
+      = link_to image_tag(b.banner.url, alt: b.alt_text, name: "banner_#{b.id}", usemap: "#social-media"), b.url, class: "banner-#{b.id}", target: target
+#banner-wrapper
+  #banner-chooser
+    - all_banners.each do |b|
+      .banner-dot{"class" => "banner-#{b.id}", "data-banner" => "banner-#{b.id}"}
+#breadcrumbs
+  = yield :breadcrumbs

@@ -1,0 +1,262 @@
+@import compass
+@import "compass/reset"
+@import "compass/utilities"
+@import "compass/utilities/general/min"
+@import "compass/css3"
+@import "blueprint/scaffolding"
+
+$alt_color: rgb(235, 235, 235)
+
+a
+  color: #0066CC
+
+body
+  background: image-url("admin/bg-body.gif") repeat-y scroll left top #F0F0F0
+  color: #333333
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif
+  font-size: 75%
+  line-height: 1.5
+  h1
+    font-size: 3em
+    line-height: 1
+    margin-bottom: 0.5em
+  h3
+    font-size: 1.6em  
+  #header
+    background-color: rgb(30,30,30)
+    height: 50px
+    +container
+    width: 100%
+    h1
+      font-size: 2em
+      margin: 10px 0 0 30px
+      +inline-block
+    a
+      +link-colors(#FFF)
+      +hover-link
+    #top-nav
+      float: right
+      margin-right: 30px
+      ul
+        +horizontal-list
+        height: 50px
+        li
+          line-height: 50px
+  #content
+    margin-top: 30px
+    #side-nav
+      width: 230px
+      float: left
+      ul.main-menu
+        +no-bullets
+        width: 215px
+        margin: 0 0 0 15px
+        padding: 0
+        li
+          padding-bottom: 10px
+          text-align: right
+          a
+            background: #428A00
+            +link-colors(#FFF)
+            text-decoration: none
+            padding: 5px 15px
+            display: block
+            +border-left-radius
+            font-size: 1.1em
+            @include background(linear-gradient(color_stops(#79B900, #428A00)))
+            border: 1px solid rgb(160,207,0)
+            border-bottom: none
+            &:hover
+              padding-right: 25px
+    #main-content
+      background-color: rgb(243, 243, 243)
+      margin:  0 30px 0 230px
+      .wrapper
+        min-width: 700px
+        width: 95%
+        padding: 0 0 0 4%
+        margin: 0 1% 0 auto
+.markItUp
+  display: inline-block
+  textarea.markItUpEditor
+    width: 99%
+
+.content-box
+  +border-radius
+  border: 1px solid #CCC
+  background: #FFF
+  margin-bottom: 30px
+  .content-box-header
+    padding: 5px 5px 5px 15px
+    background-color: #DDD
+    border-bottom: 1px solid #CCC
+    h2
+      margin: 0
+      font-size: 1.5em
+      font-weight: bold
+      font: italic normal normal 24px/29px Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif
+    .arrow
+      float: right
+      margin-right: 10px
+      margin-top: -10px
+    .button
+      top: 2px
+      position: relative
+      float: right
+      margin-right: 10px
+    .icon
+      float: right
+      margin: 7px 20px 0 0
+      
+  .content-box-content
+    +clearfix
+    width: 99%
+    margin-top: 20px
+    margin-bottom: 20px
+    ul
+      +no-bullets
+      &.letters
+        padding: 0 0 10px 0
+        li
+          float: left
+          padding-right: 8px
+          font-size: 1.4em
+      li
+        span
+          vertical-align: middle
+          a
+            vertical-align: middle
+    h2
+      clear: both
+      padding: 20px 0 10px 0
+      font-size: 1.6em
+      font-weight: bold
+a.button
+  border: 1px solid rgb(187,187,187)
+  +border-radius(15px)
+  white-space: nowrap
+  padding: 3px 10px
+  font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif
+  +text-shadow(rgb(255,255,255))
+  text-decoration: none
+  color: rgb(70,70,70)
+  background: rgb(243, 243, 243)
+  &:hover
+    color: rgb(0,0,0)
+    border-color: rgb(102,102,102)
+  &:active
+    background: rgb(250, 250, 250)
+    @include background(linear-gradient(color_stops(rgb(200, 200, 200), rgb(250, 250, 250))))
+
+.product_list
+  +no-bullets
+  +column(24)
+  margin: 0
+  padding: 0
+  li
+    +column(6, last)
+    background-color: $alt_color
+    margin: 3px 
+    padding: 3px 2px
+    a
+      +unstyled-link
+      display: block
+      text-decoration: none
+      vertical-align: middle
+      white-space: normal
+      width: 250px
+  .selected_item
+    background-color: #B9DCFF
+    
+.productImage
+  width: 30px
+  height: 30px
+  
+.image-select
+  display: inline-block
+      
+.course-list
+  +column(11)
+  ul
+    margin: 0
+    padding: 5px
+    background-color: $alt_color
+    li
+      .drag-handle
+        +inline-block
+        width: 16px
+        +replace-text( "admin/drag_handle.gif")
+        cursor: move
+      
+.pagination
+  +column(24,last)
+  margin: 15px auto
+  text-align: center
+  a, .current, .prev_page, .next_page
+    +inline-block
+    padding: 3px 8px
+    border: 1px solid rgb(221,221,221)
+    +border-radius
+    color: rgb(87, 160, 0)
+    +hover-link
+  .current
+    background: #428A00
+    @include background(linear-gradient(color_stops(#79B900, #428A00)))
+    color: white
+  .previous_page, .next_page
+    border: none
+    
+div.textile-toolbar
+  width: 70%
+#page_submit
+  width: auto
+
+fieldset.creative_licence_levels
+  background: #DDD
+  border: 1px solid #CCC
+  padding: 10px
+  width: 95%
+  margin-bottom: 10px
+  
+
+.popup-wrapper
+  display: none
+  
+ul.choose-questions
+  list-style-type: none
+  margin: 0
+  padding: 0
+  li
+    width: 550px
+  li.section
+    font-weight: bold
+    margin-top: 10px
+  .add-question
+    margin-top: 20px
+    border-top: solid #AAA 1px
+    padding-top: 10px
+    div
+      margin: 3px 0
+    .add-question-text
+      input
+        width: 80%
+    .section
+      input
+        margin-left: 8px
+
+span.inline-hints
+  color: #777777
+  font-style: italic
+  
+#course-urls
+  ul
+    list-style-type: none
+    padding: 0
+    li
+      padding: 0
+      margin: 0
+      width: 700px
+      a
+        color: #333333
+        text-decoration: none
+        font-size: 1.2em

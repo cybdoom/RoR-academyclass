@@ -1,0 +1,32 @@
+- content_head do
+  = link_to "Add User", new_user_path, :class => "button"
+  %h2 Users
+= content_box do
+  = form_tag users_path, :method => "GET", :id => 'select-user-type' do
+    %label User Type:
+    = select_tag "user_type", user_type_list_options
+  = will_paginate @users
+  %ul.table.users
+    %li.header
+      .title Username
+      .name Name
+      .type Type
+      .courses Courses
+    - @users.each do |u|
+      %li{:class => cycle("alt_row","")}
+        .title= u.username
+        .name= u.name
+        .type= display_user_type(u.user_type)
+        .courses= u.video_products.map {|vp| vp.name}.join(", ")
+        .edit-link= link_to "Edit", edit_user_path(u)
+        .delete-link= link_to "Delete", user_path(u), :confirm => "Are you sure you want to delete this user?", :method => :delete
+    - if @users.empty?
+      %li
+        %em None
+        
+  = will_paginate @users
+  - if @user_type > 0 && !@users.empty?
+    %h2 Copy all members to another video group
+    = form_tag copy_members_video_product_path(@user_type) do
+      = select_tag :copy_to, options_for_select(VideoProduct.where("id <> ?", @user_type).order(:name).map {|vp| [vp.name, vp.id]})
+      = submit_tag "Copy to group"

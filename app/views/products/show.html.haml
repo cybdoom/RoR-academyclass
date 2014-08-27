@@ -1,0 +1,46 @@
+- content_for :breadcrumbs do
+  = link_to "Home", root_path
+  = breadcrumb_link_to "Training", training_path
+  = breadcrumb_link_to @product.product_parent.name, @product.product_parent.url
+  = breadcrumb_link_to "#{@product.name} Training Courses", @product.url
+
+- content_for :meta_keywords do
+  = "Course, Training, Details, #{@parent}, #{@name}, Price, Date, Location"
+
+- content_for :meta_description do
+  = @product.meta_description
+
+- content_for :meta_title do
+  = @product.meta_title
+
+#coursesContainer
+  %h1
+    %strong= raw "#{@parent} #{@name}"
+    Training Courses
+  = render :partial => "image"
+  .course_buttons_wrapper
+    %ul.course_buttons
+      - product_courses.each do |c|
+        %li.course_link
+          = link_to "##{c.anchor}" do 
+            %span.course_name= c.name
+            %span.course_level{:class => "course_level_#{c.level_number}"}= c.level_number
+          %ul
+            %li.level_text
+              %span.title Level:
+              %span.value= c.level
+            %li.duration
+              %span.title Duration:
+              %span.value= pluralize(c.duration, "Day")
+            %li.time
+              %span.title Time:
+              %span.value 9:30 AM - 4:30 PM
+            %li.cost
+              %span.title Cost:
+              %span.value= raw display_cost(c)
+        
+  #description
+    - unless @product.description.blank?
+      =raw textilize @product.description
+= render '/shared/partner_logos'
+= render "products/details"

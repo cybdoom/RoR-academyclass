@@ -1,0 +1,5 @@
+Your <% if @booking_form.lsm %>Love Social Media<% else %>Academy Class<% end %> booking form is ready
+
+Please click the link below to check your booking details are correct and to make payment.
+
+Check and pay for your booking: <%= booking_form_url(@booking_form, :p => @booking_form.password) %>

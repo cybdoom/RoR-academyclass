@@ -1,0 +1,8 @@
+- content_for :meta_title do
+  - if @video
+    Online Training Video - #{@video.title}
+  - else
+    Online Training Video
+
+
+= render :partial => "video"

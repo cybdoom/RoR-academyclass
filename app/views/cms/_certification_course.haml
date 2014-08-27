@@ -1,0 +1,6 @@
+%li
+  = link_to training_product_path(certification_course[0], :product_parent => product_parent, :anchor => certification_course[1]) do
+    = image_tag "certification/#{certification_course[3]}"
+    = certification_course[2]
+  - if certification_course[4]
+    = link_to image_tag('testimonials/pdf.png'), "/pdfs/certification/#{certification_course[4]}", {:class => 'course-prep'}

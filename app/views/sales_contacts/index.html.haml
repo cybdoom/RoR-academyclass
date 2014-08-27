@@ -1,0 +1,14 @@
+- content_head do
+  = link_to "Add New", new_sales_contact_path, :class => "button"
+  %h2 Sales People
+= content_box do
+  %ul.table.sales-contacts
+    %li.header
+      .name Name
+      .email Email
+      
+    - @contacts.each do |c|
+      %li{:class => cycle("alt_row","")}
+        .name= h c.name
+        .email= c.email
+        .edit-link= link_to "Edit", edit_sales_contact_path(c)

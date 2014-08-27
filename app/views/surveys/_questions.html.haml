@@ -1,0 +1,34 @@
+.popup-wrapper
+  #add-questions
+    - if @questions.size > 0
+      %h3 Select questions to add
+    %ul.choose-questions
+      - last_section = nil
+      - @questions.each do |q|
+        - if last_section != q.section
+          %li.section= q.section
+        - last_section = q.section
+        %li
+          %label
+            = check_box_tag "question-#{q.id}", q.id
+            = h q.question
+      - if @questions.size > 0
+        %li
+          %input{:type => "button", :class => "done-add-question", :value => "Add Questions"}
+      %li.add-question
+        %h3 New Question
+        .add-question-text
+          %label Question:
+          %span.question= text_field_tag "question_text", "", :class => "survey_question"
+        #createquestion
+          %span.section
+            %label Section:
+            = text_field_tag "section", last_section
+          %span.type
+            %label Type:
+            = select_tag "question_type", options_for_select(Question.type_options), :class => "question-types"
+        .one-off
+          %label One off:
+          = check_box_tag "one_off"
+          %span.inline-hints Check this box if this question will not be used in any other surveys
+        %input{:type => "button", :value => "Add", :class => "add-question-button"}

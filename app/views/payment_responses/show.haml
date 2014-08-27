@@ -1,0 +1,73 @@
+- content_head do
+  = link_to "Back to Payment Responses", payment_responses_path, :class => "button"
+  %h2 Payment Response Details
+= content_box do
+  #payment-response
+    %ul
+      %li
+        %label Received
+        = @response.created_at.strftime("%d %B %Y %H%M")
+      %li
+        %label Purchase Type
+        = @response.booking_form? ? "Booking Form" : "Video Purchase"
+      - if @response.booking_form?
+        %li
+          %label Booking Form
+          - if @response.payable_id
+            = link_to payment_response_title(@response), edit_booking_form_path(@response.payable_id)
+          - else
+            = "Unknown (#{@response.payable_id})"
+        %li
+          %label Salesperson
+          = payment_response_salesperson(@response)
+      %li
+        %label Payment Success
+        = @response.success ? "Yes" : "No"
+        %p.help If this payment response correlates to a booking and completed successfully.
+      %li
+        %label Processed Message
+        = @response.processed_message
+        %p.help The outcome of processing this payment response
+      %li
+        %label Worldpay Transaction ID
+        = @response.transaction_id
+      %li
+        %label Worldpay Transaction Status
+        = @response.transaction_status
+        %p.help Result of the transaction - "Y" for a successful payment authorisation, "C" for a cancelled payment
+      %li
+        %label Authorized Amount
+        = number_to_currency @response.auth_amount, {:unit => "&pound;"}
+        %p.help Amount that the transaction was authorised for, in the currency given as Authorized Currency.
+      %li
+        %label Authorized Currency
+        = @response.auth_currency
+        %p.help The currency used for authorisation.
+      %li
+        %label Worldpay Auth Message
+        = @response.raw_auth_message
+        %p.help The text received from the bank summarising the different states
+      %li
+        %label AVS
+        %ul
+          %li
+            %label Card Verification Value check
+            = card_verification_value_check(@response)
+          %li
+            %label Postcode AVS check
+            = postcode_avs_check(@response)
+          %li
+            %label Address AVS check
+            = address_avs_check(@response)
+          %li
+            %label Country comparison check
+            = country_comparison_check(@response)
+      %li
+        %label WAF Merchant Message
+        = @response.waf_merch_message
+      %li
+        %label Authentication
+        = @response.authentication
+      %li
+        %label Customer IP Address
+        = @response.ip_address

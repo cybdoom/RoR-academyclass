@@ -1,0 +1,31 @@
+- content_for :breadcrumbs do
+  = link_to "Home", root_path
+  = breadcrumb_link_to "Meet The Instructors", :controller => :cms, :action => :meet_the_instructors
+- content_for :meta_keywords do
+  Instructors, Meet, Trainers, Profile, Professionals, Certified, Training, Experience
+- content_for :meta_description do
+  Our trainers are tested, industry-certified, well-paid, experienced professionals. Our training staff and associates are certified in their respective area of expertise; indeed their skills are not only certificated, they are also applied on a daily basis therefore teaching is from a basis of experience, not from theory.
+- content_for :meta_title do
+  Meet The Trainers | Academy Class
+
+#template.meet-the-team
+  %h1 Meet the Team
+  #button-bar
+    #trainer.selected Trainer
+    #office-staff Office Staff
+  %ul#trainer-content.pics
+    - @instructors.each do |i|
+      - if i.instructor?
+        %li
+          = link_to "##{i.name.parameterize}" do
+            = image_tag i.avatar.url, :title => i.name
+  %ul#office-staff-content.hidden.pics
+    - @instructors.each do |i|
+      - if i.office_staff?
+        %li
+          = link_to "##{i.name.parameterize}" do
+            = image_tag i.avatar.url, :title => i.name
+  - @instructors.each_with_index do |instructor, i|
+    .instructorBox{:id => instructor.name.parameterize, :class => i==0?"":"hidden"}
+      %h2= instructor.name
+      .text=raw textilize instructor.content

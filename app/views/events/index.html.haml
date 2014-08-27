@@ -1,0 +1,22 @@
+- content_for :meta_keywords do
+  Event, Seminar, Free, Meet, Lecture
+- content_for :meta_description do
+  Throughout the year, Academy Class runs, sponsors and is present at a number of events that will be listed on this page. These range from seminars and product launches through to user groups.
+- content_for :meta_title do
+  Seminars & Events | Academy Class
+ 
+#template
+  %h1 Seminars &amp; Events
+  %p.intro Throughout the year, Academy Class runs, sponsors and is present at a number of events that will be listed here. These range from seminars and product launches through to user groups.
+  #Event_type_Buttons.eventTypeButtons
+    = link_to "Current Events (#{@current.count})", '#', :id => 'current-events-tab'
+    |
+    = link_to "Expired Events (#{@expired.count})", '#', :id => 'expired-events-tab'
+  #events_current
+    = render :partial => "event", :collection => @current
+    - if @current.empty?
+      %div{:style => "text-align:center;padding:10px;"} There are no current events
+  #events_expired{:style => "display:none"}
+    = render :partial => "event", :collection => @expired
+    - if @expired.empty?
+      %div{:style => "text-align:center;padding:10px;"} There are no expired events

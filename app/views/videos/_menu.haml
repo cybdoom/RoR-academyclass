@@ -1,0 +1,17 @@
+- cache('videos_menu') do
+  %ul
+    %li.has-dropdown
+      Support Videos
+      %ul
+        - VideoProduct.order(:name).each do |vp|
+          %li= link_to vp.name, play_video_product_path(:product => vp.slug)
+    %li.has-dropdown
+      User Groups
+      %ul
+        - user_group_video_tags.each do |i|
+          %li= link_to i.name, tagged_videos_path(:tag => i.slug, :category => i.category)
+    %li.has-dropdown
+      Staff Picks
+      %ul
+        - staff_picks_video_tags.each do |i|
+          %li= link_to i.name, tagged_videos_path(:tag => i.slug, :category => i.category)

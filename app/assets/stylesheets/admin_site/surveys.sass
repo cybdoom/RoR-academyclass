@@ -1,0 +1,164 @@
+@import compass
+
+ul.surveys
+  li
+    .course
+      margin-left: 3%
+      width: 30%
+    .date
+      width: 22%
+    .location
+      width: 14%
+    .trainer
+      width: 12%
+    .questions
+      width: 8%
+      text-align: center
+    .responses
+      width: 8%
+      text-align: center
+      
+ul.survey-products
+  li
+    .parent
+      margin-left: 3%
+      width: 47%
+    .product
+      width: 50%
+      
+ul.questions
+  a
+    text-decoration: none
+    color: #333
+    &:hover
+      text-decoration: underline
+  .section
+    width: 15%
+  .question
+    width: 60%
+  .type
+    width: 20%
+    
+form.survey
+  label
+    width: 120px
+  input
+    width: 550px
+  input#survey_start_date, input#survey_end_date
+    width: 200px
+  li#survey_end_date_input, li#survey_start_date_input
+    float: left
+    width: 340px
+  li#survey_end_date_input label
+    text-align: right
+    padding: 3px 10px 0 0
+  li#survey_trainer_input
+    clear: both
+    
+ul.question-list
+  .header
+    .label
+      margin-left: 6%
+  li.question
+    width: 100%
+  .label
+    width: 10%
+  .question-section
+    display: none
+  .question
+    width: 64%
+  .question-type
+    width: 20%
+  .delete
+    width: 16px
+    height: 16px
+    background: transparent image-url('admin/cross.png') no-repeat top left
+  span#new-question
+    margin-left: 3%
+    width: 50%
+  .section
+    width: 50%
+    input, select
+      margin: 10px
+  .section-title
+    width: 100%
+    padding: 0
+    h2
+      border-top: solid black 1px
+      font-size: 1.4em
+      padding: 0
+      font-weight: normal
+  .survey_question
+    width: 100%
+
+form.question
+  #question_one_off_input
+    label
+      width: auto
+    
+#survey-response
+  h2
+    font-size: 1.6em
+    margin: 0
+    &.section
+      border-top: solid black 1px
+  .question
+    width: 100%
+    margin: 20px 0
+    h3
+      font-size: 1.2em
+      margin-bottom: 6px
+    span.option-text
+      width: 105px
+      float: left
+    .question-text
+      margin-bottom: 5px
+    .answer-section.free-text
+      .name
+        font-style: italic
+      .answer
+        margin-bottom: 10px
+        
+#question-results
+  .segment
+    clear: both
+    margin: 10px 0
+    float: left
+    table
+      border: solid #CCC 1px
+      .header
+        background-color: #C3D9FF
+        border-bottom: 1px solid #DDD
+        color: #555
+        font-weight: bold
+      td
+        padding: 0 5px
+        &.value
+          min-width: 200px
+        &.count
+          text-align: center
+  .alt_row
+    background: rgb(235, 235, 235)
+  h3
+    text-transform: uppercase
+    font-size: 1.1em
+    margin-bottom: 6px
+  .answer
+    background-color: #585a5d
+    color: #FFF
+    margin: 0 0 20px 20px
+    +border-radius(10px)
+    .answerer
+      display: block
+      height: 25px
+      background-color: #b9dd3d
+      margin-bottom: 5px
+      padding: 5px 0 0 20px
+      +border-radius(9px)
+      +border-bottom-radius(0)
+      color: #000
+      font-size: 1.2em
+      font-weight: bold
+    .answer-text
+      padding: 5px 0 10px 20px
+    

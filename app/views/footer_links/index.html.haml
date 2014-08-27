@@ -1,0 +1,13 @@
+- content_head do
+  = link_to "Add Footer Link", new_footer_link_path, :class => "button"
+  %h2 Footer Links
+= content_box do
+  %ul.table.footer-links
+    %li.header
+      .name Product
+      .link Link
+    - @footer_links.each do |f|
+      %li{:class => cycle("alt_row","")}
+        .name= f.product.name
+        .link= f.product.url
+        .delete-link= link_to "Delete", f, :confirm => "Are you sure?", :method => :delete

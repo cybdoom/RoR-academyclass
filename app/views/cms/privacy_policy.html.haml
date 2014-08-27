@@ -1,0 +1,10 @@
+- content_for :breadcrumbs do
+  = link_to "Home", root_path
+  = breadcrumb_link_to "Privacy Policy", :controller => :cms, :action => :privacy_policy
+- content_for :meta_keywords do
+  Privacy, Policy, Privacy Policy
+- content_for :meta_description do
+  Academy Class Privacy Policy
+- content_for :meta_title do
+  Academy Class - Privacy Policy
+#template=raw textilize Page.find_by_name('privacy policy').content

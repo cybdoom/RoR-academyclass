@@ -1,0 +1,10 @@
+= semantic_form_for @user do |f|
+  = f.inputs do
+    = f.input :username
+    = f.input :name
+    = f.input :user_type, :collection => user_type_options, :as => :select
+    = f.input :email
+    = f.input :password
+    = f.input :password_confirmation
+    = f.input :video_products, :as => :check_boxes
+  = f.actions

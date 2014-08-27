@@ -1,0 +1,9 @@
+= semantic_form_for @event, :html => {:multipart => true} do |f|
+  = f.inputs :code, :name, :cost, :start_date, :location, :description, :info
+  = f.inputs do
+    - if @event.event_image.file?
+      %li
+        %label &nbsp;
+        = image_tag @event.event_image.url
+    = f.input :event_image  
+  = f.actions

@@ -1,0 +1,12 @@
+- content_head do
+  = link_to "Booking Forms", booking_forms_path, :class => "button"
+  %h2 Payment Responses
+= content_box do
+  = will_paginate(@responses)
+  %ul.table.payment-responses
+    %li.header
+      .salesperson Salesperson
+      .created Date
+      .booking-form Booking
+      .amount Amount
+    = render :partial => "response", :collection => @responses

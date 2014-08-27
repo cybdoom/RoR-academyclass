@@ -1,0 +1,57 @@
+.formtastic
+  li
+    margin-bottom: 5px
+  label
+    // Set color manually to override IE's stupid rules for legends
+    :color #333
+  label, .label
+    // required * <--styling
+    abbr
+      :color #f00
+  input, textarea, select
+    :font-family inherit
+  .inputs textarea, .inputs input
+    :border 1px inset #999
+    :padding 3px 3px
+    :line-height 100%
+  li fieldset
+    :margin 0
+    :padding 0
+  //--------------------------------------------------------
+  // Feedback (Requirements, Errors and Hints)
+  // Add horizontal margin/padding with care as it can
+  // break the layout on floats!
+  //--------------------------------------------------------
+  #errorExplanation
+    margin: 0 !important
+    li
+      :margin-left 15px
+  form p, .errors
+    :padding 3px 0px
+  .required
+    input,textarea,select
+      :background-color #fff
+  .optional
+    input,textarea,select
+      :background-color #fff
+  .error
+    input,textarea,select
+      :background-color #fcc
+      :border 1px solid #f66
+  .errors
+    :color #a00
+    li
+      :margin-left 1.2em
+  p.inline-errors
+    :color #f00
+  p.inline-hints
+    :color #777
+    :font-style italic
+  //--------------------------------------------------------
+  // Submit Buttons
+  //--------------------------------------------------------
+  .buttons
+    margin: 0
+    padding: 0
+    li
+      :padding-right 0.5em

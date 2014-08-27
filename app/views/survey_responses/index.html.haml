@@ -1,0 +1,40 @@
+- content_head do
+  %h2 Survey Responses
+= content_box do
+  #survey-response
+    %h2= "Course: #{@survey.name} on #{display_dates(@survey)}"
+    - if @survey.trainer
+      %h2= "Instructor: #{@survey.trainer}"
+    - last_section = nil
+    - @survey_questions.each_with_index do |survey_question, i|
+      - if last_section != survey_question.question.section
+        %h2.section= survey_question.question.section
+      - last_section = survey_question.question.section
+      .question
+        %h3= "Question #{i+1}: #{survey_question.question.question}"
+        - if survey_question.question.options?
+          .answer-section
+            - survey_question.question.options.each do |option|
+              .option
+                %span.option-text= "#{option[0]}:"
+                = display_score(survey_question, option[1])
+        - elsif survey_question.question.free_text?
+          .answer-section.free-text
+            - survey_question.answers.each do |a|
+              .name= respondent_name(a.survey_response)
+              .answer= h a.answer
+    %h2.section Other Course Interest
+    .question
+      %h3 Do you have any future course requirements or would you like further information on any of the following courses?
+      .answer-section.free-text
+        - @survey_responses.each do |response|
+          - if response.survey_interests.size > 0
+            .name= respondent_name(response)
+            .answer= response.survey_interests.map {|i| "#{i.survey_product.product_parent} - #{i.survey_product.product}" }.join(", ")
+    .question
+      %h3 If the course you're looking for is not featured above please use the space below to outline what you're looking for:
+      .answer-section.free-text
+        - @survey_responses.each do |response|
+          - if !response.comments.blank?
+            .name= respondent_name(response)
+            .answer= response.comments

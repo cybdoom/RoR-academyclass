@@ -1,0 +1,4 @@
+%li
+  - if featured.video.thumbnail
+    = link_to image_tag(featured.video.thumbnail, :alt => featured.video.title), full_video_path(featured.video)
+  %p= link_to featured.video.title, full_video_path(featured.video)

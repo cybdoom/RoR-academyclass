@@ -1,0 +1,14 @@
+%h2 Login
+%p If you have recently attended an Academy Class training course, on the first day of your training you will have received an email with your username and password.
+= semantic_form_for UserSession.new do |f|
+	= f.inputs do
+		= f.input :username
+		= f.input :password
+		%li.errors
+	= f.actions do
+		= f.action :submit, :label => "Login"
+		%li= image_tag "ajax-loader.gif", :id => 'loading'
+
+%h2 Don't have a username &amp; password?
+%p If you haven't attended a training course you can login using Facebook to get access to more videos:
+= link_to image_tag("videos/login-with-facebook.png"), "/auth/facebook"

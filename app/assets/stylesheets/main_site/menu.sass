@@ -1,0 +1,119 @@
+@import compass
+
+ul#top-nav
+  list-style: none
+  margin: 0
+  padding: 0
+  height: 40px
+  position: relative
+  z-index: 597
+  li
+    float: left
+    display: block
+    height: 40px
+    background: transparent image-url("menu/menu-background.png") repeat-x 0 0
+    a, span
+      display: block
+      height: 21px
+      color: #FFF
+      text-transform: uppercase
+      padding: 10px 8px
+      text-decoration: none
+      font-size: 1.15em
+    &:hover
+      background: transparent image-url("menu/menu-background.png") repeat-x 0 -40px
+    &:hover .menu
+      visibility: visible
+    .dropdown
+      visibility: hidden
+      position: absolute
+      top: 40px
+      left: 0
+      background: rgb(81,81,81) image-url("menu/left_menu_gradient.jpg") repeat-x 0 0
+      z-index: 598
+      +box-shadow
+      ul
+        list-style-type: none
+        float: left
+        margin: 0
+        display: block
+        padding: 0 0 5px 0
+        li
+          background: transparent
+          display: block
+          float: none
+          position: relative
+          height: auto
+          &.splitter
+            margin-top: 5px
+            padding-top: 5px
+            background: transparent image-url("menu/splitter.png") scroll repeat-x 0 0
+          &.title
+            font-weight: bold
+            background-color: #DDD
+            margin-top: 15px
+            a
+              color: #333
+          &.title-0
+            margin-top: 0
+          a
+            padding: 2px 15px
+            text-transform: none
+            font-size: 1.1em
+            background: transparent
+            text-indent: 0
+            height: auto
+            color: rgb(255,255,255)
+            cursor: pointer
+            &:hover, .hover
+              background: image-url("menu/rolloverstate1.png") repeat-x
+    &#training-courses
+      width: 155px
+      li
+        a
+          position: relative
+          padding-left: 24px
+          img
+            position: absolute
+            top: 3px
+            left: 4px
+    &#training-packages
+      width: 162px
+      .dropdown
+        left: 195px
+    &#certification
+      width: 124px
+      .dropdown
+        left: 395px
+    &#videos
+      width: 68px
+      .dropdown
+        left: 495px
+    &#about_us
+      width: 87px
+      .dropdown
+        left: 545px
+        ul li a
+          font-weight: normal
+          text-align: left
+          padding-left: 10px
+    &#contact-us
+      width: 107px    
+    &#certification, &#videos, &#about_us
+      .dropdown
+        ul li a
+          padding: 2px 30px 2px 15px
+    &#search
+      width: 174px
+      background: transparent image-url("menu/menu-background.png") repeat-x 0 0
+      form
+        padding-top: 8px
+        input
+          width: auto
+          vertical-align: top
+          margin: 0
+          &#q
+            text-indent: 25px
+            width: 140px
+            padding: 4px 0
+            background: #FFF image-url("search_box_magnifying_glass.png") no-repeat 0 0

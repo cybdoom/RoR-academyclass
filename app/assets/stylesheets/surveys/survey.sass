@@ -1,0 +1,121 @@
+@import compass
+
+body
+  h2
+    font-weight: normal
+    
+.intro
+  margin-top: 20px
+  .question-count
+    font-weight: bold
+  p
+    line-height: 1.6em
+
+.survey_response
+  margin-top: 20px
+  fieldset
+    margin-bottom: 20px
+    border: none
+    ol
+      list-style-type: none
+      margin: 0
+      padding: 0
+      li
+        margin-top: 5px
+        line-height: 13px
+  .inputs
+    #survey_response_name, #survey_response_company
+      width: 300px
+    input
+      vertical-align: bottom
+      margin: 0 3px
+    label
+      float: left
+      width: 150px
+    .anonymous
+      margin-top: 9px
+      label
+        float: none
+        width: auto
+  .buttons
+    clear: both
+    
+.section
+  clear: both
+  border-top: solid #6F6F6F 1px
+  padding-top: 10px
+  
+.question
+  clear: both
+  background-color: #585a5d
+  color: #FFF
+  height: 105px
+  margin: 0 0 20px 20px
+  +border-radius(10px)
+  .header
+    display: block
+    height: 27px
+    background-color: #b9dd3d
+    margin-bottom: 5px
+    padding: 10px 0 0 20px
+    +border-radius(9px)
+    +border-bottom-radius(0)
+    h3
+      margin: 0
+      color: #000
+      font-size: 1.2em
+      font-weight: bold
+  .question-text
+    padding: 5px 0 0 20px
+    font-weight: bold
+  .answer-section
+    padding-top: 15px
+    clear: both
+    display: block
+    .option
+      margin: 0 20px
+      line-height: 13px
+      display: inline
+      label
+        vertical-align: top
+      input
+        margin: 0 3px
+        vertical-align: top
+      textarea
+        width: 80%
+        height: 50px
+  &.freetext
+    height: 150px
+  &.interest
+    height: auto
+    +float-left
+    li
+      +float-left
+      display: block
+      font-size: 1.2em
+      clear: both
+      margin: 9px 0 0 13px
+      width: 95%
+      ul.products
+        +float-left
+        margin-bottom: 10px
+        li
+          clear: none
+          width: 145px
+          padding: 5px
+          font-size: 0.8em
+          margin: 0
+      label, input
+        padding: 0
+        margin: 0
+        vertical-align: top
+    .question-text
+      clear: both
+    .answer-section
+      height: 80px
+    
+#complete
+  height: 100%
+  margin: 20px 0 200px 0
+  p
+    line-height: 1.6em

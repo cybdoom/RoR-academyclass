@@ -1,0 +1,132 @@
+- content_for :breadcrumbs do
+  = link_to "Home", root_path
+  = breadcrumb_link_to "Creative Licence", creative_licence_path
+- content_for :meta_keywords do
+  Save, Discount, Package, Creative License, Flash, Flex, Print, Design, AutoCAD, 3D, Video, Production, Web
+- content_for :meta_description do
+  Academy Class have put together some very special package deals. Take your Creative License and change your career, your pay packet, your life forever.
+- content_for :meta_title do
+  Save with the Creative License | Buy BIG, Save BIG | Academy Class
+
+#template.save
+  %h1 Creative Licence
+  .boxed-content
+    %p The Creative License is an ideal solution for individuals who want to take two or more courses.
+    %p
+      Select one of our packages! 
+      = link_to "Designer", "#designer_content", :class => 'box-link'
+      \-
+      = link_to "Web Programmer", "#programmer_content", :class => 'box-link'
+      \-
+      = link_to "Video Specialist", "#video_content", :class => 'box-link'
+      \-
+      = link_to "CAD Visualizer", "#visualizer_content", :class => 'box-link'
+      \-
+      Mobile Developer
+    = link_to "Read more", "#", :class => 'read-more'
+    .additional-information
+      %h2 Buy BIG Save BIG
+      %p We have put together some very special package deals. Take your Creative License and change your career, your pay packet, your life forever.
+      %p You will have 1 year to complete the package by taking the classes from our public calendar. Also note that each class taken from the Creative License can be taken as many times as you wish at no extra cost regardless of software version number such as CS3 or CS4 (subject to availability). Our Creative license allows individuals to maximize the value of their relationship withAcademy Class
+      %p Courses within each Creative License can be substituted for other courses or simply build your own package.
+      %h3 Benefits
+      %ul
+        %li Attend any of our regularly scheduled classes within your Creative License as many times as you wish during the year at no extra charge. A very special Academy Class Guarantee in learning
+        %li All courses are led by Adobe, Apple and Autodesk Certified Instructors.
+        %li Academy Class is Certified by the institute of IT Training
+        %li Each course includes free lunch, published courseware, email support after the completion of each course.
+        %li Priority waitlist status on sold-out classes.
+        %li Retake any course at any time without additional charges no software version limit (you must use your original courseware only)
+        %li Easily budget training investments per employee.
+        %li Heavily Discounted rates compared to buying the classes individually
+        %li In-house payment options available 
+      %h3 Terms and Conditions
+      %ul
+        %li Training packages are not refundable or exchangeable. They are exclusively for the use of the individual for who they are purchased.
+        %li Identification must be shown upon attendance of class. Any attempt at fraudulently attending class using another person's name will result in an immediate termination of the package.
+        %li Full payment is due upon entry to the package. Payment must be received prior to attending the first class or payment options must have been confirmed and agreed
+        %li All course dates must begin within 1 year of the first class taken.
+        %li This offer is non-refundable and not valid with other discount programs.
+        %li This offer is not valid for on-site, custom, or training at affiliate locations.
+        %li Applies to new registrations only. Previous purchases can not be applied to newly purchased packages.
+        %li All classes must be registered through our standard registration form.
+        %li All classes include full courseware and completion certificates, but do not include extra marketing incentives.
+        %li The packages applies to regularly scheduled, open-enrolment classes offered by Academy Class. Special classes offered by guest instructors are not included with the package.
+      
+  #creative-licence-logos
+    = image_tag "creative_licence/designer-logo.png"
+    = image_tag "creative_licence/web-programmer-logo.png"
+    = image_tag "creative_licence/video-specialist-logo.png"
+    = image_tag "creative_licence/visualizer-logo.png"
+    = image_tag "creative_licence/mobile-logo.png"
+  #creative-licence-bg
+    %ul#creative-licences
+      %li.selected#designer.selectable
+        %h2 Designer
+        %ul
+          %li Photoshop 101 Rookie
+          %li Photoshop 201 HotShot
+          %li Photoshop ACA Exam
+          %li Indesign 101 Rookie
+          %li Indesign 201 HotShot
+          %li Illustrator 101 Rookie
+          %li Illustrator 201 HotShot
+        .days 14 days        
+      %li#programmer.selectable
+        %h2 Web Programmer
+        %ul
+          %li Dreamweaver 101 Rookie
+          %li Dreamweaver ACA exam
+          %li HTML5 101: Rookie
+          %li HTML5 201: HotShot
+          %li CSS 101: Rookie
+          %li CSS 201: HotShot
+          %li Javascript 101: Rookie
+          %li jQuery 201: HotShot
+        .days 20 days
+      %li#video.selectable
+        %h2 Video Specialist
+        %ul
+          %li
+            After Effects 101
+            %span Rookie
+          %li
+            After Effects 201
+            %span HotShot
+          %li
+            Premiere Pro 101
+            %span Rookie
+          %li
+            Premiere Pro 201
+            %span HotShot
+          %li Or
+          %li
+            Final Cut Pro 101
+            %span Rookie
+          %li
+            Final Cut Pro 201
+            %span HotShot
+        .days 11 days
+      %li#visualizer.selectable
+        %h2 CAD Visualizer
+        %ul
+          %li AutoCAD 101 Rookie
+          %li AutoCAD 201 HotShot
+          %li AutoCAD 301 Creating 3d Models
+          %li AutoCAD Associate Certification Exam
+          %li 3ds Max Jumpstart
+          %li Photoshop 101 Rookie 
+        .days 17 days
+      %li#mobile
+        %h2 Mobile Developer
+        %ul
+          %li Flash ACA Jumpstart
+          %li Flash Actionscript3 Jumpstart
+          %li Photoshop 101
+          %li Illustrator 101
+          %li Developing Mobile Apps Jumpstart
+        .days 19 days
+  #designer_content.content= render :partial => "creative_licence/designer"
+  #programmer_content.content{:style => "display: none"}= render :partial => "creative_licence/programmer"
+  #video_content.content{:style => "display: none"}= render :partial => "creative_licence/video"
+  #visualizer_content.content{:style => "display: none"}= render :partial => "creative_licence/visualizer"

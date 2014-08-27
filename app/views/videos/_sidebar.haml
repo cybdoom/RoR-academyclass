@@ -1,0 +1,29 @@
+.title
+  .arrow
+  - if @video
+    %h2
+      %a{:href => "#"}= @video.full_title
+    - if @video.instructor
+      %h3
+        %a{:href => "#"}= @video.instructor.name
+  - else
+    %h2 No Videos Found
+.video-content-box
+  .description
+    - if @video
+      =raw textilize @video.description
+.title
+  .arrow
+  %h2
+    %a{:href => "#"}= "Video transcript"
+.video-content-box
+  .description
+    - if @video
+      =raw textilize @video.transcript
+.title
+  .arrow
+  %h2
+    %a{:href => "#"}= "Related videos (#{@playlist.count})"
+.video-content-box
+  .listing
+    %ul= render :partial => "playlist_video", :collection => @playlist

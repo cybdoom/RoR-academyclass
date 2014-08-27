@@ -1,0 +1,13 @@
+- content_head do
+  = link_to "Add Survey Product", new_survey_product_path, :class => "button"
+  %h2 Survey Products
+= content_box do
+  %p These are the products which appear at the bottom of each survey, asking what the person is interested in learning.
+  %ul.table.survey-products
+    %li.header
+      .parent Product Parent
+      .name Product Name
+    - @survey_products.each do |p|
+      %li{:class => cycle("alt_row","")}
+        .parent= h(p.product_parent)
+        .name=  p.product

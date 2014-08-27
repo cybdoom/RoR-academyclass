@@ -1,0 +1,20 @@
+- content_head do
+  = link_to "Add Testimonial", new_testimonial_path, :class => "button"
+  %h2 Testimonials
+= content_box do
+  %a{:href => url_for(:controller => :prioritise, :action => :update), :id => "prioritise-url", :style => "display:none"}
+  %ul.table.sortable.sort-update.testimonials
+    %li.header
+      .title Name
+      .icon Icon
+      .company Company
+      .quote Quote
+    - @testimonials.each do |c|
+      %li{:class => cycle("alt_row",""), :id => "Testimonial_#{c.id}"}
+        .drag-handle [handle]
+        .title= h(c.name)
+        .icon= image_tag c.photo(:icon) if c.photo.file?
+        .company= h c.company
+        .quote= h c.quote
+        .edit-link= link_to "Edit", edit_testimonial_path(c)
+        .delete-link= link_to "Delete", testimonial_path(c), :confirm => "Are you sure?", :method => :delete

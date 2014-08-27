@@ -1,0 +1,15 @@
+- content_head do
+  = link_to "Add Manufacturer", new_product_parent_path, :class => "button"
+  %h2 Product Manufacturers
+= content_box do
+  %ul.table.manufacturer
+    %li.header
+      .title Manufacturer Name
+      .Description Description
+    - @product_parents.each do |p|
+      %li{:class => cycle("alt_row",""), :id => "product_parent_#{p.id}"}
+        .image= p.parent_image.exists? ? image_tag(p.parent_image.url) : nil
+        .title= p.name
+        .description= truncate(p.description, :length => 40, :omission => "...")
+        .edit-link= link_to "Edit", edit_product_parent_path(p)
+        .delete-link= link_to "Delete", p, :confirm => "This will delete all associated products too.\n\nAre you sure?", :method => :delete

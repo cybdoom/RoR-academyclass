@@ -1,0 +1,121 @@
+- content_for :breadcrumbs do
+  = link_to "Home", root_path
+  = breadcrumb_link_to "Training", training_path
+  = breadcrumb_link_to "Certifications", :controller => :cms, :action => :certifications
+- content_for :meta_keywords do
+  Certifications, Academy Class, Adobe, Certified, Expert, ACA, ACE
+- content_for :meta_description do
+  Academy Class offers excellent preparation classes to assist you in your certification goal. Professional certification tracks are available for: Web design and development, Digital video editing and production, Print and graphic design.
+- content_for :meta_title do
+  Our Certifications | Adobe & Apple Pro Certification | Academy Class
+= image_tag "certification/certified.png", :id => "logo"
+%h1 Certifications
+%h2 Why do you need to get certified?
+%p Adobe, Apple, Autodesk offer professional certification for people wanting to develop their expertise in the key products within the creative industry.
+%p Academy Class offers excellent preparation classes to assist you in your certification goal.
+%h3 Benefits for your career
+%ul
+  %li Demonstrate your expertise in the latest technology
+  %li Employer recognition (selection, bonuses, advancement, pay)
+  %li Industry recognition of your skill set
+  %li Earn a portable cerdential for job retention and mobility
+  %li Peer recognition - be the best in your company
+  %li Improve your performance and add value to your company
+%h3 Benefits for your employer
+%ul
+  %li Objectively benchmark employee performance
+  %li Make better hiring decisions
+  %li Benefit by investing in staff - lower turnover
+  %li Increase productivity by focusing learning on needed skills
+  %li Improved workforce management - the right person for the job
+  %li Competitive advantage - promote the use of certified staff on projects
+  %li Reward employee commitment and expertise - use certification as a goal for performance rewards
+.clear
+%h2 Choose your path
+#logos
+  = image_tag "certification/adobe-certified.png"
+  = image_tag "certification/apple-certified.jpg"
+  = image_tag "certification/autodesk-certified.png"
+#button-bar
+  #adobe-button.selected= link_to "Adobe", "#adobe"
+  #apple-button= link_to "Apple", "#apple"
+  #autodesk-button= link_to "Autodesk", "#autodesk"
+#adobe.product
+  .intro Adobe's certification programs meet a wide variety of needs. Whether you are an aspiring student, a digital media professional or an educator, you'll find that being certified makes a difference.
+  %p
+    Give yourself a promotion. Become an ACE or an ACA Adobe Certified Experts (ACE's) and Adobe Certified Associates (ACA's) set themselves apart from other creative and IT professionals. They consistently demonstrate expertise with Adobe products and platforms by through certification. Would you like to stand out and differentiate your knowledge on Adobe products? Learn more about how you can become an ACE or ACA.
+    = link_to "Read More...", '#adobe-read-more', :class => 'read-more'
+  .additional-information#adobe-read-more
+    %p 
+      As an individual, an Adobe Certified credential allows you to:
+      %ul
+        %li Differentiate yourself from competitors
+        %li Get your CV noticed
+        %li Attract and win new business
+        %li Gain recognition from your employer
+        %li Leverage the power of the Adobe brand 
+    %p 
+      As a business, use the Adobe Certified credential as a benchmark so you can:
+      %ul
+        %li Find the right person for the job
+        %li Quickly assess candidate skill level
+        %li Invest in, and promote, your most promising employees   
+  .detail-box
+    .left
+      .title Adobe Certified Associate (ACA)
+      .content
+        = image_tag 'certification/adobe-certified-associate.png', :alt => 'Adobe Certified Associate', :class => 'logo'
+        %p An Adobe Certified Associate (ACA) credential certifies individuals have the entry-level skills to plan, design, build and maintain effective communications using different forms of digital media.
+        %ul
+          = render :partial => 'cms/certification_course', :collection => @aca_courses, :locals => {:product_parent => 'Adobe'}
+    .right
+      .title Adobe Certified Expert (ACE)
+      .content
+        = image_tag 'certification/adobe-certified-expert.png', :alt => 'Adobe Certified Expert', :class => 'logo'
+        %p An Adobe Certified Expert (ACE) is a person who has demonstrated a professional level in proficiency with one or more Adobe software products. To become an ACE, you must pass one or more product-specific proficiency exams and agree to the ACE terms and conditions.
+        %ul
+          = render :partial => 'cms/certification_course', :collection => @ace_courses, :locals => {:product_parent => 'Adobe'}
+#apple.product.hidden
+  .intro For Digital Media Professionals Apple offers a tiered certification program for Apple’s professional digital applications. Our courses will prepare you for the exams which are designed for creative professionals in varying capacities, including: editors, filmmakers, sound designers, photographers, special effects artists, teachers, and more.
+  %p Stand out from the crowd. Differentiate yourself and gain recogni­tion for your technical expertise with Apple Certification. Apple offers comprehensive certification programs for Mac OS X and professional applications.
+  .detail-box
+    .left
+      .title Apple Certified Pro - Level One
+      .content
+        %p The Level One certification in an application attests to basic operational knowledge of that application. Level One exams are administered at the end of specific courses. If you prefer to learn on your own or believe you already have the required knowledge, you may take the exam at an Apple AuthorizedTraining Center (AATC) for a few.
+        %ul
+          = render :partial => 'cms/certification_course', :collection => @apple_l1_courses, :locals => {:product_parent => 'Apple'}
+    .right
+      .title Apple Certified Pro - Level Two
+      .content
+        %p The Level Two certification attests to a deeper understanding of the application. Level Two exams can be taken only after Level One certification is earned.
+        %ul
+          = render :partial => 'cms/certification_course', :collection => @apple_l2_courses, :locals => {:product_parent => 'Apple'}
+#autodesk.product.hidden
+  .intro Autodesk Certification can help you succeed in your design career—providing benefits to both you and your employer. A reliable validation of your skills and knowledge, Autodesk Certification can lead to accelerated professional development, improved productivity and enhanced credibility in your field.
+  %p= link_to "Read More...", '#more-intro', :class => 'read-more'
+  .additional-information#more-intro
+    In addition to improving your skill set, earning Autodesk Certification provides the following advantages and benefits:
+    %ul
+      %li Enhanced Skills and Recognition—Autodesk Certification provides validation of your skills and knowledge along with industry recognition of your achievements.
+      %li Electronic Certificate—Once certified, you receive access to an electronic certificate suitable for printing and framing. You may reprint this certificate as often as you like. Your certificate is available anytime through your Autodesk Online system profile.
+      %li Certification Logo—After passing the certifica­tion exam, you receive the official Autodesk Certification logo for use on business cards, résumés, and letterhead, identifying you as Autodesk Certified. Your logo kit is available through your Autodesk Online system profile.
+      %li Immediate Diagnostic Feedback—Whether or not you pass the exam, you receive immediate feedback on areas to improve your Autodesk application skills. Your score report with feedback is available at any time through your Autodesk Online system profile.
+      %li Listing on Autodesk in the Certified Users Database—Once certified, you can choose to have your contact information and certifications listed in Autodesk’s publically available database. This is an excellent way to immediately demonstrate your certification status to prospective employers.#benefits
+
+  .detail-box
+    .left
+      .title Autodesk Certified Associate
+      .content
+        %p
+          The Autodesk
+          %strong Certified Associate
+          exams consists of 30 questions that assess your knowledge of the tools, features, and common tasks of Autodesk software. Question types include multiple choice, matching, and point-andclick (hotspot). The exam has a 1-hour time limit
+        %ul
+          = render :partial => 'cms/certification_course', :collection => @autodesk_associate_courses, :locals => {:product_parent => 'Autodesk'}
+    .right
+      .title Autodesk Certified Professional
+      .content
+        %p Certified Professional exams are performance based tests. The exams are each comprised of 20 questions. Each question requires you to the software to create or modify a data file, and then type your answer into an input box. The answer you enter will be a text entry or a numeric value. 
+        %ul
+          = render :partial => 'cms/certification_course', :collection => @autodesk_professional_courses, :locals => {:product_parent => 'Autodesk'}

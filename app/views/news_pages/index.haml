@@ -1,0 +1,20 @@
+- content_head do
+  = link_to "New News Page", new_news_page_path, :class => "button"
+  %h2 News pages menu
+= content_box do
+
+  - if @news_pages.empty?
+    %p No Pages
+  - else
+    %ul.table.products
+      %li.header
+        .title Title
+        .manufacturer Slug
+        .edit-link
+        .delete-link
+      - @news_pages.each do |n|
+        %li{:class => cycle('','alt_row')}
+          .title= link_to n.title, n, target: "_blank"
+          .manufacturer= n.slug
+          .edit-link= link_to "Edit", edit_news_page_path(n)
+          .delete-link= link_to "Delete", n, :method => :delete, :confirm => "Are you sure?"

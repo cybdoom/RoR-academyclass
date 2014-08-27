@@ -1,0 +1,22 @@
+- content_for :body_id do
+  video-features
+- content_head do
+  = link_to "Products", video_products_path, :class => "button"
+  = link_to "Videos", videos_path, :class => "button"
+  %h2 Featured Videos
+%a{:href => url_for(:controller => :prioritise, :action => :update), :id => "prioritise-url", :style => "display:none"}
+= content_box do
+  %ul.table.sortable.sort-update
+    %li.header
+      .drag-handle &nbsp;
+      .position Position
+      .thumbnail &nbsp;
+      .video Video
+      .icon= link_to image_tag("admin/plus.png"), new_video_feature_path, :id => 'add-feature', :class => 'facebox'
+    - @features.each do |f|
+      %li{:class => cycle(nil, "alt_row"), :id => "VideoFeature_#{f.id}"}
+        .drag-handle [handle]
+        .position= f.position
+        .thumbnail= link_to(f.video.thumbnail ? image_tag(f.video.thumbnail) : "No image", edit_video_path(f.video))
+        .video= link_to f.video.title, edit_video_path(f.video)
+        .icon= link_to image_tag("admin/cross.png"), f, :method => :delete, :confirm => "Are you sure?"

@@ -1,0 +1,29 @@
+- content_for :body_id do
+  video-product-mappings
+- content_head do
+  = link_to "Tags", video_tag_types_path, :class => "button"
+  = link_to "Videos", videos_path, :class => "button"
+  = link_to "Products", video_products_path, :class => "button"
+  = link_to "Featured Videos", video_features_path, :class => "button"
+  %h2 Course Names to Video Product Mappings
+= content_box do
+  %p Use this table to map course names on booking forms which come from Filemaker to Video Products.
+  %p
+    This is so that a delegate who attends a course called
+    %strong After Effects 201 Hotshot
+    automatically gets access to all the
+    %strong After Effects
+    products
+  %p The Course Name from Filemaker is on the left, the Video Product on the website is on the right. If the Filemaker course doesn't have a mapping set up, any delegate on that course will not get access to videos.
+  %ul.table
+    %li.header
+      .course_name Course Name
+      .video_product Video Product
+    - @mappings.each do |v|
+      %li{:class => cycle(nil, "alt_row")}
+        .course_name= v.course_name
+        .video_product{'data-mapping-id' => v.id}= link_to(v.video_product ? v.video_product.name : "none", "#")
+  #video-products
+    %ul
+      - VideoProduct.not_free.order(:name).each do |vp|
+        %li= link_to vp.name, course_booking_mapping_path("mapping-id", :video_product_id => vp.id)

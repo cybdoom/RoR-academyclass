@@ -1,0 +1,29 @@
+%ul.table.booking-forms
+  %li.header
+    .created_at Created
+    .code Code
+    .contact Contact
+    .salesperson Sales Person
+    .delegates Delegates
+    .total Total
+    .status Status
+    .payment Payment Info
+    .icon
+  - if @forms.empty?
+    %li.alt_row
+      .created_at none
+  - @forms.each do |b|
+    %li{:class => cycle("", "alt_row") + (b.lsm? ? ' lsm' : '')}
+      .created_at= link_to b.created_at.strftime('%d %b %Y %H:%M'), edit_booking_form_path(b)
+      .code= link_to b.filemaker_code || "none", edit_booking_form_path(b)
+      .contact= link_to b.contact_name, edit_booking_form_path(b)
+      .salesperson= link_to b.salesperson, edit_booking_form_path(b)
+      .delegates= link_to b.delegates.size, edit_booking_form_path(b)
+      .total= link_to("£%0.02f" % b.total, edit_booking_form_path(b))
+      .status= link_to b.status_name, edit_booking_form_path(b)
+      .payment= link_to b.payment_info, edit_booking_form_path(b)
+      .icon
+        - if b.can_be_cancelled?
+          = link_to image_tag("admin/cross_circle.png"), cancel_booking_form_path(b), :class => "cancel-booking", "data-confirm" => "Cancel a booking if the client no longer wants to attend.\n\nAre you sure you want to cancel this booking?", :title => "Cancel this booking form because the customer doesn't want it"
+        - if b.can_be_completed?
+          = link_to image_tag("admin/tick_circle.png"), complete_booking_form_path(b), :class => "complete-booking", "data-confirm" => "Complete a booking once it's been paid for and recorded in Filemaker.\n\nAre you sure you want to complete this booking?", :title => "Mark this booking as completed in Filemaker"

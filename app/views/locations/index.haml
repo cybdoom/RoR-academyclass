@@ -1,0 +1,50 @@
+- content_for :breadcrumbs do
+  = link_to "Home", root_path
+  = breadcrumb_link_to "Locations", locations_path
+- content_for :head do
+  = javascript_include_tag "http://maps.google.com/maps?file=api&v=2&key=#{@google_code}&sensor=false", "/js/locations.js"
+- content_for :meta_keywords do
+  Location, Camden, London, Piccadilly, Manchester, Glasgow, Remarc, Leeds, Newcastle, Birmingham, Cardiff, Bristol
+- content_for :meta_description do
+  Academy Class has training centres across the United Kingdom including London, Glasgow, Manchester, Leeds, Cardiff, Newcastle and Birmingham. Academy Class also offer on-site training at your business premises.
+- content_for :meta_title do
+  Our Training Locations | Training Centres | Academy Class
+  
+#template.locations
+  %h1 Locations
+  - Location.all.each do |l|
+    .location_entry
+      .title
+        %h2{:id => h(l.title.parameterize)}= h(l.title)
+      .miniMap
+        = image_tag("http://maps.google.com/staticmap?center=#{l.coordinates}&markers=#{l.coordinates}&zoom=12&size=100x75&key=#{Location.GCODE}&sensor=false", :onclick => "showMap(#{l.id}, #{l.latitude},#{l.longitude})", :alt => "Map Location of Academy Class of #{h(l.title)}")
+      .address= simple_format(l.address)
+      .button
+        %a{:onclick => "showMap(#{l.id}, #{l.latitude}, #{l.longitude})"} See it on the map
+        |
+        %a{:onclick => "bookmarksite('Academy Class #{l.name} Location', 'http://#{request.host}/locations##{l.title.gsub(/ /, "-")}')"} Bookmark this location
+      %div{:id => "map_#{l.id}", :style => "display:none"}
+        %a{:href => "#map"} Click the map to view the live version
+        %a{:href => "#map"}
+          = image_tag("http://maps.google.com/staticmap?center=#{l.coordinates}&markers=#{l.coordinates}&zoom=15&size=490x300&key=#{Location.GCODE}&sensor=false", :alt => "Map Location of Academy Class of #{h(l.title)}", :border => "0")
+  .location_entry
+    .title
+      %h2#online-training Live Online Training
+      .miniMap= image_tag "locations/live-online-training.jpg"
+    .address
+      Adobe Acrobat Connect
+      %br
+      Delivered From:
+      .indented
+        Academy Class
+        %br
+        Elizabeth House 
+        %br
+        39 York Road 
+        %br
+        Waterloo
+        %br
+        SE1 7NQ
+    .button
+#map
+%script{:type => "text/javascript"} buildMap();

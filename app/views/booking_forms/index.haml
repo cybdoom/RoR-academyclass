@@ -1,0 +1,16 @@
+- content_head do
+  = link_to "Payment Responses", payment_responses_path, :class => "button"
+  = link_to "Export", booking_forms_path(:status => @status, :search => @search, :format => "csv"), :class => "button"
+  %h2 Booking Forms
+= content_box do
+  = form_tag booking_forms_path, {:id => "booking_forms", :method => "GET"} do
+    %label Status:
+    = select_tag "status", options_for_select(booking_form_statuses, @status)
+  = form_tag search_booking_forms_path(:status => @status), {:id => "search_form", :method => "GET"} do
+    %label Search:
+    = hidden_field_tag("status", @status)
+    = text_field_tag "search", @search
+    = image_tag "ajax-loader.gif", :class => "working hidden"
+  - if @search.blank?
+    = will_paginate @forms
+  = render :partial => "list"

@@ -1,0 +1,13 @@
+%ul.table.course-dates#course-dates
+  %li.header
+    .title Location
+    .dates Dates
+    .total-seats Total Seats
+    .seats-sold Seats Sold
+  - @dates.each do |d|
+    %li{:class => cycle("alt_row","")}
+      .title= h(d.location.name)
+      .dates= display_dates(d)
+      .total-seats= d.total_seats
+      .seats-sold= d.seats_sold
+      .delete-link= link_to "Delete", d, :confirm => "Are you sure?", :method => :delete

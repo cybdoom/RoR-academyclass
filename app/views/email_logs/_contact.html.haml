@@ -1,0 +1,25 @@
+%h3 Contact Us Form
+%label Received
+= @email.created_at ? @email.created_at.strftime("%d %B %Y %H:%M") : "Unknown"
+%h3 Contact Information
+%ul
+  %li
+    %label Name:
+    = @email.name
+  %li
+    %label Company:
+    = @email.company
+  %li
+    %label Email: 
+    = link_to @email.email, "mailto:#{@email.email}"
+  %li
+    %label Phone:
+    = @email.phone
+%h3 Enquiry
+%ul
+  %li
+    %label Area of interest:
+    = @email.interest
+  %li
+    %p=raw nl2br(@email.enquiry)
+  %li= render :partial => "salesperson"

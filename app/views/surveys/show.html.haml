@@ -1,0 +1,65 @@
+- content_for :head do
+  = javascript_include_tag "survey"
+  = stylesheet_link_tag 'survey'
+  %title= "Academy Class Survey"
+%h1 Academy Class Survey
+%h2= "Course: #{h @survey.name} on #{display_dates(@survey)}"
+- if @survey.trainer
+  %h2= "Instructor: #{h @survey.trainer}"
+
+.intro
+  %p
+    This survey consists of
+    %span.question-count= @survey.survey_questions.count
+    questions.
+
+#survey-response
+  = semantic_form_for @survey_response do |f|
+    = f.inputs do
+      = f.input :survey_id, :as => :hidden
+      = f.input :name, :label => "Your name"
+      = f.input :company, :label => "Your company name"
+      %li.anonymous
+        %label{:for => "anonymous"} or check this box if you wish to remain anonymous:
+        = check_box_tag "anonymous"
+      
+    - last_section = nil
+    - @survey_questions.each_with_index do |survey_question, i|
+      - if survey_question.question.section != last_section
+        .section
+          %h2= h survey_question.question.section
+      - last_section = survey_question.question.section
+      .question{:class => survey_question.question.options? ? "multichoice" : "freetext"}
+        .header
+          %h3= "Question #{i+1}"
+        .question-text= h survey_question.question.question
+        - if survey_question.question.options?
+          .answer-section
+            - survey_question.question.options.each do |option|
+              .option
+                %label{:for => "#{survey_question.id}_#{option[1]}"}= option[0]
+                = radio_button_tag(survey_question.id, option[1])
+        - elsif survey_question.question.free_text?
+          .answer-section
+            .option
+              = text_area_tag(survey_question.id)
+    .question.interest
+      .header
+        %h3 Do you have any future course requirements or would you like further information on any of the following courses?
+      %ul
+        - last_parent = nil
+        - @survey_products.each_pair do |parent,products|
+          %li= h parent
+          %li
+            %ul.products
+              - products.each do |product|
+                %li
+                  = check_box_tag("survey_response[survey_product_ids][]", product.id, false, {:id => "product_#{product.id}"})
+                  %label{:for => "product_#{product.id}"}= h product.product
+
+      .question-text If the course you're looking for is not featured above please use the space below to outline what you're looking for:
+      .answer-section
+        .option
+          = f.text_area :comments
+    = f.actions do
+      = f.action :submit, :label => "Submit your answers"

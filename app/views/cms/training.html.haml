@@ -1,0 +1,34 @@
+- content_for :breadcrumbs do
+  = link_to "Home", root_path
+  = breadcrumb_link_to "Training", training_path
+- content_for :meta_keywords do
+  Training, Adobe Creative Suite, Autodesk, AutoCAD, Apple, Certification, Skills, Media Design, Production, On Site, London, Manchester, Glasgow, Leeds, Newcastle, Birmingham, Cardiff, Bristol
+- content_for :meta_description do
+  The range of courses we deliver at Academy Class includes all skills levels and certification on the leading packages that drive the creative industries - from Adobe Creative Suite for design, production and the Web, to Apple's professional applications, the full scope of Autodesk's AutoCAD and many more.
+- content_for :meta_title do
+  Academy Class Training | Digital Media Courses | Adobe, Autodesk & Apple
+
+#template
+  = image_tag "template_images/training.png", :class => "logo"
+  %h1 Training
+  =raw textilize @content
+  .product-box
+    %img.productImage{:src => "/images/training/adobe-logo.png", :alt => "Adobe Authorised Training Centre Logo"}
+    %h2= link_to "Adobe", "/training/Adobe"
+    :textile
+      Academy Class is an Adobe Authorised Training Centre (AATC) that offers instructor led courses and training on Adobe products. As an AATC Academy Class employs Adobe Certified Instructors to teach their Adobe courses.
+  .product-box
+    %img.productImage{:src => "/images/training/apple-logo.png", :alt => "Apple Authorised Training Centre Logo"}
+    %h2= link_to "Apple", "/training/Apple"
+    :textile
+      Academy Class is an Apple Authorised Training Centre (AATC). AATCs deliver Apple's official curriculum on Apple hardware, Mac OS X, pro applications and other key Apple technologies. The comprehensive curriculum addresses a broad range of technical proficiencies whether you're a first-time Mac user, an IT or creative professional, or a service technician. The courses are delivered by Apple Certified Trainers who maintain Apple's highest quality standards.
+  .product-box
+    %img.productImage{:src => "/images/training/autodesk-logo.png", :alt => "Autodesk Authorised Training Centre Logo"}
+    %h2= link_to "Autodesk", "/training/Autodesk"
+    :textile
+      Academy Class is an Autodesk Authorised Training Centre (ATC). ATCs provide the best way for beginners and experts alike to get up to speed. Find out about the latest productivity features, learn best practices, and develop the skills you need to make the most of your Autodesk software. Get the greatest return on your investment, faster, by building your knowledge in the areas you need the most.
+  .product-box
+    %img.productImage{:src => "/images/training/quark-logo.png", :alt => "Quark Alliance Logo"}
+    %h2= link_to "Quark", "/training/Quark"
+    :textile
+      Academy class is a Quark Alliance recognised Training provider  and as a result works closely with Quark to provide training for it's loyal QuarkXPress users. As a training provider, Academy Class has  reliable resources and proven expertise to clients abreast of the changes in today's ever-evolving technology.

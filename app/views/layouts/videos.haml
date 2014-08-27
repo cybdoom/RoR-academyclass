@@ -1,0 +1,36 @@
+!!!
+%html
+  %head
+    %link{:rel=>"icon", :href=>"/images/favicon.ico", :type=>"image/x-icon"}
+    %title= yield(:meta_title)
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+    %meta{:name => "description", :content => "Academy Class Online Training Videos"}
+    %meta{:name => "copyright", :content => "Copyright Academy Class Ltd - 2012"}
+    = javascript_include_tag "application"
+    = stylesheet_link_tag "application"
+    = yield(:head)
+    = csrf_meta_tag  
+  %body{:id => body_tag_id}
+    #mainbody
+      = render :partial => "shared/menu"
+      #breadcrumbs
+        = link_to "Home", root_path
+        = yield :breadcrumbs
+      #main-content
+        = yield
+        #social-media-icons
+          %span#phone.calltracks_academyclass-main 0800 043 8889
+          = link_to image_tag("icons/facebook.png", :title => 'Facebook'), "http://www.facebook.com/AcademyClass", :target => "_blank"
+          = link_to image_tag("icons/twitter.jpg", :title => 'Twitter'), "http://twitter.com/#!/academyclass", :target => "_blank"
+          = link_to image_tag("icons/newsletter-subscribe.png", :title => 'Subscribe to the newsletter'), '#newsletter-form', :rel => 'facebox'
+      #footer
+        %p
+          All information is copyright&copy; to Academy Class 2006 - 2009.
+          %br
+          %a{:href => "/terms_and_conditions"} Website Terms
+          %a{:href => "/privacy_policy"} Privacy Policy
+          %a{:href => "/terms_of_business"} Terms of Business
+    - if Rails.env.production?
+      = render :partial => "shared/google_analytics"
+    - if Rails.env.production?
+      = render :partial => "shared/crazy_egg"

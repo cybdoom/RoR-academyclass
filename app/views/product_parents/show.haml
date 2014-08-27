@@ -1,0 +1,23 @@
+- content_for :breadcrumbs do
+  = link_to "Home", root_path
+  = breadcrumb_link_to "Training", training_path
+  = breadcrumb_link_to "#{@product_parent.name} Training Courses", @product_parent.url
+
+- content_for :meta_keywords do
+  = "Course, Training, Details, #{@product_parent.name}, Price, Date, Location"
+
+- content_for :meta_description do
+  = "#{@product_parent.name} training courses from Academy Class. Authorised #{@product_parent.name} training in London, Glasgow, Manchester, Leeds, Cardiff, Newcastle and Birmingham."
+
+- content_for :meta_title do
+  = "#{@product_parent.name} Training | Training Course"
+  
+= image_tag @product_parent.parent_image.url, :alt => @product_parent.name, :class => 'productImage'
+%h1= raw "#{@product_parent.name} Training Courses"
+=raw textilize @product_parent.description
+- @product_parent.products.each do |product|
+  - @product = product
+  .product-box
+    = render :partial => "products/image"
+    %h2= link_to product.name, product.url
+    =raw textilize product.summary

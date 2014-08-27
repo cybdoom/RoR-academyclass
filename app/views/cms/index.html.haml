@@ -1,0 +1,32 @@
+- content_for :meta_keywords do
+  Training, Courses, Digital, Media, Web, Design, Development, CAD, 3D, Games
+- content_for :meta_description do
+  Digital media training provider Academy Class, supply first class web design & development, CAD & 3D training courses. UK centre’s include London, Glasgow, Newcastle, Cardiff & Manchester.
+- content_for :meta_title do
+  Digital Media Training | Web Design and Development Courses | CAD, 3D & Games
+
+#template
+  %h1#homepage-title Digital Media Training Courses
+  .authorised-box
+    %span
+      Authorised training centre for:
+    = image_tag "authorised_training_centre/adobe-authorised-training-centre.png"
+    = image_tag "authorised_training_centre/apple-authorised-training-centre.png"
+    = image_tag "authorised_training_centre/autodesk-authorised-training-centre.png"
+    = image_tag "authorised_training_centre/wacom-authorised-training-centre.png"
+    = image_tag "authorised_training_centre/riba.png"
+- @families.each do |family|
+  .family-box
+    %h2= link_to family.name, family_path(family.slug)
+    %p= link_to family.tagline, family_path(family.slug)
+    = link_to image_tag(family.family_image.url, :alt => family.name, :class => 'icon'), family_path(family.slug)
+    .course-list-box
+      .button.arrow-up
+      = image_tag("homepage_family_box/arrow-up.png", :alt => "Arrow Up", :title => "Scroll Up", :class => "image-up")
+      .scroll-box
+        %ul
+          - family.products.each do |product|
+            %li= link_to h(product.name), product.url
+      .button.arrow-down
+      = image_tag("homepage_family_box/arrow-down.png", :alt => "Arrow Down", :title => "Scroll Down", :class => "image-down")
+.boxed-content=raw textilize @content

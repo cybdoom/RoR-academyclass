@@ -1,0 +1,42 @@
+#response
+  %p You're paying for a Custom (on-site) course. Please provide the following information to complete your booking:
+  = f.fields_for :booking_form_response do |r|
+    .input
+      %label What is the actual address where you would like the training to take place?
+      = r.text_area :address
+    .input.boolean
+      %label Is this the location you would like the books sent to?
+      = check_box_tag "delivery_location"
+    .input.delivery-address
+      %label If no, please provide:
+      = r.text_area :delivery_address
+    .input
+      %label Who will the be the contact to ask for on arrival?
+      = r.text_field :contact_name
+    .input
+      %label Please provide a contact number for this person
+      = r.text_field :contact_phone
+    .input.boolean
+      %label Does the instructor need to bring proof of ID?
+      = r.check_box :proof_of_id
+    .input.boolean
+      %label Do you have a projector available? (required for 2+ delegates)
+      = r.check_box :projector
+    .input.boolean
+      %label Do you have the software installed?
+      = r.check_box :software_installed
+    .input.boolean
+      %label Are you using the latest version?
+      = r.check_box :latest_version
+    .input.software-details
+      %label If no, please provide details:
+      = r.text_field :software_details
+    .input.boolean
+      %label Will there be a machine for the instructor?
+      = r.check_box :instructor_machine
+    .input.boolean
+      %label Will lunch be provided for the instructor?
+      = r.check_box :lunch_provided
+    .input
+      %label Further comments
+      = r.text_area :comments

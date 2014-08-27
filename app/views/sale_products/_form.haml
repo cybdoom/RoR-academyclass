@@ -1,0 +1,13 @@
+= semantic_form_for @product, :html => {:multipart => true} do |f|
+  = f.inputs do
+    = f.input :name
+    = f.input :description, :hint => "Product description on the website"
+    = f.input :download_instructions, :hint => "Emailed to the purchaser once payment is complete"
+    - if @product.image.file?
+      %li
+        %label &nbsp;
+        = image_tag @product.image.url(:standard)
+    = f.input :image, :hint => "Will be resized to 200x200"
+    = f.input :price
+    = f.input :active, :hint => "Check this to include on the list of products for sale"
+  = f.actions

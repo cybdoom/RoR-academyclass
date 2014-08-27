@@ -1,0 +1,13 @@
+Hello <%= @purchase.name %>
+
+Thank you for your recent purchase of <%= @purchase.sale_product.name %> from Academy Class.
+
+Your card has been charged <%= number_to_currency(@purchase.sale_product.price, :unit => "£") %>.
+
+Instructions for completing your download follow:
+
+<%= @purchase.sale_product.download_instructions %>
+
+Thanks you for your business.
+
+Academy Class

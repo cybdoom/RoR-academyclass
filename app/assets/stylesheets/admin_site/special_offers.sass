@@ -1,0 +1,94 @@
+@import compass
+
+ul.table.special-offers
+  li
+    width: 100%
+    float: left
+    line-height: auto
+    height: auto
+    padding-left: 1%
+    div
+      padding: 5px 0
+      height: auto
+      line-height: 1em
+    .reference
+      width: 40%
+    .url
+      width: 57%
+    .edit
+      width: 3%
+      img
+        height: auto
+    .courses
+      width: 99%
+      label
+        font-weight: bold
+
+form.special_offer.formtastic
+  #special_offer_code_input
+    label
+      width: 280px
+      abbr
+        display: none
+    input
+      height: 14px
+      width: 100px
+  ul#selected-courses
+    margin-top: 20px
+    li
+      height: auto
+      div
+        height: auto
+        line-height: 20px
+      &.none
+        padding-left: 1%
+        font-style: italic
+    .name
+      padding-left: 1%
+      width: 29%
+    .date
+      width: 20%
+    .location
+      width: 10%
+    .usual-price
+      width: 10%
+    .offer-price
+      width: 10%
+    .for-sale
+      width: 10%
+    .max-sale
+      width: 10%
+  li#select-courses
+    overflow: hidden
+    display: none
+    ul.products
+      margin: 0
+      li
+        font-weight: bold
+        clear: both
+        border-bottom: solid #999 1px
+        ul.courses
+          margin: 0
+          li
+            clear: none
+            float: left
+            font-weight: normal
+            border: none
+            a
+              padding: 4px
+              +box-shadow(#CCC, 3px, 3px, 5px)
+              border: solid #999 1px
+              +border-radius(5px)
+              margin-right: 5px
+              float: left
+              color: #333333
+              text-decoration: none
+              overflow: hidden
+              height: 15px
+              width: 200px
+              &:hover
+                +box-shadow(none)
+                background-color: #CCC
+              &.selected
+                background-color: #FFA100
+                +box-shadow(none)

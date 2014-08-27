@@ -1,0 +1,16 @@
+- content_for :meta_keywords do
+  Tweets, Twitter, @AcademyClass
+- content_for :meta_description do
+  Academy Class Twitter Feed - Latest Tweets from the @AcademyClass Twitter account
+- content_for :meta_title do
+  Twitter Feed | Academy Class
+- content_for :breadcrumbs do
+  = link_to "Home", root_path
+  = breadcrumb_link_to "Twitter Feed", tweets_path
+%h1 Twitter Feed
+- @tweets.each do |t|
+  .tweet
+    .header= t.created.strftime("%A, %d %B %Y at %H:%M")
+    .body
+      = image_tag t.profile_image
+      =raw display_content_with_links(t.content)

@@ -1,0 +1,14 @@
+- content_head do
+  %h2 Pages
+= content_box do
+  %ul.table.pages
+    %li.header
+      .name Name
+      .content Content
+      .date Last Updated
+    - @pages.each do |c|
+      %li{:class => cycle("alt_row","")}
+        .name= h(c.name)
+        .content= truncate(c.content, :length => 60, :omission => "...")
+        .date= display_admin_date c.updated_at
+        .edit-link= link_to "Edit", edit_page_path(c)

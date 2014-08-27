@@ -1,0 +1,36 @@
+- content_head do
+  = link_to "Questions", questions_path, :class => "button"
+  %h2= @question.question
+= content_box do
+  = semantic_form_for @question do |f|
+    = f.inputs do
+      = f.input :section
+      = f.input :question_type, :as => :select, :collection => @question.alternative_options
+      = f.input :one_off, :hint => "Check this box if this question will not be used in any other surveys"
+    = f.actions
+  #question-results
+    #intro
+      This question has been answered
+      %strong= @question.answers.count
+      times.
+      - if @question.free_text?
+        %p Here are the answers:
+    - if @question.options?
+      - %w(trainer location course).each do |meth|
+        .segment
+          %h3= "Answers by #{meth}"
+          %table
+            %tr.header
+              %td
+              - @question.options.each do |option|
+                %td= option[0]
+            - Answer.send("counts_by_#{meth}", @question.id).each_pair do |value, counts|
+              %tr{:class => cycle("", "alt_row")}
+                %td.value= h value || " - blank - "
+                - @question.options.each do |option|
+                  %td.count= counts[option[1]] || 0
+    - else
+      - @question.answers.each do |answer|
+        .answer
+          .answerer= respondent_name(answer.survey_response)
+          .answer-text= answer.answer

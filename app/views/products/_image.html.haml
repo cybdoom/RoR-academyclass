@@ -1,0 +1,12 @@
+- if @product.product_logo.file?
+  - if attachment_is_flash?(@product.product_logo)
+    %object.productImage{:type => "application/x-shockwave-flash", :data => @product.product_logo.url}
+      %param{:name => "allowScriptAccess", :value => "sameDomain"}
+      %param{:name => "allowNetworking", :value => "all"}
+      %param{:name => "allowFullScreen", :value => "false"}
+      %param{:name => "movie", :value => @product.product_logo.url}
+      %param{:name => "quality", :value => "high"}
+      %param{:name => "wmode", :value => "transparent"}
+      %param{:name => "bgcolor", :value => "#FFFFFF"}
+  - else
+    = image_tag(@product.product_logo.url(:icon), :alt => "#{@product.product_parent.name} #{@product.name} Logo", :class => 'productImage')

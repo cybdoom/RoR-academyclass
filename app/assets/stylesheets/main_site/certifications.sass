@@ -1,0 +1,167 @@
+@import compass
+
+body#certifications
+  img#logo
+    float: right
+  #benefits
+    background: transparent image-url("certification/certification.png") no-repeat top left
+    padding: 121px 0 0 13px
+    height: 368px
+    width: 722px
+    #left, #right
+      float: left
+      width: 333px
+      padding-left: 20px
+      h3
+        text-transform: uppercase
+        color: #FFF
+        font-size: 1.6em
+      ul
+        margin-top: 20px
+        li
+          font-size: 1.1em
+          margin: 10px 0
+    #right
+      width: 324px
+  .clear
+    clear: both
+  h2
+    font-weight: bold
+  #logos
+    img
+      float: left
+      margin: 10px 30px
+  #button-bar
+    +border-radius(10px)
+    div
+      color: #CBCBCB
+      float: left
+      font-size: 1.2em
+      +background-image(linear-gradient(#575757, #000))
+      background-color: #575757
+      +text-shadow(#FFFF00)
+      cursor: pointer
+      a
+        width: 205px
+        display: block
+        padding: 5px 15px
+        text-decoration: none
+        color: #CBCBCB
+      &.selected
+        +background-image(linear-gradient(#D2E49D, #96A862))
+        background-color: #D2E49D
+        a
+          color: #343C26
+      &:hover
+        color: #343C26
+        +background-image(linear-gradient(#D2E49D, #96A862))
+        background-color: #D2E49D
+        a
+          color: #343C26
+        
+      &#adobe-button
+        +border-radius(10px 0 0 10px)
+      &#apple-button
+        border-left: solid #CBCBCB 1px
+      &#autodesk-button
+        +border-radius(0 10px 10px 0)
+        border-left: solid #CBCBCB 1px
+  .product
+    clear: both
+    padding: 20px 10px
+    &#adobe
+      .detail-box .content li
+        clear: none
+        margin-left: 0
+        padding-right: 8px
+        a
+          width: 140px
+          &.course-prep
+            width: auto
+    &#apple
+      .detail-box .left .content a
+        width: 260px
+        &.course-prep
+          width: auto
+      .detail-box .right .content a
+        width: 315px
+        &.course-prep
+          width: auto
+    .intro
+      font-weight: bold
+      margin-bottom: 14px
+    .detail-box
+      img.logo
+        margin: 10px 0px 10px 81px
+      .left, .right
+        float: left
+        margin-bottom: 30px
+        position: relative
+        .title
+          +background-image(linear-gradient(#D2E49D, #96A862))
+          background-color: #D2E49D
+          padding: 5px 0
+          font-size: 1.05em
+          font-weight: bold
+          text-transform: uppercase
+          text-align: center
+          z-index: 2
+          position: absolute
+          width: 100%
+          top: 0
+        .content
+          z-index: 1
+          +background-image(linear-gradient(#ebe9ec, #b4b4b4))
+          background-color: #EBE9EC
+          padding: 20px 0 10px 0
+          height: 300px
+          position: relative
+          top: 10px
+          width: 100%
+          p
+            padding: 0 10px
+            margin-bottom: 2px
+          ul
+            list-style-type: none
+            padding: 0 0 0 6px
+            margin: 0
+            li
+              float: left
+              margin: 6px 0
+              a
+                text-decoration: none
+                float: left
+                &.course-prep
+                  float: left
+                  width: auto
+                  img
+                    margin: 0
+                img
+                  border: none
+                  vertical-align: middle
+                  margin-right: 6px
+      .left
+        width: 345px
+        .title
+          +border-radius(10px 0 0 10px)
+        .content
+          +border-radius(0 0 0 10px)
+          ul li
+            padding-right: 8px
+            clear: both
+            a
+              width: 100px
+            
+      .right
+        width: 344px
+        border-left: solid #999 1px
+        padding-bottom: 10px
+        .title
+          +border-radius(0 10px 10px 0)
+        .content
+          +border-radius(0 0 10px 0)
+          ul li
+            clear: both
+            margin-left: 16px
+            a
+              width: 100px

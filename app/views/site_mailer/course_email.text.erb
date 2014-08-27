@@ -1,0 +1,26 @@
+Hi <%= @name %>
+
+Overview
+
+<%= @course.name %>
+
+<%= @course.description %>
+
+Level:    <%= @course.level %>
+Duration: <%= @course.duration %> Days
+Time:     10AM - 5PM
+Cost:     <%= display_cost_plaintext(@course) %>
+
+Description
+
+Who is this course for?
+<%= @course.who_for %>
+
+Assumed Knowledge
+<%= @course.assumed_knowledge %>
+
+What you will learn
+<%= @course.you_will_learn %>
+
+Outline
+<%= @course.outline %>

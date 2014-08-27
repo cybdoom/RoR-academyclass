@@ -1,0 +1,34 @@
+= semantic_form_for @video do |f|
+  = f.inputs do
+    = f.input :video_url
+    %li
+      %p.inline-hints
+        e.g. http://player.vimeo.com/video/38089505
+        %br
+        http://tv.adobe.com/embed/903/12632
+        %br
+        http://www.youtube.com/embed/40xSKJq5e-M"
+    %li.download-from-vimeo
+      %label &nbsp;
+      = link_to "Download Details", download_details_videos_path, :class => "button"
+      = image_tag "ajax-loader.gif", :class => "hidden loading-image"
+    = f.input :title
+    = f.input :description
+    = f.input :transcript
+    = f.input :thumbnail, :label => "Thumbnail URL"
+    %li#thumbnail
+      %label &nbsp;
+      - if @video.thumbnail
+        = image_tag @video.thumbnail
+    = f.input :image, :label => "Main image URL"
+    %li#image
+      %label &nbsp;
+      - if @video.image
+        = image_tag @video.image
+    = f.input :free, :hint => "Tick this box if the video can be viewed without being logged in"
+    = f.input :duration, :hint => "in seconds"
+    = f.input :video_products, :hint => "Select this so the video can be found", :input_html => { :multiple => false }, :label => "Product"
+    = f.input :video_tag_types, :as => :check_boxes, :collection => VideoTagType.where(:category => VideoTagType::INSTRUCTOR), :label => "Instructor", :hint => "The instructor presenting the video"
+    = f.input :video_tag_types, :as => :check_boxes, :collection => VideoTagType.where(:category => VideoTagType::USER_GROUP), :label => "User Group", :hint => "Optional"
+    = f.input :video_tag_types, :as => :check_boxes, :collection => VideoTagType.where(:category => VideoTagType::STAFF_PICK), :label => "Staff Pick"
+  = f.actions

@@ -1,0 +1,10 @@
+- content_head do
+  = link_to "Videos", videos_path, :class => "button"
+  = link_to "Add Video", new_video_path, :class => "button"
+  %h2= "#{@type.name} Videos"
+= content_box do
+  %ul.table.sortable#video-tag-members
+    - @type.video_tags.each_with_index do |video_tag, i|
+      %li{:class => cycle(nil, 'alt_row'), :id => "tag_#{video_tag.id}"}
+        .drag-handle h
+        .name= link_to video_tag.video.title, edit_video_path(video_tag.video)

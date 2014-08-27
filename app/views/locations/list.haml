@@ -1,0 +1,20 @@
+- content_head do
+  = link_to "Add Location", new_location_path, :class => "button"
+  %h2 Locations
+= content_box do
+  %ul.table.locations
+    %li.header
+      .title Title
+      .name Name
+      .address Address
+      .latitude Latitude
+      .longitude Longitude
+    - @locations.each do |l|
+      %li{:class => cycle("alt_row","")}
+        .title= l.title
+        .name= l.name
+        .address= l.address
+        .latitude= l.latitude
+        .longitude= l.longitude
+        .edit-link= link_to "Edit", edit_location_path(l)
+        .delete-link= link_to "Delete", location_path(l.id), :confirm => "This will delete all associated course dates too.\n\nAre you sure?", :method => :delete

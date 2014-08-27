@@ -1,0 +1,28 @@
+- content_head do
+  %h2 Add New Survey
+= content_box do
+  = semantic_form_for @survey do |f|
+    = f.inputs do
+      %li.select.required
+        %label{:for => "product"} Product
+        = select_tag "product", options_for_select([["- Select a product -", 0]] + @products.map {|p|[p.name, p.id]})
+      %li.select.required
+        %label{:for => "course"} Course
+        - if @courses
+          = select_tag "course", options_for_select(@courses.map {|c|[c.name, c.id]})
+        - else
+          = select_tag "course", nil, :disabled => "disabled"
+      %li.select.required
+        %label{:for => "dates"} Dates
+        - if @course_dates
+          = select_tag "dates", options_for_select(@course_dates.map {|date| [ display_dates(date) + " in " + date.location.name, date.id]})
+        - else
+          = select_tag "dates", nil, :disabled => "disabled"
+      = f.input :name
+      = f.input :location
+      = f.input :start_date, :as => :string, :input_html => {:class => "datepicker"}
+      = f.input :end_date, :as => :string, :input_html => {:class => "datepicker"}
+      = f.input :trainer
+      - if @surveys.size > 0
+        = f.input :copy_questions_from, :as => :select, :collection => @surveys
+      = f.actions

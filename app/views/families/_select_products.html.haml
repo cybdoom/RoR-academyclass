@@ -1,0 +1,16 @@
+%a{:href => url_for(:controller => :families, :action => :select_product, :id => @family.id), :id => "prioritise-url", :style => "display:none"}
+.course-list
+  %h3 Available Products
+  %ul.sortable.connected-sortable
+    - @products.each do |p|
+      - if !@family.products.include?(p)
+        %li{:id => "product_#{p.id}"}
+          %span.drag-handle [handle]
+          %span.title= h(p.name)
+.course-list
+  %h3 Selected Courses
+  %ul.sortable.connected-sortable.sort-update
+    - @family.products.each do |p|
+      %li{:id => "product_#{p.id}"}
+        %span.drag-handle [handle]
+        %span.title= h(p.name)

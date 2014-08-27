@@ -1,0 +1,19 @@
+= semantic_form_for @product, :html => {:multipart => true} do |f|
+  = f.inputs do
+    = f.input :name
+    = f.input :slug
+    = f.input :video_icon
+    = f.input :free, :hint => "Check to make all videos belonging to this group available to anyone who is logged in"
+    = f.semantic_fields_for :video_product_members do |g|
+      = g.input :sequence, :as => :hidden
+    %li#videos
+      %label Videos
+      %ul.table.sortable#members
+        - @product.video_product_members.each_with_index do |m,i|
+          %li{:class => cycle(nil, 'alt_row'), "data-sequence" => i}
+            
+            .drag-handle h
+            .name= link_to m.video.title, edit_video_path(m.video)
+            .delete= link_to image_tag("admin/cross.png"), video_product_member_path(m), :method => :delete
+      
+  = f.actions

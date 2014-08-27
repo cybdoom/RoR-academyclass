@@ -1,0 +1,1 @@
+ALTER TABLE booking_form ADD first_payment_date DATE

@@ -1,0 +1,16 @@
+Hi <%= @user.name %>
+
+Your access on the Academy Class Online Training Video system has been extended.
+You now have access to the following video subjects:
+
+<%= @user.video_products.map {|vp| vp.name}.join("\n") %>
+
+You can access the videos now at:
+
+<%= videos_home_url %>
+
+and login with the password you were supplied with previously.
+
+Best regards
+
+Academy Class

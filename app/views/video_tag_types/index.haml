@@ -1,0 +1,15 @@
+- content_for :body_id do
+  video-tags
+- [VideoTagType::USER_GROUP, VideoTagType::INSTRUCTOR, VideoTagType::STAFF_PICK].each do |type|
+  - content_head do
+    = link_to "Videos", videos_path, :class => "button"
+    - if current_user.admin?
+      = link_to "Add #{type.capitalize}", new_video_tag_type_path(:category => type), :class => "button"
+    %h2= type.capitalize
+  = content_box do
+    %ul.table
+      - @types.each do |t|
+        - if t.category == type
+          %li{:class => cycle("alt_row","")}
+            .title= link_to t.name, t
+            .edit-link= link_to "Edit", edit_video_tag_type_path(t)

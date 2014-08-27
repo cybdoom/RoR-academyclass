@@ -1,0 +1,9 @@
+.eventBox
+  .header
+    .text= link_to event.name, event, :class => "event_link"
+  .body
+    .img
+      - if event.event_image.file?
+        = link_to image_tag(event.event_image.url), event, :class => "event_link"
+    .text= link_to text_for_event_box(event), event, :class => "event_link"
+  .footer

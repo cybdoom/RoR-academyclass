@@ -1,0 +1,77 @@
+!!! 5
+%html{html_attrs}
+  
+  %head
+    %link{:rel=>"icon", :href=>"/images/favicon.ico", :type=>"image/x-icon"}
+    %title= yield(:meta_title)
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+    %meta{:name => "description", :content => yield(:meta_description) || ""}
+    %meta{:name => "keywords", :content => yield(:meta_keywords) || ""}
+    %meta{:name => "copyright", :content => "Copyright Academy Class Ltd - 2012"}
+    = render partial: "shared/smart_code"
+    = javascript_include_tag 'application', 'http://widgets.twimg.com/j/2/widget.js'
+    = stylesheet_link_tag 'application'
+    = csrf_meta_tag
+    = yield(:head)
+  
+  %body{:id => body_tag_id}
+    #mainbody
+      = render :partial => "shared/menu"
+      = render 'shared/banners'
+      .float-social-box
+        = image_tag 'background-number.png', class: 'phone-background'
+        = link_to(image_tag('envelope.png'), "#newsletter-form", id: "popup-newsletter")
+        = link_to(image_tag('twitter.png'), 'http://twitter.com/academyclass', target: '_blank', id: 'twitter')
+        = link_to(image_tag('facebook.png'), 'http://www.facebook.com/AcademyClass', target: '_blank', id: 'facebook')
+        %span{class: 'calltracks_academyclass-main'}
+          0800 043 8889
+      #main-content
+        = yield
+        - unless @page == "home" || @page == "product"
+          = render '/shared/partner_logos'
+        #footerSitemap
+          %ul
+            - footer_products.each do |link|
+              %li
+                = link_to link.product.url do
+                  = link.product.name
+                  %span.grey Training Courses
+      #cross-sell-column
+        = link_to image_tag('http://www.thediscdirectory.co.uk/honour/?id=8400977&style=6'), 'http://www.thediscdirectory.co.uk/8400977', :target => "_blank"
+        #social-media-icons
+          = link_to image_tag("icons/facebook.png", :title => 'Facebook'), "http://www.facebook.com/AcademyClass", :target => "_blank"
+          = link_to image_tag("icons/twitter.jpg", :title => 'Twitter'), "http://twitter.com/#!/academyclass", :target => "_blank"
+          = link_to image_tag("icons/newsletter-subscribe.png", :title => 'Subscribe to the newsletter'), '#newsletter-form', :rel => 'facebox'
+        .event-link= link_to image_tag("/static_banners/mpu215x450.jpg", :alt => "Designer's Fiesta"), "http://www.designersfiesta.com", :target => "_blank"
+        #top-courses
+          %h2 Top Courses
+          %ol
+            - top_courses.each do |t|
+              %li= link_to t.display_name, t.course.url
+        = link_to 'Tweets by @academyclass', 'https://twitter.com/academyclass', :class => 'twitter-timeline', 'data-widget-id' => '326605627679981568', 'data-link-color' => '#665e66'
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+        .event-link= link_to image_tag("cross_sell_images/ac_club_banner.jpg", :alt => "Academy Class Club"), ac_club_path
+        .event-link= link_to image_tag("cross_sell_images/creative-licence-banner.jpg"), creative_licence_path
+        .crossSellBox
+          %object{:type => "application/x-shockwave-flash", :data => "/video/testimonial.swf", :height => "300", :width => "215"}
+            %param{:name => "allowScriptAccess", :value => "sameDomain"}
+            %param{:name => "allowNetworking", :value => "all"}
+            %param{:name => "allowFullScreen", :value => "false"}
+            %param{:name => "movie", :value => "/video/testimonial.swf"}
+            %param{:name => "quality", :value => "high"}
+            %param{:name => "wmode", :value => "transparent"}
+            %param{:name => "bgcolor", :value => "#FFFFFF"}
+      #footer
+        %p
+          All information is copyright&copy; to Academy Class 2006 - 2012.
+          %br
+          %a{:href => "/terms_and_conditions"} Website Terms
+          %a{:href => "/privacy_policy"} Privacy Policy
+          %a{:href => "/terms_of_business"} Terms of Business
+    #newsletter-form{:style => "display:none"}= render :partial => "email_logs/newsletter_subscription"
+    = render :partial => "shared/google_analytics"
+    = render :partial => "shared/crazy_egg"
+    = yield :javascripts
+    = javascript_include_tag 'sessioncam'
+    = javascript_include_tag '//d2.calltracks.com/calltracks_web_number_dynamics/loader.js'

@@ -1,0 +1,7 @@
+- content_head do
+  %h2 New Survey Product
+= content_box do
+  %p Add another product which survey participants may be interested in attending (e.g. Adobe Photoshop)
+  = semantic_form_for @survey_product do |f|
+    = f.inputs
+    = f.actions

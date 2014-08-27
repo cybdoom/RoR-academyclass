@@ -1,0 +1,26 @@
+- content_for :head do
+  %title How did you hear about Academy Class?
+#referrer
+  = image_tag "/i/265250/default_new_header.jpg", :alt => "Header"
+  - if @response
+    - if @response.success
+      %h1 Your payment has completed successfully
+    - else
+      %h1 Payment failure
+    %WPDISPLAY{:ITEM => "banner"}
+  - if !@response || @response.success
+    %h2 How did you hear about Academy Class?
+    = semantic_form_for @referrer, :url => referrers_url do |f|
+      %ul
+        - ["Google", "Hotcourses", "Facebook", "Adobe", "Apple", "Autodesk"].each do |r|
+          %li
+            %label
+              = f.radio_button :referrer, r
+              = r
+        %li
+          %label
+            = radio_button_tag "referrer[referrer]", "Other", false
+            Other:
+          = f.text_field :referrer
+        %li
+          = f.submit "Submit"

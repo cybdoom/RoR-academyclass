@@ -1,0 +1,22 @@
+#palette
+  #title-bar
+    #login
+      - if current_user
+        %span= link_to(current_user.name.blank? ? current_user.username : current_user.name, logout_path)
+      - else
+        = link_to "Login", '#video-login-box', :rel => "facebox"
+    = render :partial => "videos/menu"
+  #videos-left-panel= render :partial => 'sidebar'   
+  #main-feature
+    - if has_permission?(@video, current_user)
+      %iframe{:src => @video.video_url, :width => 640, :height => 480, :frameborder => 0, :webkitAllowFullScreen => "webkitAllowFullScreen", :mozallowfullscreen => "mozallowfullscreen", :allowFullScreen => "allowFullScreen"}
+    - elsif @video
+      You do not have permission to view this video.
+    - else
+      No videos found
+  #latest-videos
+    %h4 Latest Videos
+    %ul= render :partial => "featured", :collection => featured_videos
+- unless current_user
+  .hidden
+    #video-login-box= render :partial => "login"

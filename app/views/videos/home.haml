@@ -1,0 +1,7 @@
+- content_for :meta_title do
+  Online Training Videos
+
+- @video = featured_videos.first.video
+- @playlist = @video.video_products.first.videos.includes(:video_products)
+
+= render :partial => "video"

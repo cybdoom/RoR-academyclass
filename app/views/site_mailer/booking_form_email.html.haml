@@ -1,0 +1,22 @@
+!!!
+%html{html_attrs('en')}
+  %head
+    %meta{'http-equiv' => 'Content-Type', :content => 'text/html;charset=utf-8'}/
+  %body
+    - if @booking_form.lsm
+      %h1 Your Love Social Media booking form is ready
+    - else
+      %h1 Your Academy Class booking form is ready
+    %p Please click the link below to check your booking details are correct and to make payment.
+    %p= link_to "Check and pay for your #{@booking_form.lsm ? "Love Social Media" : "Academy Class"} booking", booking_form_url(@booking_form, :p => @booking_form.password)
+    %p
+      - if @booking_form.lsm
+        %table
+          %tr
+            %td= image_tag "header_images/love-social-media.jpg"
+            %td
+              Love Social Media
+              %br/
+              = link_to "training@lovesocialmedia.com", "mailto:training@lovesocialmedia.com"
+      - else
+        %img{:src => "http://www.academyclass.com/images/email/footer.jpg", :width => "700", :height => "217", :border => "0"}

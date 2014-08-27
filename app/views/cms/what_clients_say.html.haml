@@ -1,0 +1,39 @@
+- content_for :breadcrumbs do
+  = link_to "Home", root_path
+  = breadcrumb_link_to "About Us", "/aboutus"
+  = breadcrumb_link_to "What Clients Say", "/aboutus/what-clients-say"
+- content_for :meta_keywords do
+  Clients Say, Testimonials, Feedback, Responses, Endorsements, Kudos
+- content_for :meta_description do
+  We think we're pretty good at what we do and the services we offer. Here's what some of our clients have said about training with Academy Class.
+- content_for :meta_title do
+  Client Testimonials | What our Clients say | Academy Class
+#template
+  %h1 Testimonials
+  %p.intro
+    We think we're pretty good at what we do and the services we offer.
+    %br
+    Here's what some of our clients have said about training with Academy Class:
+  %ul#testimonials
+    - @testimonials.each_with_index do |t,i|
+      %li
+        .photo
+          - if t.photo.file?
+            = image_tag t.photo.url(:normal)
+          .info
+            = t.name
+            %br
+            = t.company
+        %div{:class => "client_testimonial#{cycle(" highlight", "")}"}
+          = image_tag(i % 2 == 0 ? "testimonials/arrow-highlight.png" : "testimonials/arrow.png")
+          .quote= h t.quote
+          - if t.case_study.file? || t.video
+            .info
+              - if t.case_study.file?
+                = link_to t.case_study.url do
+                  = image_tag "testimonials/pdf.png"
+                  Case study
+              - if !t.video.nil? && t.video.strip.length > 0
+                = link_to testimonial_video_path(t.id), :rel => "facebox" do
+                  = image_tag "testimonials/play.png"
+                  Play the video

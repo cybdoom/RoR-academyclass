@@ -1,0 +1,21 @@
+- content_head do
+  %h2 Modify menu group
+= content_box do
+  = render :partial => "form"
+
+
+- content_head do
+  = link_to "Add menu item", new_menu_item_path(:menu_group_id => @group.id), :class => "button"
+  %h2 Menu items
+= content_box do
+  = link_to "", sort_menu_items_path(:menu_group_id => @group.id), :id => "prioritise-url", :style => "display:none"
+  %ul.sortable.connected-sortable.sort-update.table#menu-items
+    - @group.menu_items.each do |item|
+      %li{:id => "menu_item_#{item.id}", :class => cycle('', 'alt_row')}
+        .drag-handle [handle]
+        .title
+          - unless item.logo.blank?
+            = image_tag item.logo.url(:icon), style: "width: 15px; height: 15px;"
+          = item.label
+        .edit-link= link_to "Edit", edit_menu_item_path(item)
+        .delete-link= link_to "Delete", item, :confirm => "Are you sure?", :method => :delete

@@ -1,0 +1,74 @@
+%p
+  %label Main Contact
+  = @booking.contact_name
+%p
+  %label Email
+  = @booking.email
+- unless @booking.telephone.blank?
+  %p
+    %label Telephone
+    = @booking.telephone
+- unless @booking.company.blank?
+  %p
+    %label Company
+    = @booking.company
+- unless @booking.address.blank?
+  %p
+    %label Address
+    = @booking.address
+- unless @booking.postcode.blank?
+  %p
+    %label Postcode
+    = @booking.postcode
+%p
+  %label Booking Number
+  = @booking.filemaker_code
+%p
+  %label Vendor
+  = @booking.lsm ? 'Love Social Media' : 'Academy Class'
+%p
+  %label Sales Contact
+  = @booking.salesperson
+- if @booking.split_payment?
+  %p
+    %label Payment schedule
+    = booking_payment_schedule
+%ul.delegates
+  %li.header
+    .name Delegate
+    - if show_delegate_email
+      .email Email
+    .location Location
+    .course Course Title
+    .dates Dates
+    .platform Platform
+    .price Price
+  - @booking.delegates.each do |d|
+    %li
+      .name= d.name
+      - if show_delegate_email
+        .email= d.email.blank? ? raw("&nbsp;") : truncate(d.email, :length => 30)
+      .location= d.course_location
+      .course= d.course_name
+      .dates
+        - if d.start_date == d.end_date
+          = d.start_date.strftime("%d %b")
+        - else 
+          = d.start_date.strftime("%d %b")
+          to
+          = d.end_date.strftime("%d %b")
+      .platform= display_platform(d)
+      .price= number_to_currency d.price, :unit => "£"
+  %li.totals
+    .total Total (excluding VAT)
+    .price= number_to_currency @booking.total_ex_vat, :unit => "£"
+  %li
+    .total= "VAT @ #{@booking.vat}%"
+    .price= number_to_currency @booking.vat_rate * @booking.total_ex_vat, :unit => "£"
+  %li
+    .total Total (including VAT)
+    .price= number_to_currency @booking.total, :unit => "£"
+.validity
+  This booking form will be valid until
+  = @booking.valid_to.strftime("%A %d %B %Y")
+%p All prices are in &pound;GBP

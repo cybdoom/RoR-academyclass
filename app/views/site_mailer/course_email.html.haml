@@ -1,0 +1,58 @@
+!!!
+%html{html_attrs('en')}
+  %head
+    %meta{'http-equiv' => 'Content-Type', :content => 'text/html;charset=utf-8'}/
+    %title= "Course Details #{@course.name}"
+  %body{:style => "background-color: #5C5C5C"}
+    %div{:style => "width:100%; background-color: #5C5C5C;", :align => "center"}
+      %table{:width => "700", :border => "0", :cellpadding => "0", :cellspacing => "0", :style => "font-size:0px;" }
+        %tbody
+          %tr
+            %td
+              %img{:src => "http://www.academyclass.com/images/email/header.jpg", :width => "700", :height => "116", :border => "0"}
+          %tr
+            %td{:style => "color: #333; background-color: #FFF; font-family: arial, 'lucida console', sans-serif; width: 660px; padding: 10px 20px 10px 20px; font-size: 12px; text-align: left;"}
+              .course_box_title{:style => "margin:10px 0px; text-align: left; line-height: 38px;"}
+                - if @course.logo.file?
+                  %img.image{:src => "http://www.academyclass.com/#{@course.logo.url(:tiny)}", :alt => "Academy Class Small Product Logo", :style => "width: 38px; height: 38px"}
+                %span{:style => "margin:10px 0px; font-size: 16px; text-align: left; color: #383838; text-transform: uppercase"}= @course.name
+              %h1{:style => "margin:10px 0px; font-size: 18px; text-align: left; color: #71A500;"} Overview
+              .desc=raw textilize @course.overview
+              %table.spec
+                %tr
+                  %th Level:
+                  %td.data= @course.level
+                %tr
+                  %th Duration:
+                  %td.data
+                    = @course.duration
+                    %small Days
+                %tr
+                  %th Time:
+                  %td.data
+                    10
+                    %small AM
+                    \- 5 
+                    %small PM
+                %tr
+                  %th Cost:
+                  %td.data=raw display_cost(@course)
+              %h1{:style => "margin:10px 0px; font-size: 18px; text-align: left; color: #71A500;"} Description
+              %p
+                %strong Overview
+              %p=raw textilize @course.description
+              %p
+                %strong Who is this course for?
+              %p=raw textilize @course.who_for
+              %p 
+                %strong Assumed Knowledge
+              %p=raw textilize @course.assumed_knowledge
+              %p
+                %strong What you will learn
+              %p=raw textilize @course.you_will_learn
+              %h1{:style => "margin:10px 0px; font-size: 18px; text-align: left; color: #71A500;"} Outline
+              =raw textilize @course.outline
+          %tr
+            %td
+              %img{:src => "http://www.academyclass.com/images/email/footer.jpg", :width => "700", :height => "217", :border => "0"}
+              

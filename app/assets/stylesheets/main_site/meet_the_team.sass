@@ -1,0 +1,47 @@
+@import compass
+
+#template.meet-the-team
+  .hidden
+    opacity: 0
+    display: none
+  #button-bar
+    +border-radius(10px)
+    div
+      color: #CBCBCB
+      float: left
+      width: 281px
+      padding: 5px 15px
+      font-size: 1.2em
+      +background-image(linear-gradient(#575757, #000))
+      +text-shadow(#FFFF00)
+      cursor: pointer
+      &.selected
+        color: #343C26
+        +background-image(linear-gradient(#D2E49D, #96A862))
+      &:hover
+        color: #343C26
+        +background-image(linear-gradient(#D2E49D, #96A862))
+        
+      &#trainer
+        +border-radius(10px 0 0 10px)
+      &#office-staff
+        +border-radius(0 10px 10px 0)
+  ul#trainer-content, ul#office-staff-content
+    margin: 5px 0 0 0
+    padding: 0
+    clear: both
+    float: left
+    list-style-type: none
+    li
+      float: left
+      margin: 5px 5px 0 0
+      img:hover
+        opacity: 0.7
+  .instructorBox
+    float: left
+    clear: both
+    margin: 20px 0 0 0
+    h2
+      font-size: 1.6em
+      color: #000
+      font-weight: bold

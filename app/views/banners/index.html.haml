@@ -1,0 +1,20 @@
+- content_head do
+  = link_to "Add Banner", new_banner_path, :class => "button"
+  %h2 Banners
+= content_box do
+  %a{:href => url_for(:controller => :prioritise, :action => :update), :id => "prioritise-url", :style => "display:none"}
+  %ul.table.banners.sortable.sort-update
+    %li.header
+      .position Pos
+      .alt_text Alt Text
+      .url URL
+      .new_window New Window?
+    - @banners.each do |b|
+      %li{:class => cycle("alt_row",""), :id => "Banner_#{b.id}"}
+        .drag-handle [handle]
+        .position= b.position
+        .alt_text= b.alt_text
+        .url= b.url
+        .new_window= b.open_in_new_window?
+        .edit-link= link_to "Edit", edit_banner_path(b)
+        .delete-link= link_to "Delete", banner_path(b.id), :confirm => "Are you sure?", :method => :delete

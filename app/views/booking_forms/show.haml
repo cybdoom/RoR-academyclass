@@ -1,0 +1,115 @@
+- content_for :head do
+  = javascript_include_tag "booking_forms"
+  = stylesheet_link_tag "booking_form"
+  - if Rails.env.production?
+    :javascript
+      pageTracker._trackPageview('/goal/view-booking-form');
+  %title= @booking.lsm? ? "Love Social Media Booking Form" : "Academy Class Course Booking Form"
+- content_for :body_class do
+  = @booking.lsm? ? 'lsm' : nil
+- if @booking.lsm?
+  = image_tag "header_images/love-social-media.jpg", :class => 'header-image'
+- else
+  = image_tag "header_images/default_new_header.jpg", :alt => "Header"
+- if flash[:error]
+  #error= flash[:error]
+- if flash[:info]
+  #info= flash[:info]
+%h1 Course Booking Form
+.download-link
+  = link_to download_booking_form_path(@booking, :format => :pdf, :p => @booking.password) do
+    = image_tag 'pdf/download.png'
+    Download PDF
+%h2 Invoice
+= render :partial => "display"  
+%p= link_to "Terms of business", '#terms-of-business', :rel => "facebox"
+- if @booking.can_be_paid?
+  .confirm
+    %h2 Check the booking form details
+    %p Please check all of the above details are correct, paying particular attention to the delegates, course location and dates are accurate.
+  .buttons
+    - if @booking.allow_invoice || @booking.require_response?
+      %input{:type => "button", :name => "accurate", :value => "OK - Confirm booking", :id => "accurate_1"}
+      %input{:type => "button", :name => "accurate", :value => "A change is required", :id => "accurate_0"}
+    - else
+      = form_for @booking do |f|
+        = hidden_field_tag "invoice", 0
+        = f.hidden_field :password
+        = f.submit "OK - Confirm Your Booking"
+        %input{:type => "button", :name => "accurate", :value => "A change is required", :id => "accurate_0"}
+  #change.selection-box
+    %h2 Booking Form Amendment Required
+    %p Please describe the required change below, the appropriate change will be made and you'll be sent an updated booking form with the details amended appropriately.
+    = semantic_form_for BookingAmendment.new(:booking_form => @booking) do |f|
+      = f.inputs do
+        = f.input :description, :label => false
+        = f.input :booking_form_id, :as => :hidden
+        = hidden_field_tag "password", @booking.password
+      = f.actions do
+        = f.action :submit, :label => "Send amendment request"
+  #payment.selection-box
+    = form_for @booking do |f|
+      = hidden_field_tag "invoice", 0
+      = f.hidden_field :password
+      - if @booking.require_response?
+        = render :partial => "booking_forms/response", :locals => {:f => f}
+      - if @booking.allow_invoice
+        %h2 Please choose a method of payment
+        .payment-option.first
+          %h3 Invoice
+          %p Enter course purchase approval information:
+          = f.fields_for :booking_approval do |a|
+            .input
+              = a.label :po_number
+              = a.text_field :po_number
+            .input
+              = a.label :company_number
+              = a.text_field :company_number
+            .input
+              = a.label :name
+              = a.text_field :name
+            .input
+              = a.label :email
+              = a.email_field :email
+            .input
+              = a.label :phone
+              = a.text_field :phone
+            .input
+              = a.label :job_title
+              = a.text_field :job_title
+          %p.terms Please note in line with out Terms and Conditions all invoices must be paid in full 14 days after completion of the training.
+          = f.submit "Invoice me", :class => 'choose-invoice'
+        .payment-option
+          %h3 Online Credit Card payment
+          %p= f.submit "Proceed to online payment"
+      - else
+        %h2 Make payment
+        %p= f.submit "Proceed to online payment"
+    .clear
+  #cards= javascript_include_tag "https://secure.wp3.rbsworldpay.com/wcc/logo?instId=#{WORLDPAY_INSTALLATION_ID}"
+#company-details
+  %h3 Company Details
+  - if @booking.lsm
+    %p Love Social Media is part of the Academy Class Group:
+  %table
+    %tr
+      %th Company name
+      %td Academy Class Limited
+    %tr
+      %th Company address
+      %td Elizabeth House, 39 York Road, SE1 7NQ
+    %tr
+      %th Registered office
+      %td Elizabeth House, 39 York Road, SE1 7NQ
+    %tr
+      %th Registration number
+      %td 05878400
+    %tr
+      %th Contact phone number
+      %td
+        %span.calltracks_academyclass-main 0800 043 8889
+    %tr
+      %th Contact email address
+      %td= link_to "training@academyclass.com", "mailto:training@academyclass.com"
+.footer= image_tag "partner_logos.png"
+.hidden#terms-of-business= render template: 'cms/terms_of_business'

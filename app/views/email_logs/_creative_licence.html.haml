@@ -1,0 +1,21 @@
+%h3 Creative Licence Enquiry
+%label Received
+= @email.created_at.strftime("%d %B %Y %H:%M")
+%h3 Contact Information
+%ul
+  %li
+    %label Name:
+    = @email.name
+  %li
+    %label Email: 
+    = link_to @email.email, "mailto:#{@email.email}"
+  %li
+    %label Phone:
+    = @email.phone
+  %li
+    %label Level:
+    = @email.subject
+  %li
+    %label Enquiry:
+    %em= @email.enquiry
+  %li= render :partial => "salesperson"

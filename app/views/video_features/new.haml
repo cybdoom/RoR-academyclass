@@ -1,0 +1,5 @@
+= semantic_form_for @feature do |f|
+  = f.inputs do
+    = f.input :video, :collection => Video.where("id NOT IN (SELECT video_id FROM video_features)").order("title")
+  = f.actions do
+    = f.action :submit, :label => "Add Featured Video"

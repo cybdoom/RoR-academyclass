@@ -1,0 +1,24 @@
+- content_head do
+  = link_to "Add Course", new_course_path, :class => "button"
+  = link_to "Full Export", csv_courses_full_path(:format => "csv"), :class => "button"
+  = link_to "Course Dates Export", csv_courses_path(:format => "csv"), :class => "button"
+  %h2 Courses
+= content_box do
+  %ul.letters
+    - (["0-9"] + ("A".."Z").to_a).each do |letter|
+      %li= link_to_if letter != @letter, letter, courses_path(:letter => letter)
+  %ul.table.courses
+    %li.header
+      .title Name
+      .xml Published
+      .qa_category QA Category
+      .cost Cost
+    - @courses.each do |c|
+      %li{:class => cycle("alt_row","")}
+        .image=raw c.logo.file? ? image_tag(c.logo.url(:tiny)) : "&nbsp;"
+        .title= c.name
+        .xml= c.publish_xml ? "Y" : "N"
+        .qa_category= c.qa_category
+        .cost=raw display_cost c
+        .edit-link= link_to "Edit", edit_course_path(c)
+        .delete-link= link_to "Delete", course_path(c.id, :page => @page), :confirm => "This will delete all associated course dates too.\n\nAre you sure?", :method => :delete

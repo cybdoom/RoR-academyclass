@@ -1,0 +1,8 @@
+%div{:id => "outline_#{course.id}", :style => "display:none"}
+  %table.course_details
+    %tr
+      %td
+        = textilize course.outline
+      %td
+        = render :partial => "products/spec", :locals => {:course => course, :page => page}
+        = render :partial => "products/locations", :locals => {:course => course, :page => page}

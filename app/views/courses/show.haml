@@ -1,0 +1,95 @@
+- content_for :meta_title do
+  = "#{@product.product_parent.name} #{@product.name} Training | #{@product.product_parent.name} Courses | Training Course"
+- course = @course
+#main-content
+  .course_information{"data-page-tracker" => "#{@product.product_parent.encode_name}-#{@product.encode_name}"}
+    .header
+      - if course.logo.file?
+        = image_tag course.logo.url(:tiny), :class => "image", :alt => "Academy Class Small Product Logo"
+      %h2{:id => course.anchor}= course.name
+    .data-container
+      .left-column
+        .course-image
+          = image_tag course.palette_image.file? ? course.palette_image.url : "temp-image.jpg"
+      .right-column
+        %h3= course.name
+        %p
+          Learn
+          = course.name
+          and get certified as an
+          = course.name
+          Certified Associate and Certified Professional in our professional grade training suite.
+        %h3 What's included:
+        %ul.whats-included
+          %li Course Materials
+          %li.right Class Lectures
+          %li Luncheon vouchers
+          %li.right 90 day support
+        %ul.course-details
+          %li.level_text
+            %span.title Level:
+            %span.value= course.level
+            %span.course_level{:class => "course_level_#{course.level_number}"}= course.level_number
+          %li.time
+            %span.title Time:
+            %span.value 9:30 AM - 4:30 PM
+          %li.duration
+            %span.title Duration:
+            %span.value= pluralize(course.duration, "Day")
+          %li.hours
+            %span.title Hours:
+            %span.value= pluralize(course.hours, "Hour")
+          %li.cost
+            %span.title Cost:
+            %span.value=raw display_cost(course)
+      .date-picker= render :partial => "products/choose_date", :locals => {:course => course}
+      .course-enquire
+        %h4
+          %span Enquire below for free
+          (It only takes 30 seconds!)
+        %form{:action => "#"}
+          .locations
+            .heading 1. Choose location
+            %input{:type => "hidden", :name => "course_enquiry[location]", :title => "Please Enter Your Location"}
+            .map
+              = image_tag 'course_outline_box/map.png'
+              = link_to 'London', '#', :class => "map_marker_London", :title => "London"
+              = link_to 'Glasgow', '#', :class => "map_marker_Glasgow", :title => "Glasgow"
+              = link_to 'Manchester', '#', :class => "map_marker_Manchester", :title => "Manchester"
+          .dates
+            .heading 2. Choose date
+          .info
+            .heading 3. Contact information
+            %label Your Name:
+            %input{:type => "text", :name => "course_enquiry[name]", :title => "Please Enter Your name"}
+            %label Your Email:
+            %input{:type => "text", :name => "course_enquiry[email]", :title => "Please Enter Your Email Address"}
+            %label Your Phone:
+            %input{:type => "text", :name => "course_enquiry[phone]", :title => "Please Enter Your Phone Number"}
+          .enquiry
+            .heading 4. Your enquiry
+            %label Your Enquiry:
+            %textarea{:name => "course_enquiry[enquiry]"}
+            .checkbox
+              %input{:type => "checkbox", :value => "all", :name => "course_enquiry[opt_in]"}
+              %small Enquire for the other courses at the same time?
+  
+          .submit
+            .success{:id => "enquire_result_#{course.id}"}
+            = link_to "Enquire Now", "#", :id => "submit_enquiry_#{course.id}"
+#cross-sell-column
+  #call-free
+    Call Free on
+    #phone
+      %span.calltracks_academyclass-main 0800 043 8889
+  #course-pdf
+    = link_to course_path(course, :format => :pdf) do
+      Download
+      %br
+      Course PDF
+  #course-summary
+    %h3 Course Summary
+    =raw textilize course.overview
+#call-us
+  Call us on 
+  %span.calltracks_academyclass-main 0800 043 8889

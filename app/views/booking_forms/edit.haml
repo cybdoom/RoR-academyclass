@@ -1,0 +1,99 @@
+- content_head do
+  = link_to "Back to Booking Forms", booking_forms_path, :class => "button"
+  %h2 Booking Form Details
+= content_box do
+  #booking-form
+    #customer-link
+      Customer Link:
+      = link_to booking_form_url(@booking, :p => @booking.password), booking_form_path(@booking, :p => @booking.password)
+    %p
+      %label Current Status
+      = @booking.status_name
+    = render :partial => "display"
+    - if @booking.booking_amendment
+      #amendment-request
+        %h3 Amendment Request
+        %p The customer has requested the following amendment to their booking:
+        %pre= @booking.booking_amendment.description
+  #payments
+    %h3 Payments
+    %p Payment attempts for this booking. Failed and cancelled payments will be shown here, as well as any successful payment
+    %ul.table.booking-payment-responses
+      %li.header
+        .created Date
+        .success Success
+        .status Status
+        .amount Amount
+        .message Message
+      - if @booking.payment_responses.empty?
+        %li None
+      - @booking.payment_responses.each do |c|
+        %li{:class => c.success ? "success" : "failure"}
+          .created= link_to c.created_at.strftime('%d %B %Y %H:%M'), payment_response_path(c)
+          .success= link_to c.success ? "Yes" : "No", payment_response_path(c)
+          .status= link_to c.transaction_status, payment_response_path(c)
+          .amount= c.auth_amount.nil? ? "n/a" : link_to(number_to_currency(c.auth_amount, :unit => "&pound;"), payment_response_path(c))
+          .message= link_to c.processed_message, payment_response_path(c)
+  - if @booking.booking_approval
+    #booking_approval
+      %h3 Booking Approval
+      %ul
+        %li
+          %label Customer PO Number
+          = @booking.booking_approval.po_number
+        %li
+          %label Company Number
+          = @booking.booking_approval.company_number
+        %li
+          %label Name
+          = @booking.booking_approval.name
+        %li
+          %label Job Title
+          = @booking.booking_approval.job_title
+        %li
+          %label Email
+          = @booking.booking_approval.email
+        %li
+          %label Phone
+          = @booking.booking_approval.phone
+  - if @booking.booking_form_response
+    #booking_form_response
+      %h3 Answers
+      %ul
+        %li
+          %label Address for the training to take place
+          = @booking.booking_form_response.address
+        %li
+          %label Address to send the books to
+          = @booking.booking_form_response.delivery_address.blank? ? @booking.booking_form_response.address : @booking.booking_form_response.delivery_address
+        %li
+          %label Contact name
+          = @booking.booking_form_response.contact_name
+        %li
+          %label Contact phone
+          = @booking.booking_form_response.contact_phone
+        %li
+          %label Proof of ID required?
+          = @booking.booking_form_response.proof_of_id ? "Yes" : "No"
+        %li
+          %label Projector available?
+          = @booking.booking_form_response.projector ? "Yes" : "No"
+        %li
+          %label Software installed?
+          = @booking.booking_form_response.software_installed ? "Yes" : "No"
+        %li
+          %label Latest software version?
+          = @booking.booking_form_response.latest_version ? "Yes" : "No"
+        - if !@booking.booking_form_response.latest_version
+          %li
+            %label Software version details
+            = @booking.booking_form_response.software_details
+        %li
+          %label Machine provided for the instructor?
+          = @booking.booking_form_response.instructor_machine ? "Yes" : "No"
+        %li
+          %label Lunch provided for the instructor?
+          = @booking.booking_form_response.lunch_provided ? "Yes" : "No"
+        %li
+          %label Further comments
+          = @booking.booking_form_response.comments

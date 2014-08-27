@@ -1,0 +1,28 @@
+- content_for :body_id do
+  videos
+- content_head do
+  = link_to "Tags", video_tag_types_path, :class => "button"
+  - if current_user.admin?
+    = link_to "Products", video_products_path, :class => "button"
+    = link_to "Featured Videos", video_features_path, :class => "button"
+  = link_to "Add Video", new_video_path, :class => "button"
+  %h2 Videos
+= content_box do
+  %ul.letters
+    - (["0-9"] + ("A".."Z").to_a).each do |letter|
+      %li= link_to_if letter != @letter, letter, videos_path(:letter => letter)
+  = will_paginate(@videos)
+  %ul.table
+    %li.header
+      .thumbnail &nbsp;
+      .title Title
+      .products Product
+      .duration Duration
+    - @videos.each do |v|
+      %li{:class => cycle(nil, "alt_row")}
+        .thumbnail= v.thumbnail ? image_tag(v.thumbnail) : "no image"
+        .title= link_to v.title, edit_video_path(v)
+        .products= v.video_products.map {|p| p.name}.join(", ") || "&nbsp;"
+        .duration= v.length
+        .delete= link_to image_tag("admin/cross.png"), v
+  = will_paginate(@videos)

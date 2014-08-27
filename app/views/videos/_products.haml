@@ -1,0 +1,14 @@
+#bottom-box
+  = image_tag "icons/left_arrow.png", :id => 'scroll-left', :class => "scroll-button"
+  #scroller
+    %ul
+      - @products.each do |p|
+        - if p.first_video_id
+          %li
+            - if p.video_icon.file?
+              = link_to full_video_path(p.first_video, p) do
+                = image_tag(p.video_icon.url(:normal), :alt => p.name)
+                %label= p.name
+            - else
+              = link_to p.name, full_video_path(p.first_video, p)
+  = image_tag "icons/right_arrow.png", :id => 'scroll-right', :class => "scroll-button"

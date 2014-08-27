@@ -1,0 +1,14 @@
+Hello
+
+A new enquiry has been made for a course.
+The details are:
+
+Course: <%= @enquiry.course.name %>
+Name: <%= @enquiry.name %>
+Email: <%= @enquiry.email %>
+Phone: <%= @enquiry.phone %>
+Location: <%= @enquiry.location %>
+Date: <%= @enquiry.date %>
+Enquiry: <%= @enquiry.enquiry %>
+<% if @enquiry.opt_in %>Interested in all product courses<% end %>
+

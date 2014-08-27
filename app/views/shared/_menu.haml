@@ -1,0 +1,67 @@
+- cache 'menu' do
+  %ul#top-nav
+    %li= image_tag "menu/menu_left.png"
+    %li#home= link_to "Home", root_path
+    %li#training-courses
+      = link_to "Training Courses", training_path
+      .menu.dropdown{"data-menu" => 0}
+        - menu_items.each do |column|
+          %ul
+            - column.each_with_index do |group, i|
+              %li.title{:class => "title-#{i}"}= link_to group.label, group.url
+              - group.menu_items.each do |item|
+                - a_content = item.label
+                - a_content = image_tag(item.logo(:icon)) + item.label unless item.logo.blank?
+                %li
+                  = link_to a_content, item.url
+    %li#training-packages
+      = link_to "Training Packages", "#"
+      .menu.dropdown{"data-menu" => 1}
+        %ul
+          %li.title.title-0= link_to "Access All Areas", "/images/access-all-areas-pass.png", :rel => 'facebox'
+          %li= link_to "All our courses for 12 months", "/images/access-all-areas-pass.png", :rel => 'facebox'
+          %li.title= link_to "Training Vouchers", "/images/training-vouchers.png", :rel => 'facebox'
+          %li= link_to "Train your whole team", "/images/training-vouchers.png", :rel => 'facebox'
+          %li.title= link_to "I Want To Become", parent_pages_path(name: "I-Want-To-Become")
+          %li= link_to "A Designer", training_product_path("A-Designer", product_parent: "I-Want-To-Become")
+          %li= link_to "A Web Designer", training_product_path("A-Web-Designer", product_parent: "I-Want-To-Become")
+          %li= link_to "A Web Developer", training_product_path("A-Web-Developer", product_parent: "I-Want-To-Become")
+          %li= link_to "A 3D Animator", training_product_path("A-3D-Animator", product_parent: "I-Want-To-Become")
+          %li= link_to "A CAD Visualiser", training_product_path("A-CAD-Visualiser", product_parent: "I-Want-To-Become")
+          %li= link_to "A Digital Publisher", training_product_path("A-Digital-Publisher", product_parent: "I-Want-To-Become")
+          %li= link_to "An E-Learning Specialist", training_product_path("An-eLearning-Specialist", product_parent: "I-Want-To-Become")
+          %li= link_to "An Interactive Designer", training_product_path("An-Interactive-Designer", product_parent: "I-Want-To-Become")
+          %li= link_to "A Mobile Application Developer", training_product_path("A-Mobile-Application-Developer", product_parent: "I-Want-To-Become")
+          %li= link_to "A Social Media Manager", training_product_path("A-Social-Media-Manager", product_parent: "I-Want-To-Become")
+          %li= link_to "A Video Production Specialist", training_product_path("A-Video-Production-Specialist", product_parent: "I-Want-To-Become")
+          %li= link_to "An Interior Designer", training_product_path("An-Interior-Designer", product_parent: "I-Want-To-Become")
+
+        %ul
+          %li.title.title-0= link_to "Jumpstart", family_path("zero-to-hero-jumpstarts")
+          - menu_jumpstarts.each do |product|
+            - label = product[3] ? product[3] : product[0]
+            %li= link_to label, training_product_path(url_encode(product[0].gsub(/ /, '-')), :product_parent => product[1], :anchor => product[2])
+    %li#certification
+      = link_to "Certification", certifications_path
+      .menu.dropdown
+        %ul
+          %li= link_to "Adobe", certifications_path(:anchor => 'adobe')
+          %li= link_to "Autodesk", certifications_path(:anchor => 'autodesk')
+          %li= link_to "Apple", certifications_path(:anchor => 'apple')
+    %li#videos
+      = link_to "Videos", videos_home_path
+    %li#about_us
+      = link_to "About Us", aboutus_path
+      .menu.dropdown
+        %ul{"data-menu" => 2}
+          %li= link_to "Locations", locations_path
+          %li= link_to "Meet the Instructors", meet_the_instructors_path
+          %li= link_to "Testimonials", what_clients_say_path
+          %li= link_to "Twitter Feed", tweets_path
+          %li= link_to "Events", events_path
+    %li#contact-us= link_to "Contact Us", contact_path
+    %li#search
+      = form_tag search_path do
+        = text_field_tag "q", "Search Here", :title => "Search for courses"
+        = image_submit_tag "subscribe_button.png", :alt => "Search", :id => "search-submit"
+    %li= image_tag "menu/menu_right.png"

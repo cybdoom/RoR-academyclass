@@ -1,0 +1,10 @@
+- content_for :breadcrumbs do
+  = link_to "Home", root_path
+  = breadcrumb_link_to "Terms and conditions", :controller => :cms, :action => :terms_and_conditions
+- content_for :meta_keywords do
+  Terms and Conditions, Terms, Conditions
+- content_for :meta_description do
+  Academy Class website terms and conditions
+- content_for :meta_title do
+  Academy Class - Terms and Conditions
+#template=raw textilize Page.find_by_name('terms and conditions').content

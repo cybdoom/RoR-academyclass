@@ -1,0 +1,17 @@
+- content_head do
+  %h2 Questions
+= content_box do
+  %p You can delete questions when they are removed from all surveys
+  %ul.table.questions
+    %li.header
+      .section Section
+      .question Question
+      .type Type
+      .delete-link
+    - @questions.each do |q|
+      %li{:class => cycle("alt_row","")}
+        .section= link_to q.section || "", question_path(q)
+        .question= link_to q.question, question_path(q)
+        .type= link_to q.type_name, question_path(q)
+        - if q.survey_questions.size == 0
+          .delete-link= link_to "Delete", question_path(q), :method => :delete, :confirm => "Are you sure you want to delete this question?"

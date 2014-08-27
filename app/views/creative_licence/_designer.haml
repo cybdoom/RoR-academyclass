@@ -1,0 +1,88 @@
+= image_tag "creative_licence/become-a-designer.png", :class => "image"
+- %w(illustrator indesign photoshop).each do |d|
+  = image_tag "creative_licence/designer/#{d}-0-0.jpg", :alt => d, :class => 'switch-image', :id => "designer-#{d}-0-0"
+  = image_tag "creative_licence/designer/#{d}-0-1.jpg", :alt => d, :class => 'switch-image', :id => "designer-#{d}-0-1"
+  = image_tag "creative_licence/designer/#{d}-1-0.jpg", :alt => d, :class => 'switch-image', :id => "designer-#{d}-1-0"
+= image_tag "creative_licence/designer/photoshop-1-1.jpg", :alt => "photoshop", :class => 'switch-image', :id => "designer-photoshop-1-1"
+%h3 Become A Designer
+%p.description Academy Class is the new media training company of choice for creatives and developers in UK and beyond. We're passionate about encouraging creativity, building online communities and encouraging innovation. Do you want to be a film and TV editor, graphic designer, or computer games developers? Or an architect using the latest package in computer-aided design (CAD) and 3D? Perhaps you're interested in learning web design and development?
+= image_tag "creative_licence/designer/photoshop-1-1.jpg", :class => "creative-licence-image"
+%h4 What you will learn
+%ul.submenu
+  %li#photoshop.selected Photoshop
+  %li#illustrator Illustrator
+  %li#indesign InDesign
+.subcontent#photoshop-subcontent
+  %p Adobe Photoshop is a popular graphic design and photo enhancement program that is both powerful and versatile. You may be wondering what exactly it is and why it would be worth learning. Take this magazine page on the right for example. Use the buttons below to show the elements done in Photoshop.      
+  .switch-panel
+    .number 1. 
+    .switch.active
+      .label.on ON
+      .button-box
+        .button
+      .label.off OFF
+    .title Recolouring
+  %p Create selections quickly and apply any kind of changes to any part of photographs or illustrations.
+  .switch-panel
+    .number 2.
+    .switch.active
+      .label.on ON
+      .button-box
+        .button
+      .label.off OFF
+    .title Adding special effects
+  %p You can spice up your designs with special effects and merge images together.
+.subcontent#illustrator-subcontent{:style => "display: none"}
+  %p Adobe Illustrator helps you create distinctive vector artwork for any project. You may be wondering what exactly it is and why it would be worth learning. Take this magazine page on the right for example. Use the buttons below to show the elements done in Illustrator.
+  .switch-panel
+    .number 1. 
+    .switch.active
+      .label.on ON
+      .button-box
+        .button
+      .label.off OFF
+    .title Decorative elements
+  %p Make your designs dynamic by using flowing vector shapes and keep control over them easily.
+  .switch-panel
+    .number 2.
+    .switch.active
+      .label.on ON
+      .button-box
+        .button
+      .label.off OFF
+    .title 3D and 2D effects
+  %p Be creative and use Illustrator’s vector and raster effects to easily create stunning graphic elements.
+.subcontent#indesign-subcontent{:style => "display: none"}
+  %p Adobe InDesign lets you design engaging page layouts for print or digital distribution with precise control over typography.You may be wondering what exactly it is and why it would be worth learning. Take this magazine page on the right for example. Use the buttons below to show the elements done in InDesign.
+  .switch-panel
+    .number 1. 
+    .switch.active
+      .label.on ON
+      .button-box
+        .button
+      .label.off OFF
+    .title Text wrap
+  %p Wrap text around your photos and illustrations easily. You can quickly create interaction between images and text.
+  .switch-panel
+    .number 2.
+    .switch.active
+      .label.on ON
+      .button-box
+        .button
+      .label.off OFF
+    .title Typography
+  %p InDesign has endless options to make your text look professional. Use drop caps, running headers, paragraph and character styles, etc.
+.save-big
+  = image_tag "creative_licence/buy-big-save-big.png"
+  .separate-price
+    .title SEPARATE PRICE
+    .price &pound;3183
+    .vat ex VAT
+  .licence-price
+    .title CREATIVE LICENCE PRICE
+    .price &pound;2247
+    .vat ex VAT
+  .saving
+    .title SAVING
+    .price &pound;936
+    .vat ex VAT

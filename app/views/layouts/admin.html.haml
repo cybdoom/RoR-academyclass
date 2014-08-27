@@ -1,0 +1,48 @@
+!!! 5
+%html{html_attrs}
+  %head
+    %meta{"http-equiv" => "content-type", :content => "text/html;charset=UTF-8"}
+    %title Academy Class Administration
+    = javascript_include_tag "admin"
+    = stylesheet_link_tag "admin", "/stylesheets/markitup/skins/markitup/style", "/javascripts/sets/textile/style"
+    = csrf_meta_tag
+    = yield :head
+  %body{:id => yield(:body_id)}
+    #header
+      #top-nav
+        %ul
+          %li= link_to "Goto Site", root_path
+          %li= link_to "Logout", logout_path
+      %h1= link_to "Academy Class Admin", admin_root_path
+    #content
+      #side-nav
+        - if current_user && current_user.backend_access?
+          %ul.main-menu
+            - if current_user.admin?
+              %li= link_to "Product Families", families_path
+              %li= link_to "Product Manufacturers", product_parents_path
+              %li= link_to "Products", products_path
+              %li= link_to "Courses", courses_path
+              %li= link_to "Banners", banners_path
+              %li= link_to "Footer Links", footer_links_path
+              %li= link_to "Testimonials", testimonials_path
+              %li= link_to "Pages", pages_path
+              %li= link_to "Top Courses", top_courses_path
+              %li= link_to "Events", events_list_path
+              %li= link_to "Files", uploads_path
+              %li= link_to "Staff", instructors_path
+              %li= link_to "Locations", list_locations_path
+              %li= link_to "Surveys", surveys_path
+              %li= link_to "Email Enquiries", email_logs_path
+              %li= link_to "Videos", videos_path
+              %li= link_to "Referrers", referrers_path
+              %li= link_to "Training Courses Menu", menu_groups_path
+              %li= link_to "News Pages", news_pages_path
+            %li= link_to "Videos", videos_path
+            %li= link_to "Users", users_path
+            - if current_user.sales? || current_user.admin?
+              %li= link_to "Bookings", booking_forms_path
+      #main-content
+        .wrapper
+          =raw display_flash
+          = yield

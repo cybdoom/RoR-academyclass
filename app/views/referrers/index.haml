@@ -1,0 +1,14 @@
+- content_head do
+  %h2 How are people finding our site?
+= content_box do
+  %p This table shows how people claim they're finding the Academy Class website
+  %ul.table.referrers
+    %li.header
+      .referrer Referrer
+      .count Count
+      .percent Percent
+    - @referrers.each_pair do |referrer,count|
+      %li{:class => cycle("alt_row","")}
+        .referrer= referrer
+        .count= count
+        .percent= @total > 0 ? "#{((count / @total) * 100).round}%" : "0%"

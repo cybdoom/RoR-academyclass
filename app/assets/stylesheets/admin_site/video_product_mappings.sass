@@ -1,0 +1,38 @@
+@import compass
+
+body#video-product-mappings
+  ul.table
+    li
+      .course_name
+        width: 50%
+      .video_product
+        overflow: visible
+        width: 50%
+        position: relative
+        .video-product-options
+          overflow: visible
+          height: auto
+          width: auto
+          z-index: 3
+          line-height: 20px
+          position: absolute
+          top: -2px
+          left: -2px
+          border: solid #999 1px
+          background-color: #EEE
+          +box-shadow(#CCC, 3px, 3px, 5px)
+          li
+            height: auto
+            padding: 0
+            a
+              padding: 2px
+              display: block
+              &:hover
+                background-color: #DDD
+  p
+    margin-bottom: 0.5em
+    strong
+      font-weight: bold
+
+  #video-products
+    display: none

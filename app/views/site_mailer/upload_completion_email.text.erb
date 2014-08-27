@@ -1,0 +1,10 @@
+Hi <%= @name %>
+
+The Academy Class user upload has completed. There were <%= @upload_count %> new users successfully created.
+
+<% if @errors.blank? %>
+No errors
+<% else %>
+The following errors were found:
+<%= @errors %>
+<% end %>

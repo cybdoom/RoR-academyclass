@@ -1,0 +1,4 @@
+= semantic_form_for @upload, :html => { :multipart => true } do |f|
+  = f.inputs do
+    = f.input :file, :as => :file
+  = f.actions

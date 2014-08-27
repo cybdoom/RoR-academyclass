@@ -1,0 +1,260 @@
+@import compass
+@import "compass/css3/user-interface"
+
+body#video-palette
+  #mainbody #main-content
+    width: auto
+  #palette
+    width: 955px
+    height: 657px
+    position: relative
+    #title-bar
+      height: 41px
+      padding: 0 0 0 15px
+      text-transform: uppercase
+      +border-radius(10px)
+      +background-image(linear-gradient(#CCD26A, #8DA036))
+      background-color: #CCD26A
+      +single-text-shadow(#000, 0, 0, 10px)
+      color: #FFF
+      #login
+        float: right
+        font-size: 1.4em
+        margin-right: 30px
+        text-indent: 0
+        padding-top: 7px
+        a
+          color: #FFF
+          text-decoration: none
+      ul
+        li
+          float: left
+          padding: 6px 20px
+          font-size: 1.6em
+          border-right: solid #FFF 1px
+          background: transparent image-url('videos/expand-arrow.png') no-repeat 10px 16px
+          text-indent: 10px
+          ul
+            display: none
+          a
+            color: #FFF
+            text-decoration: none
+          &.has-dropdown
+            cursor: pointer
+            &:hover
+              ul
+                top: 37px
+                z-index: 5
+                display: block
+                position: absolute
+                background-color: #8DA036
+                margin: 0
+                padding: 0 0 5px 0
+                li
+                  background: none
+                  text-indent: 0
+                  float: none
+                  font-size: 0.7em
+                  padding: 0
+                  border-right: none
+                  a
+                    padding: 4px 8px
+                    display: block
+                    &:hover
+                      background-color: #CCD26A
+      h1
+        color: #383838
+        font-family: "DIN-RegularRegular",arial,"lucida console",sans-serif
+    #videos-left-panel
+      position: absolute
+      top: 55px
+      left: 0
+      width: 300px
+      .title
+        padding: 5px 10px
+        border-bottom: solid #FFF 1px
+        background-color: #343434
+        &.ui-state-active .arrow
+          background: #343434 image-url('videos/arrow-sprite.png') no-repeat 0 0
+          width: 12px
+          height: 10px
+        .arrow
+          margin-top: 4px
+          float: right
+          background: #343434 image-url('videos/arrow-sprite.png') no-repeat 0 -12px
+          width: 10px
+          height: 12px
+          overflow: hidden
+        h2
+          text-transform: none
+          font-family: arial, "lucida console", sans-serif
+          margin: 0
+          padding: 0 8px 0 0
+          line-height: 1.2em
+          a
+            text-decoration: none
+            color: #D4F643
+        h3
+          font-weight: normal
+          font-size: 1.1em
+          margin-bottom: 0
+          a
+            text-decoration: none
+            color: #FFF
+      .video-content-box
+        background-color: #868686
+        width: 300px
+        margin: 0
+        height: 510px
+        .description
+          color: #FFF
+          padding: 5px 10px
+          height: 500px
+          overflow-x: hidden
+          overflow-y: scroll
+          +user-select(none)
+        .listing
+          height: 479px
+          overflow-x: hidden
+          overflow-y: scroll
+          width: 300px
+          ul
+            float: left
+            list-style-type: none
+            width: 300px
+            height: 479px
+            margin: 5px 0 0 0
+            padding: 0
+            li
+              margin: 0 0 8px 11px
+              float: left
+              width: 133px
+              position: relative
+              height: 120px
+              &.viewed
+                a
+                  color: #CCC
+              &:hover
+                p
+                  position: absolute
+                  top: 20px
+                  left: 0
+                  height: 50px
+                  background-color: #000
+                  +opacity(0.7)
+                  a
+                    display: block
+                    height: 50px
+              &.member-only
+                a
+                  cursor: default
+                .member-only-overlay, .member-only-text
+                  display: block
+              .member-only-overlay
+                +opacity(0.8)
+                background-color: red
+              .member-only-overlay, .member-only-text
+                display: none
+                position: absolute
+                top: 0
+                left: 0
+                width: 133px
+                height: 18px
+                color: #FFF
+                text-align: center
+                padding-top: 1px
+              p
+                margin: 0
+                height: 18px
+                display: block
+                overflow: hidden
+                padding: 2px
+                width: 129px
+              a
+                text-decoration: none
+                color: #FFF
+                img
+                  border: none
+                  width: 133px
+                  height: 96px
+    #main-feature
+      position: absolute
+      top: 55px
+      left: 313px
+      width: 640px
+      height: 520px
+      
+    #latest-videos
+      background-color: #343434
+      width: 640px
+      height: 117px
+      position: absolute
+      top: 540px
+      left: 313px
+      overflow: hidden
+      h4
+        font-family: arial, "lucida console", sans-serif
+        color: #D4F643
+        margin: 0 0 0 5px
+      ul
+        margin: 0
+        padding: 0
+        li
+          float: left
+          margin: 0 2px 0 2px
+          padding: 5px
+          background-color: #868686
+          width: 75px
+          height: 73px
+          overflow: hidden
+          position: relative              
+          p:hover a
+            position: absolute
+            left: 5px
+            bottom: 0
+            padding-right: 5px
+          a
+            background-color: #868686
+            font-size: 1em
+            color: #FFF
+            text-decoration: none
+            img
+              width: 75px
+              height: 55px
+              border: none
+                
+  #social-media-icons
+    margin: 20px 0
+    text-align: right
+    line-height: 76px
+    #phone
+      font-size: 3em
+      margin-right: 10px
+      font-family: "DIN-RegularRegular",arial,"lucida console",sans-serif
+      color: #6F6F6F
+      line-height: 1em
+      vertical-align: bottom
+    a
+      margin-right: 10px
+      img
+        vertical-align: bottom
+
+  #facebox
+    form.user_session.formtastic
+      margin-bottom: 20px
+      border-bottom: solid #999 1px
+      padding-bottom: 10px
+      li
+        .label
+          float: left
+          width: 100px
+        &.error
+          display: none
+          color: red
+      fieldset.actions
+        li
+          float: left
+          clear: none
+          width: auto
+          #loading
+            display: none

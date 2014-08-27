@@ -1,0 +1,55 @@
+@import "compass/css3"
+
+$flash_border_color: #DDD
+$success_color: rgb(85, 102, 82)
+$success_bg_color: rgb(213, 255, 206)
+$success_border_color: rgb(154, 223, 143)
+
+$notice_color: rgb(88, 91, 102)
+$notice_bg_color: rgb(219, 227, 255)
+$notice_border_color: rgb(162, 180, 238)
+
+$error_color: rgb(102, 82, 82)
+$error_bg_color: rgb(255, 206, 206)
+$error_border_color: rgb(223, 143, 143)
+
+=flash-base
+  padding: .8em .8em .8em 3em
+  margin-bottom: 1em
+  border: 2px "solid" $flash_border_color
+  +border-radius(6px)
+  background: no-repeat 10px 10px
+
+=error
+  +flash-base
+  background-color: $error_bg_color 
+  color: $error_color
+  border-color: $error_border_color
+  background-image: image-url("admin/cross_circle.png")
+  a
+    color: $error_color
+
+=notice
+  +flash-base
+  background-color: $notice_bg_color
+  color: $notice_color
+  border-color: $notice_border_color
+  background-image: image-url("admin/information.png")
+  a
+    color: $notice_color
+
+=success
+  +flash-base
+  background-color: $success_bg_color
+  color: $success_color
+  border-color: $success_border_color
+  background-image: image-url("admin/tick_circle.png")
+  a
+    color: $success_color
+    
+.flash-success
+  +success
+.flash-notice
+  +notice
+.flash-error
+  +error

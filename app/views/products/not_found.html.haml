@@ -1,0 +1,33 @@
+- content_for :breadcrumbs do
+  = link_to "Home", root_path
+  = breadcrumb_link_to "#{@name} Training Courses", request.path
+
+- content_for :meta_keywords do
+  = "Course, Training, Details, #{@parent}, #{@name}, Price, Date, Location"
+
+- content_for :meta_description do
+  = "#{@parent} #{@name} training courses from Academy Class. Authorised #{@parent} training in London, Glasgow, Manchester, Leeds, Cardiff, Newcastle and Birmingham."
+
+- content_for :meta_title do
+  = "#{@parent} #{@name} Training | #{@parent} Courses | Training Course"
+
+#coursesContainer
+  #productImage.productImage{:style => "float:right"}
+    %object{:type => "application/x-shockwave-flash", :allowScriptAccess => "never", :allowNetworking => "all", :height => "110", :width => "110", :data => "/images/product_icons/software-logo-default.swf"}
+      %param{:name => "allowScriptAccess", :value => "sameDomain"}
+      %param{:name => "allowNetworking", :value => "all"}
+      %param{:name => "allowFullScreen", :value => "false"}
+      %param{:name => "movie", :value => "/images/product_icons/software-logo-default.swf"}
+      %param{:name => "quality", :value => "high"}
+      %param{:name => "wmode", :value => "transparent"}
+      %param{:name => "bgcolor", :value => "#FFFFFF"}
+  %h1
+    %strong
+      = @parent
+      = @name
+    Training Courses
+  .course_names
+  #description
+    %strong= "Unfortunately we have no courses for #{@parent} #{@name}."
+    This may be due to the system being updated.
+    If you would like to know if we can support this course please contact us and make a request.

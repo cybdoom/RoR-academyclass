@@ -1,0 +1,55 @@
+- content_for :breadcrumbs do
+  = link_to "Home", root_path
+  = breadcrumb_link_to "Training", "/training"
+  = breadcrumb_link_to "Private Training", "/training/private-training"
+  
+- content_for :meta_keywords do
+  Private Training, Personal, Custom, Group, Onsite, Remote
+  
+- content_for :meta_description do
+  Custom training courses from Academy Class. When you have a group that needs additional skills with web, print and/or video applications, a custom class will allow you to quickly train your staff according to your specific needs and requirements without restrictions faced in public, scheduled classes.
+  
+- content_for :meta_title do
+  Custom Training Classes | Bespoke Training Courses | Academy Class
+
+#template
+  = image_tag "template_images/private-training.png", :class => "logo"
+  %h1 Custom Training Classes
+  %p.intro If your needs don't quite fit those of our scheduled courses then a customised solution might be the best bet for you. Custom training is ideal for those whose skills, needs or circumstances fall outside the more generic structure of a regular course.
+  %p Custom Private and Group Training: When you have a group that needs additional skills with web, print and/or video applications, a custom class will allow you to quickly train your staff according to your specific needs and requirements without restrictions faced in public, scheduled classes. Custom Private Onsite / or on our site Group Training will present your team with the best opportunity to gain valuable user knowledge as pertaining to your workflow and projects. The result is an increasingly efficient team, understanding best practices with the software components you have chosen for your business model.
+  %p What are the advantages of CUSTOM PRIVATE GROUP TRAINING from Academy Class?
+  %ul
+    %li Training can be done either onsite or in a remote  location, limiting travel expenses and time out of the office. (we can deliver  training at no extra charge at our offices also)
+    %li Training can be designed to incorporate projects  from your current workflow.
+    %li The course curriculum is customized with the help  from our instructor to meet your special needs, requirements and expectations.
+    %li Your course outline is personalized for your  group according to their skill level. 
+    %li Books and materials are hand-selected by the  instructor according to your custom outline and your needs analysis. 
+    %li Scheduling class dates are more flexible.
+    %li Students can freely share company information  among the group during training.
+    %li Training will be completed with an evaluation  program to ensure all goals and objectives have been achieved and certificates  of completion are awarded to each student. 
+  %p At Academy Class we have a proven and systematic process to make sure your class is customized and target-focused. We also have a systematic process to evaluate and ensure success. This is why our clients continue to return for additional services.
+  %p 
+    To request a price quote for your on-site training needs call us at 
+    %span.calltracks_academyclass-main 0800 043 8889
+    or email <a href='mailto:training@academyclass.com'>training@academyclass.com</a>.
+  %h1 Onsite training classes
+  %h2 Can't Make it to an Academy Class? We'll come to you!
+  %p We routinely send our instructors around the globe to conduct private, customized training courses on-site with companies.
+  %p Enjoy the comfort and convenience of on-site training. We can then tailor our courses to your specific development needs. It is also a very cost effective way to get your entire group up to date in the latest technology. No matter where your company is based, Academy Class will travel the distance to bring the training to you.
+  %p Learning at your office has several advantages:
+  %ul
+    %li We can customize the training with your project in mind 
+    %li Your group will save training pounds with on-site training 
+    %li More flexibility with your schedule. We can set up on-site training when you decide, not by our public schedule. 
+  %p For courses held at client sites, Academy Class provides  all student materials including student guides and necessary textbooks. The  client is responsible for providing the training venue including computer  hardware and software required for laboratory sessions although custom courses  can also be delivered at our own location.. Course delivery is scheduled by  mutual agreement in accordance with the availability of Academy Class  instructors and the requirements of the client company. On-site training by  Academy Class can tailor the class to match the job duties of your employees,  and even incorporate your exact software files (or database, applications,  etc.). With our help, we can highlight the areas from our courseware you want  to emphasize and remove the topics that don't apply to your situation. Each  hour of training will be focused on your needs, not what the courseware offers.
+  %p
+    To request a price quote for your on-site training needs call us at 
+    %span.calltracks_academyclass-main 0800 043 8889
+    or email <a href='mailto:training@academyclass.com'>training@academyclass.com</a>.
+  %table{:border => "0", :cellpadding => "5"}
+    %tr
+      - @products.each do |list|
+        %td{:valign => "top"}
+          %ul
+            - list.each do |p|
+              %li= h p.name

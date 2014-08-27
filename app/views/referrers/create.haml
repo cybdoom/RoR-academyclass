@@ -1,0 +1,9 @@
+- content_for :head do
+  = stylesheet_link_tag "booking_form"
+  = javascript_include_tag "booking_forms"
+  %title How did you hear about Academy Class?
+#referrer
+  = image_tag "header_images/default_new_header.jpg", :alt => "Header"
+  %h1 Thank You
+  %p Your answer has been recorded.
+  %p= link_to "Click here to return to the Academy Class website", root_path

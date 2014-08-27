@@ -1,0 +1,23 @@
+- content_head do
+  = link_to "Add Sale Item", new_sale_product_path, :class => "button"
+  = link_to "Purchases", purchases_path, :class => "button"
+  %h2 Inventory
+= content_box do
+  %a{:href => url_for(:controller => :prioritise, :action => :update), :id => "prioritise-url", :style => "display:none"}
+  %ul.table#sale-products.sortable.sort-update
+    %li.header
+      .title Product Name
+      .price Price
+      .sold Sold
+      .active Active
+    - if @products.empty?
+      %li
+        %em There are none
+    - @products.each do |p|
+      %li{:class => cycle("alt_row",""), :id => "SaleProduct_#{p.id}"}
+        .drag-handle [handle]
+        .title= p.name
+        .price= number_to_currency(p.price, :unit => "&pound")
+        .sold= p.purchases_count
+        .active= p.active ? image_tag("admin/tick_circle.png", :alt => "Yes") : image_tag("admin/cross_circle.png", :alt => "No")
+        .edit-link= link_to "Edit", edit_sale_product_path(p)

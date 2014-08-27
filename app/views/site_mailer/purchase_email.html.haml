@@ -1,0 +1,19 @@
+%p
+  Hello
+  = @purchase.name
+
+%p
+  Thank you for your recent purchase of
+  = @purchase.sale_product.name
+  from Academy Class.
+
+%p
+  Your card has been charged
+  = number_to_currency(@purchase.sale_product.price, :unit => "&pound;")
+  
+%p Instructions for completing your download follow:
+
+=raw textilize(@purchase.sale_product.download_instructions)
+
+%p Thanks you for your business.
+%p Academy Class

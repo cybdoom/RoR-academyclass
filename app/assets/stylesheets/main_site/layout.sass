@@ -1,0 +1,92 @@
+@import compass
+@import "blueprint/scaffolding"
+
+//
+  *********************** Partner Logos ***************************
+
+$adobe_partner_width: 25px
+$autodesk_partner_width: 79px
+$quark_partner_width: 28px
+$apple_partner_width: 28px
+
+$adobe_partner_margin_width: 77px
+$autodesk_partner_margin_width: 22px
+$quark_partner_margin_width: 17px
+$apple_partner_margin_width: 16px
+
+#PartnerLogos
+  background: transparent image-url("partner-logo-divider.png") no-repeat
+  height: 89px
+  margin-bottom: 1em
+  clear: left
+  padding: 20px 0 0 10px
+  ul
+    +horizontal-list
+    background: transparent image-url("partner_logos.png") no-repeat 0 0
+    height: 44px
+    a, span, li
+      padding: 0
+      height: 44px
+      display: block
+      text-indent: -9999px
+    li
+      _display: inline
+    #partner-adobe
+      margin-left: $adobe_partner_margin_width
+      width: $adobe_partner_width
+      a
+        width: $adobe_partner_width
+    #partner-autodesk
+      margin-left: $autodesk_partner_margin_width
+      width: $autodesk_partner_width
+      a
+        width: $autodesk_partner_width
+    #partner-quark
+      margin-left: $quark_partner_margin_width
+      width: $quark_partner_width
+      a
+        width: $quark_partner_width
+    #partner-apple
+      margin-left: $apple_partner_margin_width
+      width: $apple_partner_width
+      a
+        width: $apple_partner_width
+
+//
+  *********************** Footer Links ***************************
+  
+#footerSitemap
+  +container
+  +column(18, last)
+  color: #ffffff
+  background-color: #4e4e4e
+  +border-radius
+  padding: 10px 0
+  ul
+    +column(18, last)
+    +no-bullets
+    margin-bottom: 0
+    padding-left: 1.5em
+    li
+      font-size: .8em
+      display: inline
+      float: left
+      margin: 0
+      width: 220px
+      a
+        color: #ffffff
+        +hover-link
+
+.flash-message
+  border: 2px solid #80FF00
+  font-weight: bold
+  padding: 5px
+  margin-bottom: 5px
+  background: #9CFF9B
+  
+.flash-error
+  border: solid red 2px
+  font-weight: bold
+  padding: 5px
+  margin-bottom: 5px
+  color: red

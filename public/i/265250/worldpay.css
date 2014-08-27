@@ -1,0 +1,46 @@
+body {
+  font-family: arial, "lucida console", sans-serif;
+  font-size: 12px;
+  background: #5c5c5c url(/i/265250/background-gradient.gif) repeat-x;
+  margin: 0;
+}
+/* line 25, sass/worldpay.sass */
+body h1 {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #71a500;
+  font-family: arial, "lucida console", sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+/* line 32, sass/worldpay.sass */
+body h2 {
+  font-size: 1.3em;
+  color: #6f6f6f;
+  font-family: arial, "lucida console", sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+/* line 39, sass/worldpay.sass */
+body #mainbody {
+  width: 950px;
+  margin: 0 auto;
+  overflow: hidden;
+  *zoom: 1;
+  background-color: white;
+  padding: 10px 20px;
+}
+
+/* line 43, sass/worldpay.sass */
+body {
+  font-size: 16px;
+}
+
+/* line 49, sass/worldpay.sass */
+#referrer ul {
+  list-style-type: none;
+}
+/* line 51, sass/worldpay.sass */
+#referrer ul li {
+  padding: 4px 0;
+}

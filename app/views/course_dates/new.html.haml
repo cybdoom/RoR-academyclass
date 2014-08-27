@@ -1,0 +1,14 @@
+- content_head do
+  %h2 New Course Date
+= content_box do
+  = semantic_form_for @course_date do |f|
+    = f.inputs do
+      = f.input :course_id, :as => :hidden
+      = f.input :location, :as => :radio
+      = f.input :start_date, :as => :string, :input_html => {:class => "datepicker"}
+      = f.input :end_date, :as => :string, :input_html => {:class => "datepicker"}
+      = f.input :total_seats
+      = f.input :seats_sold
+    = f.actions do
+      = f.action :submit, :label => "Create Course Date"
+= link_to "Back to Course", edit_course_path(@course_date.course)

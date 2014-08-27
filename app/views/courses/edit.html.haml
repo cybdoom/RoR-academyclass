@@ -1,0 +1,16 @@
+- content_head do
+  = link_to image_tag("admin/page.png"), "#course-urls", :rel => "facebox", :class => "icon"
+  %h2 Update Course
+= content_box do
+  =render :partial => "form"
+- content_head do
+  = link_to "Add Date", new_course_date_path(:course_id => @course.id), :class => "button"
+  %h2 Courses Dates
+= content_box do
+  =render :partial => "dates"
+.popup-wrapper
+  #course-urls
+    %h2 Course Landing Pages
+    %ul
+      - @course.products.each do |product|
+        %li= link_to course_product_parent_url(@course, :course => slugify(@course.name), :product => slugify(product.name), :product_parent => slugify(product.product_parent.name)), course_product_parent_path(@course, :course => slugify(@course.name), :product => slugify(product.name), :product_parent => slugify(product.product_parent.name))

@@ -1,0 +1,21 @@
+- content_for :body_id do
+  video-products
+- content_head do
+  = link_to "Add Product", new_video_product_path, :class => "button"
+  = link_to "Tags", video_tag_types_path, :class => "button"
+  = link_to "Course Mappings", course_booking_mappings_path, :class => "button"
+  = link_to "Videos", videos_path, :class => "button"
+  %h2 Videos
+= content_box do
+  %ul.table
+    %li.header
+      .icon &nbsp;
+      .name Name
+      .free Free
+      .videos Videos
+    - @products.each do |v|
+      %li{:class => cycle(nil, "alt_row")}
+        .icon= v.video_icon.file? ? image_tag(v.video_icon.url(:normal)) : "no image"
+        .name= link_to v.name, edit_video_product_path(v)
+        .free= v.free ? "Yes" : "No"
+        .videos= v.videos.count

@@ -1,0 +1,45 @@
+- content_head do
+  = link_to "View responses", survey_responses_path(:survey => @survey.id), :class => "button"
+  %h2 Modify Survey
+= content_box do
+  %a{:href => "/survey_questions/update?survey=#{@survey.id}", :id => "prioritise-url", :style => "display:none"}
+  %p
+    The URL for completing this survey is:
+    = link_to survey_url(@survey),survey_url(@survey)
+  = semantic_form_for @survey do |f|
+    = f.inputs do
+      %li 
+        %label Course
+        = @survey.name
+      %li
+        %label Location
+        = @survey.location
+      %li
+        %label Course dates
+        = display_dates @survey
+      = f.input :trainer
+    = f.actions
+
+  %h3 Questions
+  %ul.question-list.table.sortable.sort-update
+    %li.header
+      .label
+      .question Question Text
+      .question-type Type
+    - last_section = nil
+    - @survey_questions.each_with_index do |q,i|
+      - if q.question.section != last_section || i == 0
+        %li.section-title
+          .section-title
+            %h2= q.question.section.blank? ? "No section title" : h(q.question.section)
+      - last_section = q.question.section
+      %li.question{:class => cycle("", "alt_row"), :id => "SurveyQuestion_#{q.id}"}
+        .drag-handle [handle]
+        .question-section= h q.question.section
+        .label= "Question #{i+1}"
+        = hidden_field_tag "survey_question_id", q.id
+        .question= h q.question.question
+        .question-type= q.question.type_name
+        .delete.remove-question
+  %a{:href => "#add-questions", :rel => "facebox"} Add questions
+= render :partial => "questions"

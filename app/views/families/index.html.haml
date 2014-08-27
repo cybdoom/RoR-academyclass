@@ -1,0 +1,16 @@
+- content_head do
+  = link_to "Add Family", new_family_path, :class => "button"
+  %h2 Product Families
+%a{:href => url_for(:controller => :prioritise, :action => :update), :id => "prioritise-url", :style => "display:none"}
+= content_box do
+  %ul.table.sortable.sort-update#families
+    %li.header
+      .title Family Name ( Product Count )
+    - @families.each do |f|
+      %li{:class => cycle("alt_row",""), :id => "Family_#{f.id}"}
+        .drag-handle [handle]
+        .image= image_tag(f.family_image.url)
+        .title= h(f.name) + " ( #{f.products.size} products )"
+        .edit-link= link_to "Edit", edit_family_path(f)
+        .delete-link= link_to "Delete", f, :confirm => "Are you sure?", :method => :delete
+

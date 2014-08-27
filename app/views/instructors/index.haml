@@ -1,0 +1,16 @@
+- content_head do
+  = link_to "Add Staff", new_instructor_path, :class => "button"
+  %h2 Staff
+= content_box do
+  %ul.table.instructors
+    %li.header
+      .image Image
+      .name Name
+      .type Type
+    - @instructors.each do |c|
+      %li{:class => cycle("alt_row","")}
+        .image= c.avatar.file? ? image_tag(c.avatar.url) : nil
+        .name= c.name
+        .type= c.type_name
+        .edit-link= link_to "Edit", edit_instructor_path(c)
+        .delete-link= link_to "Delete", instructor_path(c.id), :confirm => "Are you sure?", :method => :delete

@@ -1,0 +1,1 @@
+ALTER TABLE booking_delegate ADD email VARCHAR(255);

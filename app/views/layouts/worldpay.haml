@@ -1,0 +1,12 @@
+!!! Strict
+%html{html_attrs}
+  %head
+    %link{:rel=>"icon", :href=>"/i/#{WORLDPAY_INSTALLATION_ID}/favicon.ico", :type=>"image/x-icon"}
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+    %meta{:name => "copyright", :content => "Copyright Academy Class Ltd - 2009"}
+    = stylesheet_link_tag "/i/#{WORLDPAY_INSTALLATION_ID}/worldpay.css"
+    = yield(:head)
+  %body{:id => body_tag_id}
+    #mainbody
+      #main-content
+        = yield

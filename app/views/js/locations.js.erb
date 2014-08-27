@@ -1,0 +1,19 @@
+var map;
+
+function buildMap() {
+  if (GBrowserIsCompatible()) {
+  	map = new GMap2(document.getElementById("map"));
+  	map.setUIToDefault();
+  	<% @locations.each do |l| %>
+  	  map.addOverlay(new GMarker(new GLatLng(<%=l.longitude%>, <%=l.latitude%>)));
+    <% end %>
+    map.setCenter(new GLatLng(53.383328, -1.691895), 5);
+  }
+}
+
+function showMap(id, lat,long) {
+    map.setZoom(15);
+    map.panTo(new GLatLng(long,lat));
+    var m = document.getElementById("map_" + id);
+    m.style.display=m.style.display == "none" ? "" : "none";
+}

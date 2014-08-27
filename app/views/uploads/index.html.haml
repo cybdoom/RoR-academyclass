@@ -1,0 +1,15 @@
+- content_head do
+  = link_to "Add File", new_upload_path, :class => "button"
+  %h2 Files
+= content_box do
+  %ul.table.files
+    %li.header
+      .name Name
+      .url URL
+      .size Size
+    - @uploads.each do |c|
+      %li{:class => cycle("alt_row","")}
+        .name= h(c.file_file_name)
+        .url= link_to c.file.url, c.file.url
+        .size= number_to_human_size c.file_file_size
+        .delete-link= link_to "Delete", upload_path(c.id), :confirm => "Are you sure?", :method => :delete

@@ -1,0 +1,10 @@
+= form_for email_log_path(@email) do |f|
+  = hidden_field_tag "_method", "put"
+  %label Recipient salesperson:
+  - if @email.dispatched?
+    = @email.sales_contact.to_s
+    - if @email.dispatched_at
+      on
+      = @email.dispatched_at.strftime('%d %B %Y at %T')
+  - else
+    = f.select :sales_contact, salesperson_options, {}, {:id => "assign-recipient", :name => "email_log[sales_contact_id]"}

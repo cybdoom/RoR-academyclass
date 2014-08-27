@@ -1,0 +1,16 @@
+- content_head do
+  = link_to "Add Top Course", new_top_course_path, :class => "button"
+  %h2 Top Courses
+%a{:href => url_for(:controller => :prioritise, :action => :update), :id => "prioritise-url", :style => "display:none"}
+= content_box do
+  %ul.table.sortable.sort-update.top-courses
+    %li.header
+      .name Name
+      .course Course
+    - @top_courses.each do |f|
+      %li{:class => cycle("alt_row",""), :id => "TopCourse_#{f.id}"}
+        .drag-handle [handle]
+        .name= f.display_name
+        .course= f.course.name
+        .edit-link= link_to "Edit", edit_top_course_path(f)
+        .delete-link= link_to "Delete", f, :confirm => "Are you sure?", :method => :delete

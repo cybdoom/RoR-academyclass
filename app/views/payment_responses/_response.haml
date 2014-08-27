@@ -1,0 +1,6 @@
+%li{:class => response.success ? "success" : "failure"}
+  .salesperson= link_to payment_response_salesperson(response), payment_response_path(response)
+  .created= link_to response.created_at.strftime('%d %b %Y %H:%M'), payment_response_path(response)
+  .booking-form= link_to payment_response_title(response), payment_response_path(response)
+  .amount= response.auth_amount.nil? ? "n/a" : link_to(number_to_currency(response.auth_amount, :unit => "&pound;"), payment_response_path(response))
+  .message= link_to response.processed_message, payment_response_path(response)

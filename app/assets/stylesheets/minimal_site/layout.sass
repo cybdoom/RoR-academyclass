@@ -1,0 +1,40 @@
+@import "blueprint/scaffolding"
+
+@font-face
+  font-family: 'DIN-RegularRegular'
+  src: url(/fonts/web/dinregular-webfont.eot)
+  src: local('☺'), url(/fonts/web/dinregular-webfont.woff) format('woff'), url(/fonts/web/dinregular-webfont.ttf) format('truetype'), url(/fonts/web/dinregular-webfont.svg#webfontkzDYqMMH) format('svg')
+  font-weight: normal
+  font-style: normal
+
+@font-face
+  font-family: 'DIN-BoldRegular'
+  src: url(/fonts/web/dinbold-webfont.eot)
+  src: local('☺'), url(/fonts/web/dinbold-webfont.woff) format('woff'), url(/fonts/web/dinbold-webfont.ttf) format('truetype'), url(/fonts/web/dinbold-webfont.svg#webfontlJgeSjpr) format('svg')
+  font-weight: normal
+  font-style: normal
+  
+  
+body
+  font-family: arial, 'lucida console', sans-serif
+  font-size: 12px
+  background: #5c5c5c image-url("background-gradient.gif") repeat-x
+  margin: 0
+  h1
+    font-size: 1.5em
+    font-weight: bold
+    color: #71a500
+    font-family: 'DIN-RegularRegular', arial, 'lucida console', sans-serif
+    text-transform: uppercase
+    margin-bottom: 20px
+  h2
+    font-size: 1.3em
+    color: rgb(111,111,111)
+    font-family: 'DIN-RegularRegular', arial, 'lucida console', sans-serif
+    text-transform: uppercase
+    margin-bottom: 10px
+    
+  #mainbody
+    +container
+    background-color: #FFF
+    padding: 10px 20px

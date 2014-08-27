@@ -1,0 +1,21 @@
+- content_for :meta_keywords do
+  Search,
+  = @search
+- content_for :meta_description do
+  = "Search Results for '#{@search}'"
+- content_for :meta_title do
+  Academy Class - Search Results
+
+%h1.header Courses
+- if @courses
+  - @courses.each do |course|
+    .course
+      .header
+        %h2= link_to course.name, course.url
+      %p
+        = link_to course.url do
+          =raw textilize course.description
+          \...<small>Click to read more</small>
+- if flash[:error]
+  %p=raw flash[:error]
+  %p Please try again

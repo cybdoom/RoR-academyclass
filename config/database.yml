@@ -1,0 +1,15 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: academyclass
+  user: root
+  pool: 5
+  timeout: 5000
+
+test:
+  adapter: mysql2
+  encoding: utf8
+  database: academyclass_test
+  user: root
+  pool: 5
+  timeout: 5000

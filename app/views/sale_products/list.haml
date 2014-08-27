@@ -1,0 +1,22 @@
+- content_for :meta_keywords do
+  Video, Download Videos, Training Videos, Videos Purchase, Buy Videos
+- content_for :meta_description do
+  Academy Class Training Videos - Subscribe to receive the latest Adobe, Apple, Autodesk and more training videos
+- content_for :meta_title do
+  Videos | Academy Class
+- content_for :breadcrumbs do
+  = link_to "Home", root_path
+  = breadcrumb_link_to "Videos", videos_path
+%h1 Videos
+- if @products.empty?
+  %p There are currently no videos available for download, please check back soon.
+- @products.each do |p|
+  .sale-product{:id => p.slug}
+    .header
+      - if p.price
+        .buy-now
+          = link_to number_to_currency(p.price, :unit => "&pound;"), sale_product_path(:id => p.slug), :rel => 'facebox'
+      = link_to p.name, sale_product_path(:id => p.slug), :rel => 'facebox'
+    .body
+      = link_to image_tag(p.image.url(:standard)), sale_product_path(:id => p.slug), :rel => 'facebox'
+      =raw textilize(p.description)

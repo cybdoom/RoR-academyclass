@@ -1,0 +1,25 @@
+%p
+  Hi
+  = @user.name
+
+%p
+  You have now been activated on the Academy Class Online Training Video system with access to:
+  %br
+  =raw @user.video_products.map {|vp| vp.name}.join("<br/>")
+
+%p You can access the videos now at:
+%p
+  %strong= videos_home_url
+
+%p and login with:
+
+%p
+  Username:
+  %em= @user.username
+  %br
+  Password:
+  %em= @user.password
+
+%p Best regards
+%p Academy Class
+= image_tag "email/academyclass-footer.jpg"

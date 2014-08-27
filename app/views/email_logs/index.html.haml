@@ -1,0 +1,25 @@
+- content_head do
+  = link_to "Sales People", sales_contacts_path, :class => "button"
+  = link_to "Export Emails", export_email_logs_path(format: :csv), :class => "button"
+  %h2 Email Enquiries
+= content_box do
+  = form_tag email_logs_path, :method => "GET", :id => "email-logs" do
+    = select_tag "type", email_enquiry_options
+  %p= email_type_description
+  = will_paginate @email_logs
+  %ul.table.email-logs
+    %li.header
+      .received Received
+      .name Name
+      .type Type
+      .recipient Recipient
+      .message Subject
+      
+    - @email_logs.each do |e|
+      %li{:class => cycle("alt_row",""), :onclick => "document.location='" + email_log_path(e) + "'"}
+        .received= e.created_at ? e.created_at.strftime("%d/%m/%Y %H:%M") : "unknown"
+        .name= h e.name
+        .type= e.type_name
+        .recipient= e.recipient_name
+        .message= truncate(e.subject, {:length => 80})
+  = will_paginate @email_logs

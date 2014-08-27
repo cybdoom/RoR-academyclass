@@ -1,0 +1,15 @@
+#sale-product
+  %h1= @product.name
+  = image_tag @product.image.url(:standard)
+  =raw textilize(@product.description)
+  - if @product.price
+    %h2 Purchase this video
+    %p By completing this purchase you will be emailed the download code for accessing this video.
+    %p Please enter your name and the email address for this code to be sent to below:
+    = semantic_form_for @purchase do |f|
+      = f.inputs do
+        = f.input :sale_product_id, :as => :hidden
+        = f.input :name
+        = f.input :email
+      = f.actions do
+        = f.action :submit, :label => "Proceed to purchase"

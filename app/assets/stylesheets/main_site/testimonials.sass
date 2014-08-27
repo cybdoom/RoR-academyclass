@@ -1,0 +1,60 @@
+@import compass
+
+ul#testimonials
+  width: 640px
+  list-style-type: none
+  margin: 0
+  padding: 0
+  +float-left
+  li
+    width: 100%
+    margin: 0
+    padding: 0 0 20px 0
+    clear: both
+    +float-left
+    .photo
+      +float-left
+      position: relative
+      img
+        +border_radius
+        border: solid black 2px
+      .info
+        background-color: #000
+        color: #FFF
+        +border_radius("0 0 5px 5px")
+        position: absolute
+        left: 0
+        bottom: 6px
+        opacity: 0.5
+        padding: 5px
+        width: 173px
+        height: 31px
+    .client_testimonial
+      width: 430px
+      +float-right
+      color: #FFF
+      font-size: 1.1em
+      padding: 0
+      background-color: #a0a0a0
+      +border_radius
+      img
+        margin: 30px 0 0 -14px
+        +float-left
+      .quote
+        padding: 20px
+      .info
+        text-align: right
+        background-color: #787878
+        +border_radius("0 0 5px 5px")
+        padding: 8px
+        a
+          color: #FFF
+          text-decoration: none
+          img
+            float: none
+            margin: 0
+            vertical-align: middle
+      &.highlight
+        background-color: #5dc0e0
+        .info
+          background-color: #438fa7

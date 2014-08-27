@@ -1,0 +1,13 @@
+!!!
+%html
+  %head
+    %link{:rel=>"icon", :href=>"/images/favicon.ico", :type=>"image/x-icon"}
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+    %meta{:name => "copyright", :content => "Copyright Academy Class Ltd - 2012"}
+    - if Rails.env.production?
+      = render :partial => "shared/google_analytics"
+    = yield(:head)
+  %body{id: body_tag_id, class: yield(:body_class)}
+    #mainbody
+      #main-content
+        = yield

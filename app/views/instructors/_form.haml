@@ -1,0 +1,8 @@
+= semantic_form_for @instructor, :html => {:multipart => true} do |f|
+  = f.inputs do
+    = f.input :name
+    = f.input :staff_type, :as => :select, :collection => Instructor.staff_types
+    = f.input :avatar, :hint => "120x120px"
+    = f.input :content, :label => "Description"
+  = f.actions do 
+    = f.action :submit, :label => "Save"

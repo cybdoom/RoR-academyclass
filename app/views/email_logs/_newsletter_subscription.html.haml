@@ -1,0 +1,9 @@
+#new-subscription.form-container
+  =raw display_flash
+  .title Enter your name and email address
+  = semantic_form_for NewsletterSubscription.new do |f|
+    = f.inputs do
+      = f.input :name
+      = f.input :email
+    = f.actions do
+      = f.action :submit, :label => "Subscribe"

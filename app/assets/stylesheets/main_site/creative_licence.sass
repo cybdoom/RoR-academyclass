@@ -1,0 +1,272 @@
+@import compass
+
+#creative-licence-page #mainbody
+  #creative-licence-logos
+    margin-top: 10px
+    float: left
+    img
+      display: block
+      float: left
+      margin: 0 16px
+  
+  #creative-licence-bg
+    background-color: #6f6f6f
+    float: left
+    ul#creative-licences
+      list-style-type: none
+      width: 704px
+      +border-radius(5px)
+      background-color: #C8C8C8
+      float: left
+      margin: -12px 0 0 0
+      padding: 0
+      z-index: 2
+      font-size: 0.95em
+      li
+        float: left
+        border-right: solid #A0A0A0 1px
+        cursor: pointer
+        span
+          font-size: 0.9em
+        ul li
+          margin: 1px 0
+        &#designer
+          h2
+            +border-radius(5px 0 0 0)
+          .days
+            +border-radius(0 0 0 5px)
+        &#mobile
+          border-right: none
+          h2
+            +border-radius(0 5px 0 0)
+          .days
+            +border-radius(0 0 5px 0)
+        &.selected h2
+          color: #FFF
+          background-color: #91af01
+        h2
+          padding: 5px 0 4px 0
+          margin: 0
+          font-size: 1.1em
+          text-align: center
+        &.selectable:hover
+          h2, .days
+            color: #FFF
+            background-color: #91af01
+        &#mobile
+          cursor: default
+          ul
+            background: #d5d5d5 image-url("creative_licence/coming-soon.png") no-repeat 0 22px
+            li
+              cursor: default
+        ul
+          background-color: #d5d5d5
+          list-style-type: none
+          padding: 10px 0 0 10px
+          margin: 0
+          height: 220px
+          width: 130px
+          li
+            width: 100%
+            float: none
+            border: none
+        .days
+          background-color: #363636
+          color: #FFF
+          text-align: center
+          padding: 5px 0
+          font-weight: 1.1em
+        &.selected .days
+          background-color: #91AF01
+  #video_content
+    p.description
+      height: 126px
+  .content
+    background-color: #6F6F6F
+    color: #FFF
+    float: left
+    padding: 20px 10px 0 10px
+    width: 684px
+    z-index: 1
+    +border-radius(0 0 5px 5px)
+    .switch-image
+      display: none
+    h3
+      text-transform: uppercase
+      color: #FFF
+      font-size: 2em
+    h4
+      font-size: 1.8em
+      float: left
+      color: #FFF
+      margin: 20px 0 13px 6px
+    .image
+      float: left
+      margin-right: 15px
+      border: solid black 1px
+    .creative-licence-image
+      float: right
+      margin-top: 20px
+    p.description
+      line-height: 1.6em
+      font-family: Helvetica, sans-serif
+      height: 150px
+    ul.submenu
+      list-style-type: none
+      margin: 0
+      padding: 0
+      float: left
+      li
+        float: left
+        margin-right: 2px
+        padding: 10px 16px 12px 3px
+        cursor: pointer
+        +border-radius(5px 5px 0 0)
+        font-weight: bold
+        background-color: #575757
+        text-indent: 14px
+        &.selected
+          background-color: #000
+        &#max, &#photoshop2, &#art
+          padding: 10px 26px 12px 12px
+        &#editing, &#colour, &#effects
+          padding: 10px 6px 12px 6px
+          text-indent: 0
+        &#html, &#css, &#javascript
+          padding: 10px 34px 12px 33px
+          text-indent: 0
+        &#photoshop, &#indesign, &#illustrator
+          text-indent: 33px
+        &#photoshop
+          background: #575757 image-url("creative_licence/designer/photoshop-logo.jpg") no-repeat 6px 7px
+          &.selected
+            background-color: #000
+        &#indesign
+          background: #575757 image-url("creative_licence/designer/indesign-logo.jpg") no-repeat 6px 7px
+        &#illustrator
+          background: #575757 image-url("creative_licence/designer/illustrator-logo.jpg") no-repeat 6px 7px
+        &#illustrator, &#indesign, &#photoshop
+          &.selected
+            background-color: #000
+    &#designer_content
+      .subcontent
+        height: 375px
+    &#video_content, &#visualizer_content
+      ul.submenu
+        clear: both
+      .subcontent
+        width: 645px
+        img, object
+          margin: 5px 0 5px 65px
+          float: none
+        p
+          margin-top: 20px
+    &#visualizer_content
+      .subcontent
+        height: auto
+        img
+          float: right
+          margin: 5px 0 5px 15px
+        p
+          margin-top: 5px
+    .subcontent
+      background-color: #a1a2a1
+      float: left
+      width: 296px
+      height: 342px
+      color: #1f1f1f
+      padding: 10px 15px
+      +border-radius(5px)
+      h5
+        padding: 0
+        margin: 0
+      .switch-panel
+        background-color: #266d8b
+        color: #FFF
+        height: 30px
+        margin: 0 13px 10px 13px
+        +border-radius(20px 5px 5px 20px)
+        font-size: 1.1em
+        .title
+          float: left
+          padding: 5px 0 5px 10px
+          font-weight: bold
+        .number
+          float: left
+          background-color: #000
+          +border-radius(20px)
+          width: 30px
+          height: 25px
+          padding-top: 5px
+          text-align: center
+        .switch
+          cursor: pointer
+          float: right
+          .label, .button-box
+            float: left
+            margin: 8px 2px
+          .button
+            margin-left: 9px
+          .label
+            font-size: 0.8em
+            &.on
+              opacity: 0.3
+          &.active
+            .button
+              margin-left: 0
+            .on
+              opacity: 1        
+            .off
+              opacity: 0.3        
+          .button-box
+            background-color: #c7c7c7
+            +border-radius(3px)
+            width: 20px
+            height: 15px
+            margin-top: 7px
+            .button
+              opacity: 0.8
+              background-color: #1f1f1f
+              +border-radius(3px)
+              width: 11px
+              height: 15px
+    .save-big
+      +border-radius(5px)
+      float: left
+      background-color: #a0b341
+      width: 704px
+      margin: 30px 0 0 -10px
+      +text-shadow(#111111)
+      img, .separate-price, .licence-price, .saving
+        float: left
+        text-align: center
+      .separate-price, .licence-price, .saving
+        font-weight: bold
+        height: 74px
+        padding: 5px 10px 0 20px
+        .title
+          font-size: 1.2em
+        .price
+          font-size: 2.2em
+          line-height: 1.2em
+        .vat
+          font-weight: normal
+          font-size: 0.8em
+      .separate-price
+        border-right: solid #1f1f1f 1px
+        color: #1f1f1f
+        +text-shadow(#FFFF00)
+        width: 125px
+      .licence-price
+        width: 187px
+        .title
+          color: #1f1f1f
+          +text-shadow(#FFFF00)
+      .saving
+        padding-top: 5px
+        background-color: #7a8e31
+        +border-radius(0 5px 5px 0)
+        width: 74px
+      img
+        margin: 10px
+        display: block

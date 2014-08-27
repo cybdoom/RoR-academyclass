@@ -1,0 +1,19 @@
+!!! 5
+%html{html_attrs}
+  
+  %head
+    %link{:rel=>"icon", :href=>"/images/favicon.ico", :type=>"image/x-icon"}
+    %title= h(yield(:meta_title))
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+    %meta{:name => "description", :content => yield(:meta_description) || ""}
+    %meta{:name => "keywords", :content => yield(:meta_keywords) || ""}
+    %meta{:name => "copyright", :content => "Copyright Academy Class Ltd - 2009"}
+    = javascript_include_tag "application"
+    = stylesheet_link_tag 'application'
+    = yield(:head)
+  
+  %body#alternative
+    #mainbody
+      = render :partial => "shared/menu"
+      = image_tag "alternative/academy-class-banner.png", :alt => "Academy Class"
+      = yield

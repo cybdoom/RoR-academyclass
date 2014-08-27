@@ -1,0 +1,25 @@
+- content_head do
+  = link_to "Products", survey_products_path, :class => "button"
+  = link_to "Questions", questions_path, :class => "button"
+  = link_to "Add Survey", new_survey_path, :class => "button"
+  %h2 Surveys
+= content_box do
+  = will_paginate(@surveys)
+  %ul.table.surveys
+    %li.header
+      .course Course
+      .date Date
+      .location Location
+      .trainer Trainer
+      .questions Questions
+      .responses Responses
+      .edit-link
+    - @surveys.each do |s|
+      %li{:class => cycle("alt_row","")}
+        .course= h(s.name)
+        .date= display_dates s
+        .location= s.location
+        .trainer= s.trainer ? s.trainer : "none"
+        .questions= s.survey_questions.size
+        .questions= s.survey_responses.size
+        .edit-link= link_to "Edit", edit_survey_path(s)

@@ -1,0 +1,11 @@
+= semantic_form_for @product_parent, :html => {:multipart => true} do |f|
+  = f.inputs do
+    = f.input :name
+    = f.input :parent_image, :label => "Image"
+    - if @product_parent.parent_image.file?
+      %li
+        %label &nbsp;
+        = image_tag(@product_parent.parent_image.url)
+    = f.input :description
+  = f.actions do
+    = f.action :submit, :label => "Save Manufacturer"

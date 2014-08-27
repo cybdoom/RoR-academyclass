@@ -1,0 +1,134 @@
+#booking-form
+  #customer-link
+    float: right
+    margin-bottom: 20px
+  p
+    clear: both
+    margin: 0 0 2px 0
+    line-height: 24px
+    label
+      float: left
+      display: block
+      width: 200px
+    
+  ul.delegates
+    float: left
+    list-style-type: none
+    margin: 20px 0 0 0
+    padding: 0
+    width: 100%
+    li
+      float: left
+      clear: both
+      width: 100%
+      &.header
+        font-weight: bold
+        border-bottom: solid #999 1px
+        div.price, div.platform
+          text-align: center
+      &.totals
+        border-top: solid #999 1px
+        padding-top: 10px
+        margin-top: 100px
+      div
+        line-height: 25px
+        float: left
+        &.name
+          width: 17%
+        &.email
+          width: 19%
+        &.location
+          width: 10%
+        &.course
+          width: 20%
+        &.dates
+          width: 14%
+        &.platform
+          width: 10%
+          text-align: center
+        &.price
+          width: 10%
+          text-align: right
+        &.total
+          width: 88%
+          padding-right: 10px
+          text-align: right
+  div.validity
+    clear: both
+    font-weight: bold
+
+#booking_form_response, #booking_approval
+  padding-bottom: 15px
+  li
+    clear: both
+    label
+      float: left
+      width: 300px
+
+#booking_approval, #payments
+  border-top: solid #999 1px
+  clear: both
+  margin-top: 20px
+  padding-top: 5px
+  float: left
+  width: 100%
+    
+#amendment-request
+  margin: 20px 0
+  padding: 10px
+  border: dashed #999 1px
+  
+form#booking_forms, form#search_form
+  margin: 10px 50px 20px 0
+  float: left
+  position: relative
+  #search
+    width: 150px
+  .hidden
+    display: none
+  .working
+    position: absolute
+    left: 214px
+    top: -6px
+  
+ul.table.booking-forms
+  li
+    padding-left: 5px
+    a
+      text-decoration: none
+      color: #000
+    &.header
+      .delegates
+        text-align: left
+      .created_at
+        background-image: none
+    &.lsm .created_at
+      background: transparent image-url('icons/love-social-media.jpg') no-repeat top left
+    .created_at
+      width: 17%
+      text-indent: 35px
+      background: transparent image-url('icons/academyclass.png') no-repeat 0 2px
+    .code
+      width: 6%
+    .contact
+      width: 18%
+    .salesperson
+      width: 12%
+      overflow: hidden
+    .delegates
+      width: 7%
+      text-align: center
+    .total
+      width: 10%
+    .status
+      width: 12%
+      white-space: nowrap
+    .payment
+      width: 10%
+    .icon
+      width: 8%
+      a.cancel-booking, a.complete-booking
+        margin-right: 5px
+        float: right
+        img
+          height: auto

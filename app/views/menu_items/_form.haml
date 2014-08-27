@@ -1,0 +1,11 @@
+= semantic_form_for @item, html: {multipart: true} do |f|
+  = f.inputs do
+    = f.input :menu_group_id, :as => :hidden
+    = f.input :label
+    = f.input :url
+    = f.input :logo, as: :file
+    - unless @item.logo.blank?
+      %p
+        Current Logo:
+        = image_tag @item.logo.url(:icon)
+  = f.actions

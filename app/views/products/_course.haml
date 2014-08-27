@@ -1,0 +1,98 @@
+.course_information{"data-page-tracker" => "#{@product.product_parent.encode_name}-#{@product.encode_name}"}
+  .header
+    - if course.logo.file?
+      = image_tag course.logo.url(:tiny), :class => "image", :alt => "Academy Class Small Product Logo"
+    %h2{:id => course.anchor}= course.name
+  %ul.nav
+    %li.overview= link_to "OVERVIEW", "#"
+    %li.description= link_to "DESCRIPTION", "#"
+    %li.outline= link_to "OUTLINE", "#"
+    %li.what-you-get= link_to "WHAT YOU GET", course.course_template_id.nil? ? "course-#{course.id}" : course.course_template_id.to_s
+    %li.enquire= link_to "ENQUIRE", "#"
+    %li.phone
+      %span.calltracks_academyclass-main 0800 043 8889
+  .data-container
+    .left-column
+      .course-image
+        = image_tag course.palette_image.exists? ? course.palette_image.url : "temp-image.jpg"
+      .course-description
+        =raw textilize course.overview
+    .right-column
+      %ul.course-details
+        %li.level_text
+          %span.title Level:
+          %span.value= course.level
+          %span.course_level{:class => "course_level_#{course.level_number}"}= course.level_number
+        %li.time
+          %span.title Time:
+          %span.value 9:30 AM - 4:30 PM
+        %li.duration
+          %span.title Duration:
+          %span.value= pluralize(course.duration, "Day")
+        %li.duration
+          %span.title Hours:
+          %span.value= pluralize(course.hours, "Hour")
+        %li.cost
+          %span.title Cost:
+          %span.value=raw display_cost(course)
+      .date-picker= render :partial => "products/choose_date", :locals => {:course => course}
+      .acg-acd-links
+        %span.guarantee-link= link_to "Academy Class Guarantee", "#guarantee-wrapper", :rel => "facebox"
+        %span.discount-link= link_to "Academy Class Discount", "#discount-wrapper", :rel => "facebox"
+      .description{:style => "display: none;"}
+        .pHeader Overview
+        .pBlock=raw textilize course.description
+        .pHeader Who is this course for?
+        .pBlock=raw textilize course.who_for
+        .pHeader Assumed Knowledge
+        .pBlock=raw textilize course.assumed_knowledge
+        .pHeader What you will learn
+        .pBlock=raw textilize course.you_will_learn
+      .outline{:style => "display: none;"}
+        =raw textilize course.outline
+      .what-you-get{:style => "display: none;"}
+    .course-enquire{:style => "display: none;"}
+      %p So you wish to know more? Simply enter your details - and we'll contact you back.
+      %form{:action => "#"}
+        .locations
+          .heading 1. Choose location
+          %input{:type => "hidden", :name => "course_enquiry[location]", :title => "Please Enter Your Location"}
+          .map
+            = image_tag 'course_outline_box/map.png'
+            - Location.all.each do |location|
+              = link_to location.name, '#', :class => "map_marker_#{location.name}", :title => location.name
+        .dates
+          .heading 2. Choose date
+        .info
+          .heading 3. Contact information
+          %label Your Name:
+          %input{:type => "text", :name => "course_enquiry[name]", :title => "Please Enter Your name"}
+          %label Your Email:
+          %input{:type => "text", :name => "course_enquiry[email]", :title => "Please Enter Your Email Address"}
+          %label Your Phone:
+          %input{:type => "text", :name => "course_enquiry[phone]", :title => "Please Enter Your Phone Number"}
+        .enquiry
+          .heading 4. Your enquiry
+          %label Your Enquiry:
+          %textarea{:name => "course_enquiry[enquiry]"}
+          .checkbox
+            %input{:type => "checkbox", :value => "all", :name => "course_enquiry[opt_in]"}
+            %small Enquire for the other courses at the same time?
+
+        .submit
+          .success{:id => "enquire_result_#{course.id}"}
+          = link_to "Enquire Now", "#", :id => "submit_enquiry_#{course.id}"
+  %ul.footer
+  
+    %li.book-now= link_to "Book Now", "#"
+    %li.download-course= link_to "Print Course Details", course_path(course, :format => "pdf")
+    %li.live-chat= link_to "Live Chat", "#"
+    %li.email-course= link_to "Email Course Details", "#email-course-details", :id => "email_course_details_#{course.id}"
+    
+- if course.course_template_id.nil?
+  %div{:id => "what-you-get-course-#{course.id}", :style => "display:none;"}= raw textilize(course.what_you_get)
+- elsif !@included_templates
+  .hidden{:id => "what-you-get-#{course.course_template_id}"}= raw textilize(course.course_template.copy)    
+- elsif !@included_templates.include?(course.course_template_id)
+  - @included_templates << course.course_template_id
+  .hidden{:id => "what-you-get-#{course.course_template_id}"}= raw textilize(course.course_template.copy)    

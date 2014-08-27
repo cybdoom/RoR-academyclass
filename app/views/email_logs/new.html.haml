@@ -1,0 +1,50 @@
+- content_for :breadcrumbs do
+  = link_to "Home", root_path
+  = breadcrumb_link_to 'Contact', request.path
+- content_for :meta_keywords do
+  Contact, Email, Phone, Enquires, Question
+- content_for :meta_description do
+  At Academy Class, we would be happy to help you with your queries. You can use our online forms, live chat or the details below. Contact us Today!
+- content_for :meta_title do
+  Contact Us | Academy Class
+
+= image_tag "template_images/contact-us.png", :class => "logo"
+%h1 Contact Us
+%p.intro At Academy Class, we would be happy to help you with your queries. You can use our online forms, live chat or the details below.
+%p.title General Contact Information
+%p
+  Tel:
+  %span.calltracks_academyclass-main 0800 043 8889
+  %br
+  Fax: 0870 330 5722
+  %br
+%p.title Email Addresses
+%p
+  %span#general_enquiries General Enquiries: #{mail_to "info@academyclass.com"}
+  %br
+  %span#training_enquiries Training Enquires: #{mail_to "training@academyclass.com"}
+  %br
+  %span#support_enquiries Support Enquiries: #{mail_to "support@academyclass.com"}
+  %br
+%p.title Ask Us a Question
+%p Need to ask us about a course or a specific product?
+= semantic_form_for @email, url: email_logs_path do |f|
+  #formNotice.notice.blue Name, Email and Comment are required.
+  .flash-success
+  .form
+    = f.inputs do
+      = f.input :name, :class => "formitem", :hint => "Please enter your full name (Jason Smith)"
+      = f.input :company, :class => "formitem", :label => "Company (if relevant):", :hint => "Which company do you work for? (Academy Class)"
+      = f.input :email, :class => "formitem", :hint => "your email address please (kind of important)"
+      = f.input :phone, :class => "formitem", :hint => "Your telephone number. If you are international, include the country code."
+      = f.input :interest, :class => "formitem", :hint => "What product are you interested in?", :label => "Area of Interest:"
+      = f.input :enquiry, :label => "Comments", :class => "formitem", :hint => "Write some additional information of what your looking for from you course."
+      = f.input :opt_in, :label => "Is it OK to add you to our newsletter?", :as => :radio
+    = f.actions do
+      %input#contact_submit{:type => "button", :value => "Submit", :style => "width:auto", :title => "Great! I'm done."}
+%h2 Addresses
+- Location.ordered.each do |l|
+  %div{:class => "addressBlock grey#{cycle(" backgroundGrey", "")}"}
+    .title= l.title
+    .address= simple_format(l.address)
+    .button= link_to 'Click here for map', locations_path(anchor: l.title.parameterize)

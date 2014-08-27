@@ -1,0 +1,228 @@
+@import compass
+@import "compass/reset"
+@import "compass/utilities"
+@import "compass/utilities/general/min"
+@import "compass/css3"
+@import "blueprint/scaffolding"
+
+$blueprint-grid-columns: 24
+$blueprint-container-size: 955px
+$blueprint-grid-margin: 25px
+
+// Use this to calculate the width based on the total width.
+// Or you can set !blueprint_grid_width to a fixed value and unset !blueprint_container_size -- it will be calculated for you.
+$blueprint-grid-width: ($blueprint-container-size + $blueprint-grid-margin) / $blueprint-grid-columns - $blueprint-grid-margin
+
+@font-face
+  font-family: 'DIN-RegularRegular'
+  src: url(/fonts/web/dinregular-webfont.eot)
+  src: local('☺'), url(/fonts/web/dinregular-webfont.woff) format('woff'), url(/fonts/web/dinregular-webfont.ttf) format('truetype'), url(/fonts/web/dinregular-webfont.svg#webfontkzDYqMMH) format('svg')
+  font-weight: normal
+  font-style: normal
+
+@font-face
+  font-family: 'DIN-BoldRegular'
+  src: url(/fonts/web/dinbold-webfont.eot)
+  src: local('☺'), url(/fonts/web/dinbold-webfont.woff) format('woff'), url(/fonts/web/dinbold-webfont.ttf) format('truetype'), url(/fonts/web/dinbold-webfont.svg#webfontlJgeSjpr) format('svg')
+  font-weight: normal
+  font-style: normal
+
+a
+  +link-colors(#5A5C5F, #9DBC34, #5A5C5F, #5A5C5F, #5A5C5F)
+
+p
+  margin: 0 0 1.5em
+  
+p.smaller
+  font-size: 0.9em
+
+h2
+  margin-bottom: 0.75em
+  
+h3
+  font-size: 1.5em
+  line-height: 1
+  margin-bottom: 1em
+  
+h1, h2, h3, h4, h5, h6
+  color: #222222
+  font-weight: normal
+  
+strong, dfn
+  font-weight: bold
+  
+table
+  width: auto
+
+body
+  color: #333333
+  font-family: arial, 'lucida console', sans-serif
+  font-size: 12px
+  background: #5c5c5c image-url("background-gradient.gif") repeat-x
+  margin: 0
+  line-height: 1.5
+  h1
+    font-size: 1.5em
+    font-weight: bold
+    color: #71a500
+    font-family: 'DIN-RegularRegular', arial, 'lucida console', sans-serif
+    text-transform: uppercase
+    line-height: 1
+    margin-bottom: .5em
+  h2
+    font-size: 1.3em
+    color: rgb(111,111,111)
+    font-family: 'DIN-RegularRegular', arial, 'lucida console', sans-serif
+    text-transform: uppercase
+    
+    
+  #mainbody
+    +container
+    background-color: #FFF
+    padding: 10px 20px
+    position: relative
+    #main-content
+      +column(18)
+      p.intro
+        font-weight: bold
+        margin-bottom: 1.5em
+        line-height: 1.3em
+    #cross-sell-column
+      +column(6, last)
+      #social-media-icons
+        a
+          margin: 0 10px
+          img
+            width: 50px
+            height: 50px
+  #footerSitemap
+    +container
+    +column(18)
+    margin-top: 10px
+  #footer
+    +container
+    +column(24)
+    margin-top: 10px
+    p
+      text-align: center
+
+//
+  *********************** Top Ten Courses ***************************
+
+#top-courses
+  background: transparent image-url("top-courses.png") no-repeat
+  height: 326px
+  margin-top: 10px
+  padding-top: 10px
+  margin: 0 0 10px 2px
+  h2
+    text-indent: -9999px
+    height: 127px
+    margin-bottom: 5px
+  ol
+    list-style-type: decimal
+    margin: 0
+    padding: 0px 0 15px 35px
+    li
+      color: #ffffff
+      font-weight: bold
+      a
+        color: #ffffff
+        text-decoration: none
+        display: block
+        width: 180px
+        &:hover
+          color: #c8de04
+      &:hover
+        color: #c8de04
+  
+#zero-to-hero-cross-sell
+  background-color: #070F06
+  +border-radius
+  padding: 1px
+  height: 138px
+  
+//
+  *********************** Location Page ***************************
+
+.locations
+  a
+    +hover-link
+  .location_entry
+    border-bottom: solid 1px #E1E1E1
+    padding: 10px
+    margin-bottom: 10px
+    color: #5a5c5e
+  .button
+    clear: both
+    margin-top: 10px
+    padding-top: 10px
+    font-size: 10px
+  .title
+    width: 280px
+    h2
+      font-size: 2em
+  .address
+    width: 230px
+    float: right
+    .indented
+      padding-left: 20px
+
+#map 
+  margin-top: 20px
+  height: 300px
+  border: solid 1px
+  
+.miniMap
+  border: solid 1px
+  float: left
+  width: 100px
+  height: 75px
+  margin-top: 2px
+  
+#new-subscription
+  width: 419px
+  z-index: 100
+  .title
+    font-size: 1.6em
+    font-weight: bold
+    color: #00B1F9
+  
+.event-link
+  margin-top: 10px
+  text-align: center
+  a
+    color: #0099CC
+    text-decoration: none
+  a:hover
+    text-decoration: underline
+#event-image
+  float: right
+
+.CS5-flash
+  text-align: center
+  object
+    padding: 5px
+    border: 1px solid #CCC
+    +box-shadow(#CCC, 1px, 1px, 5px)
+    margin-bottom: 10px
+    
+ul#flickr-photos
+  +no-bullets
+  float: left
+  margin: 0 0 10px 0
+  padding: 0
+  li.photo
+    float: left
+    margin: 6px
+    a
+      display: block
+      float: left
+      border: 1px solid #CCC
+      padding: 4px
+      height: 75px
+      width: 75px
+      +box-shadow(#CCC, 1px, 1px, 5px)
+      &:hover
+        +box-shadow(#C8DE04, 0px, 0px, 8px)
+        

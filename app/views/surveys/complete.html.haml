@@ -1,0 +1,8 @@
+- content_for :head do
+  = javascript_include_tag "survey"
+  = stylesheet_link_tag 'survey'
+  %title= "Academy Class Survey"
+%h1 Survey Complete
+#complete
+  %p Thank you for completing the survey. Your feedback is appreciated.
+  %p= link_to "Click here to go to the Academy Class website", root_path

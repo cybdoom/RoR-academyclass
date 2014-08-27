@@ -1,0 +1,16 @@
+- content_head do
+  = link_to "Add Event", new_event_path, :class => "button"
+  %h2 Events
+= content_box do
+  %ul.table.events
+    %li.header
+      .title Name
+      .date Date
+      .price Price
+    - @events.each do |p|
+      %li{:class => cycle("alt_row","")}
+        .title= p.name
+        .date= display_admin_date(p.start_date)
+        .price=raw display_event_cost(p)
+        .edit-link= link_to "Edit", edit_event_path(p)
+        .delete-link= link_to "Delete", p, :confirm => "Are you sure?", :method => :delete

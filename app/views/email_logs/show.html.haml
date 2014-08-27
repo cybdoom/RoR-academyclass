@@ -1,0 +1,21 @@
+- content_head do
+  - if @next
+    = link_to email_log_path(@next), {:class => "arrow"} do
+      = image_tag "icons/right_arrow.png", :title => "Next"
+  - if @previous
+    = link_to email_log_path(@previous), {:class => "arrow"} do
+      = image_tag "icons/left_arrow.png", :title => "Previous"
+  - unless @email.dispatched?
+    = link_to email_log_path(@email), {:method => :delete, :confirm => "Are you sure you want to delete this message?", :class => "icon"} do
+      = image_tag "buttons/cross.png", :title => "Delete"
+  %h2 Email Details
+= content_box do
+  #email
+    - if @email.newsletter_subscription?
+      = render :partial => "newsletter"
+    - elsif @email.contact?
+      = render :partial => "contact"
+    - elsif @email.course_detail_enquiry?
+      = render :partial => "course_detail"
+    - elsif @email.course_enquiry?
+      = render :partial => "course"

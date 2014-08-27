@@ -1,0 +1,23 @@
+- content_for :breadcrumbs do
+  = link_to "Home", root_path
+  &raquo; JUMP START COURSES
+  = breadcrumb_link_to @family.name, family_path(:id => @family.slug)
+- content_for :meta_title do
+  = @family.name
+
+%h1= @family.name
+#family-box
+  = image_tag @family.header_image.url
+  #family-details
+    #family-copy
+      =raw textilize @family.description
+    #family-products
+      %h2 Courses
+      %ul
+        - @family.products.each do |product|
+          %li= link_to product.name, product.url
+  #family-list
+    %ul
+      - @families.each_with_index do |family,i|
+        %li{:class => (i == 0 ? "first" : "") + (i == 5 ? "last" : "") + (family.id == @family.id ? " selected" : "")}
+          = link_to family.short_name, family_path(:id => family.slug, :anchor => "main-content")

@@ -1,0 +1,57 @@
+%p Hi
+%p A customer has identified a problem with the below booking form.
+%p Their booking form has now been deactivated. You will need to make the appropriate change in Filemaker and re-issue a new booking form for the customer to complete payment.
+%p Their requested amendment is:
+%p
+  %pre= @amendment.description
+  
+%p
+  %label Main Contact
+  = @booking.contact_name
+%p
+  %label Email
+  = @booking.email
+%p
+  %label Telephone
+  = @booking.telephone
+%p
+  %label Company
+  = @booking.company
+%p
+  %label Address
+  = @booking.address
+%p
+  %label Postcode
+  = @booking.postcode
+%p
+  %label Sales Contact
+  = @booking.salesperson
+
+%table
+  %tr
+    %th Delegate
+    %th Location
+    %th Course Title
+    %th Dates
+    %th Platform
+    %th Price
+  - @booking.delegates.each do |d|
+    %tr
+      %td= d.name
+      %td= d.course_location
+      %td= d.course_name
+      %td
+        = d.start_date.strftime("%d %b")
+        to
+        = d.end_date.strftime("%d %b")
+      %td= d.platform_pc ? "PC" : "Mac"
+      %td= number_to_currency d.price, :unit => "£"
+  %tr
+    %td{:colspan => 5} Total (excluding VAT)
+    %td= number_to_currency @booking.total_ex_vat, :unit => "£"
+  %tr
+    %td{:colspan => 5}= "VAT @ #{@booking.vat}%"
+    %td= number_to_currency @booking.vat_rate * @booking.total_ex_vat, :unit => "£"
+  %tr
+    %td Total (including VAT)
+    %td{:colspan => 5}= number_to_currency @booking.total, :unit => "£"

@@ -1,0 +1,35 @@
+/*
+*= require_self
+*/
+
+body
+  font-family: arial, 'lucida console', sans-serif
+  font-size: 12px
+  background: #5c5c5c url(/i/265250/background-gradient.gif) repeat-x
+  margin: 0
+  h1
+    font-size: 1.5em
+    font-weight: bold
+    color: #71a500
+    text-transform: uppercase
+    margin-bottom: 20px
+  h2
+    font-size: 1.3em
+    color: rgb(111,111,111)
+    text-transform: uppercase
+    margin-bottom: 10px
+    
+  #mainbody
+    +container
+    background-color: #FFF
+    padding: 10px 20px
+    position: relative
+body
+  font-size: 16px
+
+  
+#referrer
+  ul
+    list-style-type: none
+    li
+      padding: 4px 0

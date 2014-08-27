@@ -1,0 +1,23 @@
+- content_for :meta_title do
+  = @event.name
+#template
+  - if @event.event_image.file?
+    = image_tag @event.event_image.url, :alt => @event.name, :id => "event-image"
+  %h1= h @event.name
+  %table{:cellpadding => "5"}
+    %tr
+      %th Code
+      %td= @event.code
+    %tr
+      %th Date
+      %td= display_date @event
+    %tr
+      %th Time
+      %td= display_time @event
+    %tr
+      %th Cost
+      %td=raw display_event_cost @event
+    %tr
+      %th Location
+      %td= @event.location.name
+  %div{:style => "clear: both"}=raw textilize @event.info

@@ -1,0 +1,107 @@
+quote1="Academy Class provide a high level of training that leaves you feeling inspired, invigorated and raring to go."
+
+S Ekundayo - Hay Group (Creative Suite Master Class)
+&quote2="Friendly, laid back, lively presentations. Quick feedback to a wide range of related questions."
+
+M Rees - BBC (Flex Master Class)
+
+&quote3="Excellent course, Mark was a great teacher, really concise and obviously and expert in his field."
+
+L Cooper, Winkworth (InDesign)
+
+&quote4="I found the course to be very educated and I am pleased that so much ground has been covered in just 3 days."
+
+Y Owden, Skype (AutoCAD)
+
+&quote5="A very enjoyable course, I would recommend to anyone!"
+
+J Oakes, NHS (Flash)
+
+
+&quote6="A fantastic introduction covering everything the aspiring Flax developer needs to get to start."
+
+G Crouch, American Express (Flex 2 Master Class)
+
+
+&quote7="Very useful and enjoyable, I look forward to using Photoshop back at work."
+
+K Mokhtar, ITV (Photoshop)
+
+
+&quote8="Excellent course, excellent tutor. I now have the confidence to learn more."
+
+S Walker, SEIKO (Acrobat)
+
+
+&quote9="Very Well structured and enjoyable course. Good use of exercises to practice theory."
+
+J Taylor, Littlewoods (XML)
+
+
+&quote10="Well presented course. Enthusiastic and helpful tutor who was able to answer questions from delegates as required."
+
+J Faithfull, MTV (Flash ActionScript)
+
+
+&quote11="This has given me practical knowledge that I will be able to apply in my role."
+
+M Siveyer, TNT (Flash Master Class)
+
+
+&quote12="I enjoy being taught by mark. I found him calm, clear knowledgeable and above all (which makes a big difference) humorous."
+
+M Bullock, Virgin Money (InDesign)
+
+&quote13="A relaxed course which educated me to a high standard and has given me confidence to use InDesign to an overwhelming degree. Very professional; but relaxed training ... EXCELLENT!"
+
+A Beiley, HSBC (InDesign)
+
+
+&quote14="Thought the training was great. Good trainer, good facilities and good fun!"
+
+N Cullen - Talk Sport (Flash)
+
+
+&quote15="Good Atmosphere, good standard of training."
+
+M Greaves - ITN / Channel 4 news (DreamWeaver)
+
+
+&quote16="A very useful course. I will be able to go back now and start to use flash in my work right away."
+
+M Cowie - Lancaster University (Flash)
+
+
+&quote17="This was a very enjoyable and worthwhile course. The teacher was helpful, understanding and informative."
+
+A Kabia - Web Expectations (Flash)
+
+
+&quote18="This was my 7th visit. I feel right at home."
+
+M Wates - Jigsaw - UK (Illustrator)
+
+
+&quote19="I have been very happy with the whole experience, I would happily recommend it to others."
+
+B Hill - Rapid Group (Photoshop)
+
+
+&quote20="It was a fantastic course. Conrad made it easy for me to understand and work with the tools. I want to keep learning even more now."
+
+C Blainey - The Guardian (Creative Suite Master Class)
+
+
+&quote21="It's a 50m race but you learn as much as in a marathon!"
+
+J Nunez - Tequila UK (InDesign)
+
+
+&quote22="A good all round training experience."
+
+S Rotondo - CBS Outdoor (Flash)
+
+
+&quote23="A very good course that covered a good range of topics over 2 days."
+
+J Bradley - Arup (InDesign)

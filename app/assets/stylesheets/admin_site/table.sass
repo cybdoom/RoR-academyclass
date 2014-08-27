@@ -1,0 +1,115 @@
+@import compass
+@import "blueprint/scaffolding"
+
+ul.table
+  margin: 0
+  padding: 0
+  width: 100%
+  float: left
+  .header
+    border-bottom: 1px solid rgb(221, 221, 221)
+    color: rgb(85,85,85)
+    background-color: #C3D9FF
+    font-weight: bold
+    .title
+      margin-left: 3%
+  .alt_row
+    background: rgb(235, 235, 235)
+  li
+    height: 40px
+    background: rgb(250, 250, 250)
+    padding: 0 5px
+    span, div
+      height: 40px
+      line-height: 40px
+      img
+        vertical-align: middle
+        height: 30px
+        
+    div
+      float: left
+      overflow: hidden
+    .edit-link, .delete-link, .drag-handle
+      width: 3%
+      display: block
+      a
+        height: 40px
+        display: block        
+    .delete-link
+      a
+        +replace-text( "admin/cross.png")
+    .edit-link a
+      +replace-text( "admin/pencil.png")
+    .drag-handle
+      +replace-text( "admin/drag_handle.gif")
+      cursor: move
+
+ul.footer-links
+  li 
+    .name
+      width: 27%
+    .link
+      width: 67%
+
+ul.images
+  +no-bullets
+  margin: 0
+  li 
+    +inline-block
+    +column(2)
+    margin-bottom: 10px
+    .image
+      display: block
+    .delete-link
+      display: block      
+      a
+        color: red
+        +hover-link
+        font-size: 0.9em
+      
+ul.pages
+  .name
+    width: 20%
+  .content
+    width: 57%
+  .date
+    width: 20%
+
+ul.top-courses
+  .header .name
+    margin-left: 3%
+  .name
+    width: 42%
+  .course
+    width: 47%
+  
+ul.files
+  li 
+    .name 
+      width: 30%
+    .url
+      width: 57%
+    .size
+      width: 10%
+
+      
+ul.creative_licences
+  .header .title
+    +prepend(1)
+  li
+    .title
+      +prepend(1)
+      +column(20)
+    .delete
+      +column(2,last)
+      
+ul.referrers
+  li
+    .referrer
+      width: 60%
+    .count
+      width: 20%
+      text-align: center
+    .percent
+      width: 20%
+      text-align: center
