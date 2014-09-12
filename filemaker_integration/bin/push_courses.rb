@@ -1,5 +1,5 @@
 require 'rubygems'
-require 'mysql'
+require 'mysql2'
 require "cgi"
 require 'net/http'
 
@@ -33,6 +33,9 @@ SERVER_API_PORT = "80"
 SERVER_API_PATH = "/set_course_seats"
 SERVER_LOGIN_PARAMS = "username=api&password=fa1e4a3604b6f170c2f3413de077d94d9c146c4fa484611b4f6a1abda11ac848f2a46faa3dde13fd6bbe80e383d8f6bea0783da7631917411d868683003f89e1"
 
+Mysql2::Client.default_query_options.merge!(:as => :array)
+@mysql = Mysql2::Client.new(:host => "localhost", :username => "academyclass", :password => '9xN3,oad4', :database =>'academyclass_courses')
+
 def send_course(name, location, start_date, total_seats, seats_sold)
   params = {:name => name.gsub(/\226/, "-"), :location => location, :start_date => start_date, :total_seats => total_seats, :seats_sold => seats_sold}
   puts "Updating course #{name} with total seats: #{total_seats}, seats sold: #{seats_sold}"
@@ -41,12 +44,9 @@ def send_course(name, location, start_date, total_seats, seats_sold)
   success = (response.class == Net::HTTPOK)
   puts success ? "#{Time.now} Successfully transmitted course details for course date #{start_date}: #{result}" : "#{Time.now} Error transmitting course date #{start_date}: #{result}"
 
-  @mysql.query("INSERT INTO course_logs (created_at, name, location, start_date, total_seats, seats_sold, success, message) VALUES (now(), '#{@mysql.quote(name)}', '#{@mysql.quote(location)}', '#{start_date}', #{total_seats}, #{seats_sold}, #{success ? 1 : 0}, '#{@mysql.quote(result)}')")
+  @mysql.query("INSERT INTO course_logs (created_at, name, location, start_date, total_seats, seats_sold, success, message) VALUES (now(), '#{@mysql.escape(name)}', '#{@mysql.escape(location)}', '#{start_date}', #{total_seats}, #{seats_sold}, #{success ? 1 : 0}, '#{@mysql.escape(result)}')")
   return success
 end
-
-@mysql = Mysql.init()
-@mysql.connect('localhost', 'academyclass', '9xN3,oad4', 'academyclass_courses')
 
 success_ids = []
 @mysql.query("SELECT id, name, location, DATE_FORMAT(start_date, '%Y-%m-%d'), total_seats, seats_sold FROM course_seats").each do |row|
@@ -79,7 +79,7 @@ def send_booking_form(form, delegates)
   success = (response.class == Net::HTTPOK)
   puts success ? "#{Time.now} Successfully transmitted booking form #{form[1]}" : "#{Time.now} Error transmitting booking form #{form[1]}: #{response.inspect}"
 
-  @mysql.query("INSERT INTO booking_logs (created_at, filemaker_code, success, message) VALUES (now(), '#{@mysql.quote(form[1])}', #{success}, '#{@mysql.quote(response.class.name)}')")
+  @mysql.query("INSERT INTO booking_logs (created_at, filemaker_code, success, message) VALUES (now(), '#{@mysql.escape(form[1])}', #{success}, '#{@mysql.escape(response.class.name)}')")
   if success
     @mysql.query("DELETE FROM booking_form WHERE filemaker_code ='#{form[1]}'")
     puts "DELETE FROM booking_delegate WHERE booking_form_id ='#{form[1]}'"
@@ -92,5 +92,3 @@ end
   delegates = @mysql.query("SELECT id, name, course_name, course_location, DATE_FORMAT(start_date, '%Y-%m-%d'), DATE_FORMAT(end_date, '%Y-%m-%d'), platform_pc, price, booking_type, email FROM booking_delegate WHERE booking_form_id='#{form[1]}'")
   send_booking_form(form, delegates)
 end
-
-@mysql.close()
