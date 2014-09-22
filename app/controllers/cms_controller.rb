@@ -122,6 +122,10 @@ class CmsController < ApplicationController
     @page = "creative-licence"
     render "creative_licence/index"
   end
+
+  def new_creative_licence
+    render "creative_licence/new_creative_licence"
+  end
   
   private
   def add_url(url, title)

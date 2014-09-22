@@ -1,0 +1,41 @@
+- content_for :breadcrumbs do
+  = link_to "Home", root_path
+  = breadcrumb_link_to "Creative Licence", new_creative_licence_path
+- content_for :meta_keywords do
+  Save, Discount, Package, Creative License, Flash, Flex, Print, Design, AutoCAD, 3D, Video, Production, Web
+- content_for :meta_description do
+  Academy Class have put together some very special package deals. Take your Creative License and change your career, your pay packet, your life forever.
+- content_for :meta_title do
+  Save with the Creative License | Buy BIG, Save BIG | Academy Class
+
+.content
+  %h1 Creative Licence
+
+  .licence-box
+    .header
+      %span
+        INTERACTIVE DESIGNER
+        %br/
+        CREATIVE LICENCE
+    .body
+      .left
+        %ul
+          %li HTML 101-3 days
+          %li HTML 201-2 days
+          %li CSS 101-3 days
+          %li CSS 201-2 days
+          %li Javascript 101-3 days
+          %li Jquery 201-2 days
+          %li Edge 101-2 days
+      .right
+        = image_tag "creative_licence/new_licence/monitor.png"
+      .clearfix
+    .bottom
+      .days
+        17 DAYS
+      .regular-price
+        REGULAR PRICE - £4079 + VAT
+      .blue-price
+        package price - £2297 + VAT
+        %br/
+        saving - £1782 + VAT
