@@ -105,6 +105,7 @@ Academyclass::Application.routes.draw do
   match 'email/training_vouchers' => 'cms#training_vouchers'
 
   match 'save-with-creative-licence' => 'cms#creative_licence', :as => :creative_licence
+  match 'new-creative-licence' => 'cms#new_creative_licence', :as => :new_creative_licence
   match 'training/:name' => 'product_parents#show', :as => :parent_pages, :name => /[-a-zA-Z]+/
   match 'search' => 'search#index', :as => :search
   match 'subscribe' => 'email_logs#index', :as => :subscribe
