@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140924203143) do
+ActiveRecord::Schema.define(:version => 20140924222116) do
 
   create_table "answers", :force => true do |t|
     t.integer "survey_response_id"
@@ -245,12 +245,15 @@ ActiveRecord::Schema.define(:version => 20140924203143) do
 
   create_table "news", :force => true do |t|
     t.string   "title"
-    t.string   "image"
     t.text     "description"
     t.text     "content"
-    t.boolean  "sticky",      :default => false, :null => false
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.boolean  "sticky",             :default => false, :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "news_pages", :force => true do |t|

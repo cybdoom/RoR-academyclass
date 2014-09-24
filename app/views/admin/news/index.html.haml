@@ -12,6 +12,8 @@
     - @news.each do |n|
       %li{:class => cycle("alt_row","")}
         .image
+          -if n.image.present?
+            = image_tag n.image.url(:icon)
         .title= n.title
         .sticky= n.sticky
         .created_at= display_admin_date n.created_at
