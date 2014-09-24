@@ -1,0 +1,21 @@
+- content_head do
+  = link_to "Add News", new_admin_news_path, :class => "button"
+  %h2 News
+
+= content_box do
+  %ul.table.news
+    %li.header
+      .title Title
+      .sticky Sticky
+      .created_at Created At
+      .updated_at Updated At
+    - @news.each do |n|
+      %li{:class => cycle("alt_row","")}
+        .image
+        .title= n.title
+        .sticky= n.sticky
+        .created_at= display_admin_date n.created_at
+        .updated_at= display_admin_date n.updated_at
+        .edit-link= link_to "Edit", edit_admin_news_path(n)
+        .delete-link= link_to "Delete", admin_news_path(n), :confirm => "Are you sure?", :method => :delete
+  = will_paginate @news

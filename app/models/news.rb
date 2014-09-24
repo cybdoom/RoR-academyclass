@@ -1,3 +1,5 @@
 class News < ActiveRecord::Base
-  # attr_accessible :title, :body
+  
+  validates_presence_of :title, :description, :content
+
 end

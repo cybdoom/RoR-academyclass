@@ -1,5 +1,9 @@
 Academyclass::Application.routes.draw do
 
+  namespace :admin do
+    resources :news
+  end
+
   resources :news_pages
 
   match 'courses.xml' => 'courses#courses', :as => :xml_courses, :format => :xml
