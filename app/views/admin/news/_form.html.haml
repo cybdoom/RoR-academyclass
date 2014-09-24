@@ -1,8 +1,8 @@
 = semantic_form_for [:admin, @news], :html => {:multipart => true} do |p|  
   = p.inputs do
     = p.input :title
-    = p.input :description
-    = p.input :content
+    = p.input :description, input_html: {class: "basic-input"}
+    = p.input :content, input_html: {class: "basic-input"}
     = p.input :sticky
     = p.input :image
   = p.actions
