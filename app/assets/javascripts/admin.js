@@ -4,6 +4,7 @@
 //= require_tree ./shared/
 //= require_tree ./admin_site/
 //= require_self
+//= require ckeditor/init
 
 $.ajaxSetup({
   'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
