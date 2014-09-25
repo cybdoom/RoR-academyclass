@@ -5,8 +5,11 @@
   Academy Class - News
 
 - @news.each do |news|
-  .news-item{style: "margin-bottom: 35px;"}
-    %p= image_tag news.image.url(:medium)
-    %p= news.title
-    %p= raw news.description
-    %p= link_to "More", news_path(news)
+  .news-item
+    = image_tag news.image.url(:medium)
+    .info
+      %h2= news.title
+      %p Published on 23/09/2014
+      .description= raw news.description
+      = link_to "Read More", news_path(news)
+    .clearfix

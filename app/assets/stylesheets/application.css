@@ -2,4 +2,5 @@
 *= require_self
 *= require_tree ./shared/
 *= require_tree ./main_site/
+*= require news.css.scss
 */
