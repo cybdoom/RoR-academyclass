@@ -1,0 +1,12 @@
+- content_for :breadcrumbs do
+  = link_to "Home", root_path
+  = breadcrumb_link_to "News", news_index_path
+- content_for :meta_title do
+  Academy Class - News
+
+- @news.each do |news|
+  .news-item{style: "margin-bottom: 35px;"}
+    %p= image_tag news.image.url(:medium)
+    %p= news.title
+    %p= raw news.description
+    %p= link_to "More", news_path(news)
