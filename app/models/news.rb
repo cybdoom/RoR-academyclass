@@ -5,4 +5,15 @@ class News < ActiveRecord::Base
   validates_presence_of :title, :description, :content
 
   has_attached_file :image, :styles => {:medium => "300x300>", :icon => "110x110>" }, :whiny => false # allow non-image uploads
+
+  scope :published, lambda {where("published_at IS NOT NULL")}
+
+  def publish
+    update_attributes(published_at: Time.now)
+  end
+
+  def unpublish
+    update_attributes(published_at: nil)
+  end
+
 end

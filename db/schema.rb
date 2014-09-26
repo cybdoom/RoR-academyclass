@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140926100036) do
+ActiveRecord::Schema.define(:version => 20140926112140) do
 
   create_table "answers", :force => true do |t|
     t.integer "survey_response_id"
@@ -271,8 +271,10 @@ ActiveRecord::Schema.define(:version => 20140926100036) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "slug"
+    t.datetime "published_at"
   end
 
+  add_index "news", ["published_at"], :name => "index_news_on_published_at"
   add_index "news", ["slug"], :name => "index_news_on_slug", :unique => true
 
   create_table "news_pages", :force => true do |t|
