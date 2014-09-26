@@ -7,4 +7,9 @@
       = p.input :content, input_html: {class: "basic-input ckeditor"}
     = p.input :sticky
     = p.input :image
-  = p.actions
+  %fieldset.actions
+    %ol
+      %li.action.input_action
+        = p.submit "#{@news.new_record? ? "Create" : "Update"} News"
+        = p.submit "#{@news.new_record? ? "Create" : "Update"} News and #{@news.published_at ? "Unpublish" : "Publish"}"
+

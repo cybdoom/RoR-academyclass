@@ -37,6 +37,11 @@ class Admin::NewsController < Admin::AdminController
 
     def save_news(success_message)
       if @news.valid?
+        if params[:commit].include? "Publish"
+          @news.published_at = Time.now
+        elsif params[:commit].include? "Unpublish"
+          @news.published_at = nil
+        end
         @news.save
         flash[:message] = success_message
         redirect_to admin_news_index_path
