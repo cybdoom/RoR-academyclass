@@ -6,6 +6,6 @@
   Academy Class - News - #{@news.title}
 
 .news
-  %h3= @news.title
+  %h2= @news.title
   .news-img= image_tag @news.image.url(:medium)
   .news-content= raw @news.content
