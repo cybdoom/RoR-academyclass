@@ -8,4 +8,4 @@
 .news
   %h3= @news.title
   .news-img= image_tag @news.image.url(:medium)
-  %p= raw @news.content
+  .news-content= raw @news.content
