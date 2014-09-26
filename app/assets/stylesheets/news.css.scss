@@ -47,8 +47,22 @@
 }
 
 .news {
+  margin: 20px 0;
   .news-img img {
     float: left;
     margin: 0 20px 10px 0;
   }
+    h2 {
+      color: #92a441;
+      font-weight: bold;
+      font-size: 22px;
+      text-transform: none;
+      line-height: 20px;
+      margin-bottom: 4px;
+    }
+
+    .published {
+      color: #949494;
+      margin-bottom: 10px;
+    }
 }
