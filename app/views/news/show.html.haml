@@ -7,5 +7,5 @@
 
 .news
   %h3= @news.title
-  =image_tag @news.image.url(:medium)
+  .news-img= image_tag @news.image.url(:medium)
   %p= raw @news.content
