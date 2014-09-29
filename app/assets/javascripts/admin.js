@@ -1,7 +1,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
-//= require ckeditor-jquery
+//= require ckeditor/init
 //= require_tree ./shared/
 //= require_tree ./admin_site/
 //= require_self
@@ -9,8 +9,6 @@
 $.ajaxSetup({
   'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
 })
-
-$('.ckeditor').ckeditor({});
 
 $(document).ready(function() { 
   // auto focus on any field with a focus class

@@ -30,7 +30,7 @@ gem 'savon' # SOAP client required for pushing course info to QA
 gem 'youtube_it'
 gem "friendly_id", "~> 4.0.10"
 gem 'rvm1-capistrano3', require: false
-gem "ckeditor_rails"
+gem "ckeditor"
 
 group :assets do
   gem 'sass-rails', "  ~> 3.2.3"
