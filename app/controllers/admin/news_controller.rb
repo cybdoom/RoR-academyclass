@@ -42,6 +42,11 @@ class Admin::NewsController < Admin::AdminController
         elsif params[:commit].include? "Unpublish"
           @news.published_at = nil
         end
+
+        if params[:news][:custom_published_at].present? && @news.published_at
+          @news.published_at = params[:news][:custom_published_at]
+        end
+
         @news.save
         flash[:message] = success_message
         redirect_to admin_news_index_path

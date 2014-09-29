@@ -9,7 +9,7 @@
     = image_tag news.image.url(:medium)
     .info
       %h2= news.title
-      .published Published on #{news_date_val news.created_at}
+      .published Published on #{news_date_val news.published_at}
       .description= raw news.description
       = link_to "Read More", news_path(news)
     .clearfix

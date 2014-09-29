@@ -8,6 +8,8 @@ class News < ActiveRecord::Base
 
   scope :published, lambda {where("published_at IS NOT NULL")}
 
+  attr_accessor :custom_published_at
+
   def publish
     update_attributes(published_at: Time.now)
   end
