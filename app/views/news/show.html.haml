@@ -1,0 +1,13 @@
+- content_for :breadcrumbs do
+  = link_to "Home", root_path
+  = breadcrumb_link_to "News", news_index_path
+  = breadcrumb_link_to @news.title, news_path(@news)
+- content_for :meta_title do
+  Academy Class - News - #{@news.title}
+
+.news
+  %h2= @news.title
+  .published Published on #{news_date_val @news.published_at}
+  .news-img= image_tag @news.image.url(:medium)
+  .news-content= raw @news.content
+  .clearfix

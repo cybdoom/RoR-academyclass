@@ -1,0 +1,68 @@
+// Place all the styles related to the News controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.news-item {
+  margin-bottom: 30px;
+
+  img {
+    float: left;
+    width: 221px;
+  }
+
+  .info {
+    float: left;
+    width: 465px;
+    margin-left: 15px;
+
+    h2 {
+      color: #92a441;
+      font-weight: bold;
+      font-size: 22px;
+      text-transform: none;
+      line-height: 20px;
+      margin-bottom: 4px;
+    }
+
+    .published {
+      color: #949494;
+      margin-bottom: 10px;
+    }
+
+    .description {
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    a {
+      padding: 4px 15px;
+      display: inline-block;
+      background-color: #badc3d;
+      border-radius: 5px;
+      color: #4b4b4b;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  }
+}
+
+.news {
+  margin: 20px 0;
+  .news-img img {
+    float: left;
+    margin: 0 20px 10px 0;
+  }
+    h2 {
+      color: #92a441;
+      font-weight: bold;
+      font-size: 22px;
+      text-transform: none;
+      line-height: 20px;
+      margin-bottom: 4px;
+    }
+
+    .published {
+      color: #949494;
+      margin-bottom: 10px;
+    }
+}

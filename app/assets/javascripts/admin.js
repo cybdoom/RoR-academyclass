@@ -1,6 +1,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
+//= require ckeditor/init
 //= require_tree ./shared/
 //= require_tree ./admin_site/
 //= require_self

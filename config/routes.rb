@@ -1,6 +1,12 @@
 Academyclass::Application.routes.draw do
 
-  resources :news_pages
+  mount Ckeditor::Engine => '/ckeditor'
+
+  namespace :admin do
+    resources :news
+  end
+
+  resources :news_pages, :news
 
   match 'courses.xml' => 'courses#courses', :as => :xml_courses, :format => :xml
   match 'courses.csv' => 'courses#export', as: :csv_courses, format: :csv

@@ -1,0 +1,16 @@
+= semantic_form_for [:admin, @news], :html => {:multipart => true} do |p|  
+  = p.inputs do
+    = p.input :title
+    .no-float-label
+      = p.input :description, as: :ckeditor, input_html: {class: "basic-input"}
+    .no-float-label
+      = p.input :content, as: :ckeditor, input_html: {class: "basic-input"}
+    = p.input :sticky
+    = p.input :image
+    = p.input :custom_published_at
+  %fieldset.actions
+    %ol
+      %li.action.input_action
+        = p.submit "#{@news.new_record? ? "Create" : "Update"} News"
+        = p.submit "#{@news.new_record? ? "Create" : "Update"} News and #{@news.published_at ? "Unpublish" : "Publish"}"
+

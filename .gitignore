@@ -3,3 +3,5 @@ log/*
 .ruby-version
 .ruby-gemset
 public/system
+public/ckeditor_assets
+bin/restart

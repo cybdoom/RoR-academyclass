@@ -1,0 +1,17 @@
+- content_for :breadcrumbs do
+  = link_to "Home", root_path
+  = breadcrumb_link_to "News", news_index_path
+- content_for :meta_title do
+  Academy Class - News
+
+- @news.each do |news|
+  .news-item
+    = image_tag news.image.url(:medium)
+    .info
+      %h2= news.title
+      .published Published on #{news_date_val news.published_at}
+      .description= raw news.description
+      = link_to "Read More", news_path(news)
+    .clearfix
+
+= will_paginate @news

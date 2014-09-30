@@ -19,6 +19,7 @@
         - if current_user && current_user.backend_access?
           %ul.main-menu
             - if current_user.admin?
+              %li= link_to "News", admin_news_index_path
               %li= link_to "Product Families", families_path
               %li= link_to "Product Manufacturers", product_parents_path
               %li= link_to "Products", products_path

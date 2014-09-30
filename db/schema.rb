@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140813085029) do
+ActiveRecord::Schema.define(:version => 20140926112140) do
 
   create_table "answers", :force => true do |t|
     t.integer "survey_response_id"
@@ -93,6 +93,22 @@ ActiveRecord::Schema.define(:version => 20140813085029) do
     t.boolean  "lsm"
     t.integer  "payment_count"
   end
+
+  create_table "ckeditor_assets", :force => true do |t|
+    t.string   "data_file_name",                  :null => false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    :limit => 30
+    t.string   "type",              :limit => 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
 
   create_table "contacts", :force => true do |t|
     t.string  "name"
@@ -242,6 +258,24 @@ ActiveRecord::Schema.define(:version => 20140813085029) do
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
   end
+
+  create_table "news", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.text     "content"
+    t.boolean  "sticky",             :default => false, :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "slug"
+    t.datetime "published_at"
+  end
+
+  add_index "news", ["published_at"], :name => "index_news_on_published_at"
+  add_index "news", ["slug"], :name => "index_news_on_slug", :unique => true
 
   create_table "news_pages", :force => true do |t|
     t.string   "title"
