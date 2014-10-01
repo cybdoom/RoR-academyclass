@@ -8,6 +8,6 @@
 .news
   %h2= @news.title
   .published Published on #{news_date_val @news.published_at}
-  .news-img= image_tag @news.image.url(:medium)
+  .news-img= image_tag @news.image.url
   .news-content= raw @news.content
   .clearfix
