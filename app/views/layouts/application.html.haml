@@ -37,34 +37,8 @@
                   = link.product.name
                   %span.grey Training Courses
       #cross-sell-column
-        - if false
-          - SidebarItem.all.each do |si|
-            = raw si.content
-        = link_to image_tag('http://www.thediscdirectory.co.uk/honour/?id=8400977&style=6'), 'http://www.thediscdirectory.co.uk/8400977', :target => "_blank"
-        #social-media-icons
-          = link_to image_tag("icons/facebook.png", :title => 'Facebook'), "http://www.facebook.com/AcademyClass", :target => "_blank"
-          = link_to image_tag("icons/twitter.jpg", :title => 'Twitter'), "http://twitter.com/#!/academyclass", :target => "_blank"
-          = link_to image_tag("icons/newsletter-subscribe.png", :title => 'Subscribe to the newsletter'), '#newsletter-form', :rel => 'facebox'
-
-        #top-courses
-          %h2 Top Courses
-          %ol
-            - top_courses.each do |t|
-              %li= link_to t.display_name, t.course.url
-        = link_to 'Tweets by @academyclass', 'https://twitter.com/academyclass', :class => 'twitter-timeline', 'data-widget-id' => '326605627679981568', 'data-link-color' => '#665e66'
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
-        .event-link= link_to image_tag("cross_sell_images/ac_club_banner.jpg", :alt => "Academy Class Club"), ac_club_path
-        .event-link= link_to image_tag("cross_sell_images/creative-licence-banner.jpg"), creative_licence_path
-        .crossSellBox
-          %object{:type => "application/x-shockwave-flash", :data => "/video/testimonial.swf", :height => "300", :width => "215"}
-            %param{:name => "allowScriptAccess", :value => "sameDomain"}
-            %param{:name => "allowNetworking", :value => "all"}
-            %param{:name => "allowFullScreen", :value => "false"}
-            %param{:name => "movie", :value => "/video/testimonial.swf"}
-            %param{:name => "quality", :value => "high"}
-            %param{:name => "wmode", :value => "transparent"}
-            %param{:name => "bgcolor", :value => "#FFFFFF"}
+        - SidebarItem.all.each do |si|
+          = raw si.content
       #footer
         %p
           All information is copyright&copy; to Academy Class 2006 - 2012.
