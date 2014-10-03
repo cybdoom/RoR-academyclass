@@ -3,7 +3,7 @@ Academyclass::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
   namespace :admin do
-    resources :news
+    resources :news, :sidebar_items
   end
 
   resources :news_pages, :news
