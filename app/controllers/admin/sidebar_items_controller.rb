@@ -1,5 +1,5 @@
 class Admin::SidebarItemsController < Admin::AdminController
-  cache_sweeper :product_sweeper, :only => [:create, :update, :destroy]
+  cache_sweeper :sidebar_item_sweeper, :only => [:create, :update, :destroy]
 
   before_filter :find_sidebar_item, only: [:edit, :update, :destroy]
 

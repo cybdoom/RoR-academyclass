@@ -3,7 +3,7 @@ class PrioritiseController < ApplicationController
   cache_sweeper :banner_sweeper, :only => [:update]
   cache_sweeper :testimonials_sweeper, :only => [:update]
   cache_sweeper :video_feature_sweeper, :only => [:update]
-  cache_sweeper :product_sweeper, :only => [:update]
+  cache_sweeper :sidebar_item_sweeper, :only => [:update]
   before_filter :check_admin
   layout "admin"
     
