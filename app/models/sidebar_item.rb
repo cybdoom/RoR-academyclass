@@ -10,6 +10,6 @@ class SidebarItem < ActiveRecord::Base
   private
 
     def set_last_position
-      self.position = SidebarItem.maximum(:position) + 1
+      self.position = (SidebarItem.maximum(:position) || 0) + 1
     end
 end
