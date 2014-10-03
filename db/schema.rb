@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141003102430) do
+ActiveRecord::Schema.define(:version => 20141003120410) do
 
   create_table "answers", :force => true do |t|
     t.integer "survey_response_id"
@@ -360,7 +360,7 @@ ActiveRecord::Schema.define(:version => 20141003102430) do
   create_table "sidebar_items", :force => true do |t|
     t.string   "title"
     t.text     "content"
-    t.integer  "order_num",  :default => 0, :null => false
+    t.integer  "position",   :default => 0, :null => false
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
   end

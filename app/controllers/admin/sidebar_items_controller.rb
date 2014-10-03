@@ -3,7 +3,7 @@ class Admin::SidebarItemsController < Admin::AdminController
   before_filter :find_sidebar_item, only: [:edit, :update, :destroy]
 
   def index
-    @sidebar_items = SidebarItem.order(:id)
+    @sidebar_items = SidebarItem.all
   end
 
   def new
