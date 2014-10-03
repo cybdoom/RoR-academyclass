@@ -37,6 +37,9 @@
                   = link.product.name
                   %span.grey Training Courses
       #cross-sell-column
+        - if false
+          - SidebarItem.order(:order_num, :id).each do |si|
+            = raw si.content
         = link_to image_tag('http://www.thediscdirectory.co.uk/honour/?id=8400977&style=6'), 'http://www.thediscdirectory.co.uk/8400977', :target => "_blank"
         #social-media-icons
           = link_to image_tag("icons/facebook.png", :title => 'Facebook'), "http://www.facebook.com/AcademyClass", :target => "_blank"
