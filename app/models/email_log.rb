@@ -20,7 +20,7 @@ class EmailLog < ActiveRecord::Base
   
   # the email types which are assigned to AC sales people
   def self.assigned_types
-    ["Contact", "CourseEnquiry"]
+    ["Contact", "CourseEnquiry", "CourseDetailEnquiry"]
   end
   
   def assigned_type?

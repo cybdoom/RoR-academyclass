@@ -13,7 +13,7 @@ module EmailLogsHelper
   
 
   def email_enquiry_options
-    options_for_select [["Enquires Requiring Follow up", "Enquiry"], ["Newsletter Subscriptions", "NewsletterSubscription"], ["Course Detail Emails", "CourseDetailEnquiry"]], @type
+    options_for_select [["Enquires Requiring Follow up", "Enquiry"], ["Newsletter Subscriptions", "NewsletterSubscription"]], @type
   end
 
   def salesperson_options
