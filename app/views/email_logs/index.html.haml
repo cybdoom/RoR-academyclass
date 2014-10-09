@@ -1,6 +1,6 @@
 - content_head do
   = link_to "Sales People", sales_contacts_path, :class => "button"
-  = link_to "Export Emails", export_email_logs_path(format: :csv), :class => "button"
+  = link_to "Export Emails", export_email_logs_path(format: :csv, type: @type), :class => "button"
   %h2 Email Enquiries
 = content_box do
   = form_tag email_logs_path, :method => "GET", :id => "email-logs" do
