@@ -23,7 +23,7 @@
         -if l.has_coordinates?
           %a{:onclick => "showMap(#{l.id}, #{l.latitude}, #{l.longitude})"} See it on the map
           |
-          %a{:onclick => "bookmarksite('Academy Class #{l.name} Location', 'http://#{request.host}/locations##{l.title.gsub(/ /, "-")}')"} Bookmark this location
+          %a.bookmark{:title => "Academy Class #{l.name} Location", :href => "http://#{request.host}/locations##{l.title.gsub(/ /, "-")}"} Bookmark this location
       %div{:id => "map_#{l.id}", :style => "display:none"}
         %a{:href => "#map"} Click the map to view the live version
         %a{:href => "#map"}
