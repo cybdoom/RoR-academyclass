@@ -17,6 +17,10 @@ class Location < ActiveRecord::Base
   def postcode_town
     return postcode.match(/^([A-Z]{1,2})/)[1]
   end
+
+  def has_coordinates?
+    !longitude.blank? && !latitude.blank?
+  end
   
   def self.find_locations_by_course
     locations = {}

@@ -20,9 +20,10 @@
         = image_tag("http://maps.google.com/staticmap?center=#{l.coordinates}&markers=#{l.coordinates}&zoom=12&size=100x75&key=#{Location.GCODE}&sensor=false", :onclick => "showMap(#{l.id}, #{l.latitude},#{l.longitude})", :alt => "Map Location of Academy Class of #{h(l.title)}")
       .address= simple_format(l.address)
       .button
-        %a{:onclick => "showMap(#{l.id}, #{l.latitude}, #{l.longitude})"} See it on the map
-        |
-        %a{:onclick => "bookmarksite('Academy Class #{l.name} Location', 'http://#{request.host}/locations##{l.title.gsub(/ /, "-")}')"} Bookmark this location
+        -if l.has_coordinates?
+          %a{:onclick => "showMap(#{l.id}, #{l.latitude}, #{l.longitude})"} See it on the map
+          |
+          %a{:onclick => "bookmarksite('Academy Class #{l.name} Location', 'http://#{request.host}/locations##{l.title.gsub(/ /, "-")}')"} Bookmark this location
       %div{:id => "map_#{l.id}", :style => "display:none"}
         %a{:href => "#map"} Click the map to view the live version
         %a{:href => "#map"}
