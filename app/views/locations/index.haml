@@ -17,7 +17,10 @@
       .title
         %h2{:id => h(l.title.parameterize)}= h(l.title)
       .miniMap
-        = image_tag("http://maps.google.com/staticmap?center=#{l.coordinates}&markers=#{l.coordinates}&zoom=12&size=100x75&key=#{Location.GCODE}&sensor=false", :onclick => "showMap(#{l.id}, #{l.latitude},#{l.longitude})", :alt => "Map Location of Academy Class of #{h(l.title)}")
+        - if l.image.present?
+          = image_tag l.image.url
+        - else
+          = image_tag("http://maps.google.com/staticmap?center=#{l.coordinates}&markers=#{l.coordinates}&zoom=12&size=100x75&key=#{Location.GCODE}&sensor=false", :onclick => "showMap(#{l.id}, #{l.latitude},#{l.longitude})", :alt => "Map Location of Academy Class of #{h(l.title)}")
       .address= simple_format(l.address)
       .button
         -if l.has_coordinates?

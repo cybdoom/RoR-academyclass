@@ -1,6 +1,8 @@
 class Location < ActiveRecord::Base
 
   scope :ordered, order(:id)
+
+  has_attached_file :image, :styles => {:normal => "100x75"}, :default_style => :normal, :whiny => false # allow non-image uploads
   
   def self.GCODE
     "ABQIAAAAn5I9SCqf9euA-mJEurvEHhRdPFx3DPdRc7UaLDxhMTO2mBCgyxQm1bErpf-FJfGVJc9UojHPmdAgUg"
