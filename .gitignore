@@ -1,5 +1,6 @@
 tmp/*
 log/*
+bin/*
 .ruby-version
 .ruby-gemset
 public/system
