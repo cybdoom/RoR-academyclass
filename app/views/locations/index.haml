@@ -31,24 +31,5 @@
         %a{:href => "#map"} Click the map to view the live version
         %a{:href => "#map"}
           = image_tag("http://maps.google.com/staticmap?center=#{l.coordinates}&markers=#{l.coordinates}&zoom=15&size=490x300&key=#{Location.GCODE}&sensor=false", :alt => "Map Location of Academy Class of #{h(l.title)}", :border => "0")
-  .location_entry
-    .title
-      %h2#online-training Live Online Training
-      .miniMap= image_tag "locations/live-online-training.jpg"
-    .address
-      Adobe Acrobat Connect
-      %br
-      Delivered From:
-      .indented
-        Academy Class
-        %br
-        Elizabeth House 
-        %br
-        39 York Road 
-        %br
-        Waterloo
-        %br
-        SE1 7NQ
-    .button
 #map
 %script{:type => "text/javascript"} buildMap();
