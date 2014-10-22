@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141003120410) do
+ActiveRecord::Schema.define(:version => 20141022135520) do
 
   create_table "answers", :force => true do |t|
     t.integer "survey_response_id"
@@ -233,11 +233,15 @@ ActiveRecord::Schema.define(:version => 20141003120410) do
   end
 
   create_table "locations", :force => true do |t|
-    t.string  "title",     :limit => 100,                               :null => false
-    t.text    "address"
-    t.string  "name",      :limit => 100,                               :null => false
-    t.decimal "longitude",                :precision => 8, :scale => 6
-    t.decimal "latitude",                 :precision => 8, :scale => 6
+    t.string   "title",              :limit => 100,                               :null => false
+    t.text     "address"
+    t.string   "name",               :limit => 100,                               :null => false
+    t.decimal  "longitude",                         :precision => 8, :scale => 6
+    t.decimal  "latitude",                          :precision => 8, :scale => 6
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "menu_groups", :force => true do |t|
