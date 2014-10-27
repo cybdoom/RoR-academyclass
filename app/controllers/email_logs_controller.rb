@@ -25,7 +25,7 @@ class EmailLogsController < ApplicationController
   
   def create
     email = Contact.new(params[:contact])
-    if email.save
+    if params[:fcomment].blank? && email.save
       render :text => "Your message has been sent successfully\n#{Contact::GOOGLE_TRACKING_CODE}"
     else
       render :nothing => true, :status => 500

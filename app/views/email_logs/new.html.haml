@@ -40,6 +40,9 @@
       = f.input :interest, :class => "formitem", :hint => "What product are you interested in?", :label => "Area of Interest:"
       = f.input :enquiry, :label => "Comments", :class => "formitem", :hint => "Write some additional information of what your looking for from you course."
       = f.input :opt_in, :label => "Is it OK to add you to our newsletter?", :as => :radio
+      %p{style: "width: 1px; height: 1px; overflow: hidden;"}
+        Please leave following field blank:
+        = text_field_tag :fcomment
     = f.actions do
       %input#contact_submit{:type => "button", :value => "Submit", :style => "width:auto", :title => "Great! I'm done."}
 %h2 Addresses
