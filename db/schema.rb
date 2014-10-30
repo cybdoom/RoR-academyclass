@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141022135520) do
+ActiveRecord::Schema.define(:version => 20141030074453) do
 
   create_table "answers", :force => true do |t|
     t.integer "survey_response_id"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20141022135520) do
     t.decimal "price",           :precision => 8, :scale => 2
     t.string  "booking_type"
     t.string  "email"
+    t.integer "platform",                                      :default => 0, :null => false
   end
 
   create_table "booking_form_responses", :force => true do |t|
