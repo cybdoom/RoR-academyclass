@@ -44,7 +44,7 @@
         = d.start_date.strftime("%d %b")
         to
         = d.end_date.strftime("%d %b")
-      %td= d.platform_pc ? "PC" : "Mac"
+      %td= display_platform(d)
       %td= number_to_currency d.price, :unit => "£"
   %tr
     %td{:colspan => 5} Total (excluding VAT)
