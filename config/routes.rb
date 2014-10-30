@@ -2,6 +2,8 @@ Academyclass::Application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
 
+  match "/bbx", to: redirect("/")
+
   namespace :admin do
     resources :news, :sidebar_items
   end
