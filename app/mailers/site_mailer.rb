@@ -1,5 +1,5 @@
 class SiteMailer < ActionMailer::Base
-  helper CoursesHelper
+  helper CoursesHelper, BookingFormHelper
   
   default :from => "Academy Class Website <training@academyclass.com>"
   default_url_options[:host] = Rails.env.production? ? "www.academyclass.com" : "staging.academyclass.com"

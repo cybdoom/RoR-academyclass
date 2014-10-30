@@ -1,6 +1,7 @@
 //= require jquery
 //= require_tree ./shared/
 //= require_self
+//= require booking_delegates
 
 $(document).ready(function() {
   $('a[rel*=facebox]').facebox();

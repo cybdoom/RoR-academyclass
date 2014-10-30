@@ -42,6 +42,8 @@ Academyclass::Application.routes.draw do
       get 'search'
     end
   end
+
+  match "/booking_delegates/:id/platform" => "booking_delegates#platform", via: :post, as: :platform_booking_delegate
   
   resources :footer_links, :only => [:index, :new, :create, :destroy]
   resources :prioritise, :only => [:update]

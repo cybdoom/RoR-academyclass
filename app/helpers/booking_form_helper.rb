@@ -1,8 +1,9 @@
 module BookingFormHelper
 
   def display_platform(del)
-    return "Not specified" if del.platform_pc.nil?
-    del.platform_pc ? "PC" : "Mac"
+    selected = default_platform_item_id(del)
+    title = platform_array.find {|p| p.last == selected}
+    title ? title.first : "Not specified"
   end
 
   def show_delegate_email
@@ -16,4 +17,34 @@ module BookingFormHelper
   def booking_payment_schedule
     @booking.payment_schedule.map {|date| date.strftime('%d %B %Y') }.join(', ')
   end
+
+  def options_for_platform_select(del)
+    default = default_platform_item_id(del)
+
+    options_for_select(platform_array, default)
+  end
+
+  private
+   
+    def platform_array
+      [
+        ["Not specified", 0],
+        ["Mac", 1],
+        ["PC", 2],
+        ["Bring your own laptop", 3]
+      ]
+    end
+
+    def default_platform_item_id(del)
+      if del.platform.nil?
+        if del.platform_pc.nil?
+          default = 0
+        else
+          default = del.platform_pc ? 2 : 1
+        end
+      else
+        default = del.platform
+      end
+      default
+    end
 end
