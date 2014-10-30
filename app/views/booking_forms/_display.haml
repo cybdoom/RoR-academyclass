@@ -57,7 +57,11 @@
           = d.start_date.strftime("%d %b")
           to
           = d.end_date.strftime("%d %b")
-      .platform= display_platform(d)
+      .platform
+        - if params[:action] == "edit"
+          = display_platform(d)
+        - else
+          = select_tag :platform, options_for_platform_select(d), :"data-id" => d.id, class: "platform_select"
       .price= number_to_currency d.price, :unit => "£"
   %li.totals
     .total Total (excluding VAT)

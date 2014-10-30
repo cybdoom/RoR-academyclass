@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(:version => 20141030074453) do
     t.decimal "price",           :precision => 8, :scale => 2
     t.string  "booking_type"
     t.string  "email"
-    t.integer "platform",                                      :default => 0, :null => false
+    t.integer "platform"
   end
 
   create_table "booking_form_responses", :force => true do |t|
