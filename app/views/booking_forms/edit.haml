@@ -32,7 +32,7 @@
           .created= link_to c.created_at.strftime('%d %B %Y %H:%M'), payment_response_path(c)
           .success= link_to c.success ? "Yes" : "No", payment_response_path(c)
           .status= link_to c.transaction_status, payment_response_path(c)
-          .amount= c.auth_amount.nil? ? "n/a" : link_to(number_to_currency(c.auth_amount, :unit => "&pound;"), payment_response_path(c))
+          .amount= c.auth_amount.nil? ? "n/a" : link_to(number_to_currency(c.auth_amount, :unit => "£"), payment_response_path(c))
           .message= link_to c.processed_message, payment_response_path(c)
   - if @booking.booking_approval
     #booking_approval
