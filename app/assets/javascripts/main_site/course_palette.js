@@ -22,7 +22,7 @@ $(document).ready(function() {
   $('.email-course a').click(function(){
     track_page_view('/goal/email-details/' + $(this).closest('.course_information').data('page-tracker'));
     var id = $(this).attr("id").match(/email_course_details_(.*)/)[1];
-    $('#course_detail_enquiry_course').val(id);
+    $('#course_detail_enquiry_course_id').val(id);
     $.facebox({div: $(this).attr("href") });
     return false;
   });
