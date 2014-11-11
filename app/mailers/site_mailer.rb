@@ -13,6 +13,11 @@ class SiteMailer < ActionMailer::Base
     @enquiry = enquiry
     mail(:subject => "Academy Class Enquiry: #{enquiry.subject}", :to => recipient_address(recipient))
   end
+
+  def enquiry_details_requested_email(enquiry, recipient)
+    @enquiry = enquiry
+    mail(:subject => "Academy Class Enquiry Detalis Requested: #{enquiry.subject}", :to => recipient_address(recipient))
+  end
   
   def course_email(course, name, email)
     @course = course
