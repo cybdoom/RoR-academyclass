@@ -28,12 +28,12 @@ class EmailLog < ActiveRecord::Base
   end
   
   def previous
-    types = assigned_type? ? EmailLog.assigned_types : self.type.to_s
+    types = EmailLog.assigned_types
     EmailLog.of_type(types).before(id).first
   end
   
   def next
-    types = assigned_type? ? EmailLog.assigned_types : self.type.to_s
+    types = EmailLog.assigned_types
     EmailLog.of_type(types).after(id).first
   end
 
