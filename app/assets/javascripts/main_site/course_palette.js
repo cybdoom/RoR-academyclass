@@ -119,7 +119,7 @@ $(document).ready(function() {
       data: $this.closest("form").serialize(), 
       dataType: 'text', 
       url: $this.closest("form").attr("action"),
-      success: function(data) { $this.closest('#email-course-details').html(data) }
+      success: function(data) { $('#facebox .email-course-details-form').html(data) }
     });
     return false;
   });
