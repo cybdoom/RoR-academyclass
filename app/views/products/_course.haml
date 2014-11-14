@@ -86,7 +86,7 @@
   
     %li.book-now= link_to "Book Now", "#"
     %li.download-course= link_to "Print Course Details", course_path(course, :format => "pdf")
-    %li.live-chat= link_to "Live Chat", "#"
+    %li.live-chat= link_to "live Chat", "#", id: "livilyChatLink", class: "livilyChatButton ClickdeskChatLink", image: false, onclick: "return false;"
     %li.email-course= link_to "Email Course Details", "#email-course-details", :id => "email_course_details_#{course.id}"
     
 - if course.course_template_id.nil?
@@ -95,4 +95,4 @@
   .hidden{:id => "what-you-get-#{course.course_template_id}"}= raw textilize(course.course_template.copy)    
 - elsif !@included_templates.include?(course.course_template_id)
   - @included_templates << course.course_template_id
-  .hidden{:id => "what-you-get-#{course.course_template_id}"}= raw textilize(course.course_template.copy)    
+  .hidden{:id => "what-you-get-#{course.course_template_id}"}= raw textilize(course.course_template.copy)
