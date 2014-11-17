@@ -21,7 +21,11 @@ pdf.font_families.update(
 pdf.bounding_box([50, pdf.bounds.top - 120], :width  => pdf.bounds.width - 100, :height => pdf.bounds.height - 220) do
   pdf.font "DIN", :size => 12 do
     if @course.logo.file?
-      pdf.image @course.logo.path, :width => 50,  :at => [440,630]
+      begin
+        pdf.image @course.logo.path, :width => 50,  :at => [440,630]
+      rescue => e
+        Rails.logger.error "#{e.message}\n#{e.backtrace.join("\n")}"
+      end
     end
     pdf.fill_color body_text_color
     pdf.move_down 10
