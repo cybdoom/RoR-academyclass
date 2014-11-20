@@ -51,6 +51,10 @@ class User < ActiveRecord::Base
     @video_product_ids ||= user_video_products.pluck(:video_product_id)
   end  
 
+  def all_video_products_selected?
+    video_products.count == VideoProduct.count
+  end
+
   VOWELS = %w(a e i o u)
   CONSONANTS = %w(b c d f g h j k l m n p q r s t v w x y z)
   NUMBERS = ("0".."9").to_a
