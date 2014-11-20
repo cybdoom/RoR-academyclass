@@ -7,4 +7,10 @@
     = f.input :password
     = f.input :password_confirmation
     = f.input :video_products, :as => :check_boxes
+    %li.input
+      %ol.choices-group
+        %li.choice
+          %label
+            = check_box_tag :select_all_video_products, nil, (f.object.video_products.count == VideoProduct.count)
+            Select All
   = f.actions

@@ -177,4 +177,8 @@ $(document).ready(function() {
       $("#survey_trainer").val(data.trainer.id);
     }
   }
+
+  $("#select_all_video_products").click(function() {
+    $(":checkbox[name='user[video_product_ids][]']").attr("checked", this.checked);
+  });
 });
