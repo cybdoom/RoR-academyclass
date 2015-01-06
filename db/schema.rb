@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141030074453) do
+ActiveRecord::Schema.define(:version => 20150106190506) do
 
   create_table "answers", :force => true do |t|
     t.integer "survey_response_id"
@@ -286,10 +286,12 @@ ActiveRecord::Schema.define(:version => 20141030074453) do
     t.string   "title"
     t.string   "slug"
     t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.datetime "published_at"
   end
 
+  add_index "news_pages", ["published_at"], :name => "index_news_pages_on_published_at"
   add_index "news_pages", ["slug"], :name => "index_news_pages_on_slug", :unique => true
 
   create_table "pages", :force => true do |t|

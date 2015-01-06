@@ -3,4 +3,8 @@
     = f.input :title
     .no-float-label
       = f.input :body, as: :ckeditor, input_html: {class: "basic-input"}
-  = f.actions
+  %fieldset.actions{style: "padding-left: 0;"}
+    %ol
+      %li.action.input_action
+        = f.submit "#{@news_page.new_record? ? "Create" : "Update"} News page"
+        = f.submit "#{@news_page.new_record? ? "Create" : "Update"} News page and #{@news_page.published_at ? "Unpublish" : "Publish"}"
