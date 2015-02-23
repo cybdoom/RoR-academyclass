@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150106190506) do
+ActiveRecord::Schema.define(:version => 20150223202154) do
 
   create_table "answers", :force => true do |t|
     t.integer "survey_response_id"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(:version => 20150106190506) do
     t.string  "job_title"
     t.string  "email"
     t.string  "phone"
+    t.string  "email_to"
+    t.string  "name_to"
   end
 
   create_table "booking_delegates", :force => true do |t|
