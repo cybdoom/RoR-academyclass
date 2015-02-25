@@ -77,6 +77,13 @@
             .input
               = a.label :job_title
               = a.text_field :job_title
+            %p Send invoice to:
+            .input
+              = a.label :name_to
+              = a.text_field :name_to
+            .input
+              = a.label :email_to
+              = a.text_field :email_to
           %p.terms Please note in line with out Terms and Conditions all invoices must be paid in full 14 days after completion of the training.
           = f.submit "Invoice me", :class => 'choose-invoice'
         .payment-option
