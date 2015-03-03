@@ -2,9 +2,10 @@ class CmsController < ApplicationController
   caches_page "index", "consultancy", "creative_services", "aboutus", "training", "private_training", "what_clients_say", "meet_the_instructors", "certifications", "terms_and_conditions", "privacy_policy", "terms_of_business", "sitemap", "club", "certification", "training_vouchers", "blended_learning"
   
   def index
-    @page = "home"
-    @content = Page.find_by_name("home").content
+    @page     = "home"
+    @content  = Page.find_by_name("home").content
     @families = Family.includes({:products => :product_parent}).order(:position)
+    @news     = News.published.order("sticky DESC, created_at DESC").limit(4)
   end
   
   def consultancy

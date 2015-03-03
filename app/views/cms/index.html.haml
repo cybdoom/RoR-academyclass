@@ -29,4 +29,23 @@
             %li= link_to h(product.name), product.url
       .button.arrow-down
       = image_tag("homepage_family_box/arrow-down.png", :alt => "Arrow Down", :title => "Scroll Down", :class => "image-down")
+
 .boxed-content=raw textilize @content
+
+.row
+  - @news.each do |news|
+    .post-block
+      = image_tag news.image.url(:medium)
+      .post-header
+        = news.title
+      .post-published
+        Published on #{news_date_val news.published_at}
+      .post-content
+        = raw news.description
+       
+      = link_to "Read More", news_path(news), class: 'post-read_more'
+      .pt50
+
+
+
+
