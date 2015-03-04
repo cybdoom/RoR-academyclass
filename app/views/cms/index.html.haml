@@ -35,7 +35,8 @@
 .row
   - @news.each do |news|
     .post-block
-      = image_tag news.image.url(:medium)
+      = link_to(news_path(news), :target => "_blank") do
+        = image_tag news.image.url(:medium)
       .post-header
         = news.title
       .post-published
@@ -43,7 +44,7 @@
       .post-content
         = raw news.description
        
-      = link_to "Read More", news_path(news), class: 'post-read_more'
+      = link_to "Read More", news_path(news), class: 'post-read_more', :target => "_blank"
       .pt50
 
 
