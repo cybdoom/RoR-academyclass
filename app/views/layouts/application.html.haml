@@ -13,24 +13,24 @@
     = stylesheet_link_tag 'application'
     = csrf_meta_tag
     = yield(:head)
-  
-  %body{:id => body_tag_id}
     / Google Code for Remarketing Tag
     /
       \------------------------------------------------
       Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. See more information and instructions on how to setup the tag on: http://google.com/ads/remarketingsetup
       \-------------------------------------------------
     :javascript
-      /* <![CDATA[ */
+      /* <![CDATA[ /
       var google_conversion_id = 1065162354;
       var google_custom_params = window.google_tag_params;
       var google_remarketing_only = true;
-      /* ]]> */
+      / ]]> */
     %script{:src => "//www.googleadservices.com/pagead/conversion.js", :type => "text/javascript"}
       :cdata
     %noscript
       %div{:style => "display:inline;"}
         %img{:alt => "", :height => "1", :src => "//googleads.g.doubleclick.net/pagead/viewthroughconversion/1065162354/?value=0&guid=ON&script=0", :style => "border-style:none;", :width => "1"}/
+
+  %body{:id => body_tag_id}
     #mainbody
       = render :partial => "shared/menu"
       = render 'shared/banners'
@@ -62,17 +62,6 @@
           %a{:href => "/terms_and_conditions"} Website Terms
           %a{:href => "/privacy_policy"} Privacy Policy
           %a{:href => "/terms_of_business"} Terms of Business
-        :javascript
-          /* <![CDATA[ /
-          var google_conversion_id = 1065162354;
-          var google_custom_params = window.google_tag_params;
-          var google_remarketing_only = true;
-          / ]]> */
-        %script{:src => "//www.googleadservices.com/pagead/conversion.js", :type => "text/javascript"}
-          :cdata
-        %noscript
-          %div{:style => "display:inline;"}
-            %img{:alt => "", :height => "1", :src => "//googleads.g.doubleclick.net/pagead/viewthroughconversion/1065162354/?value=0&guid=ON&script=0", :style => "border-style:none;", :width => "1"}/
     #newsletter-form{:style => "display:none"}= render :partial => "email_logs/newsletter_subscription"
     = render :partial => "shared/google_analytics"
     = render :partial => "shared/crazy_egg"
