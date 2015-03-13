@@ -1,3 +1,4 @@
+set :stage, :development
 set :rails_env, 'development'
 set :domain, "academyclass.com"
 set :application, "academyclass"
