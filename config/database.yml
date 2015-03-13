@@ -2,7 +2,7 @@ development:
   adapter: mysql2
   encoding: utf8
   database: academyclass_development
-  user: admin_dev
+  username: admin_dev
   password: Uhp9ZKFQT2
   host: localhost
   pool: 5
