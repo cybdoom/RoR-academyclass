@@ -14,7 +14,7 @@ production:
   database: academyclass
   username: admin
   password: ppo4vkdss4vyzyjk
-  host: 109.107.35.254
+  host: localhost
 
 test:
   adapter: mysql2
