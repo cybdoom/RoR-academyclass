@@ -13,6 +13,7 @@
     = stylesheet_link_tag 'application'
     = csrf_meta_tag
     = yield(:head)
+    = render :partial => "shared/google_analytics"
     
   %body{:id => body_tag_id}
     #mainbody
@@ -47,7 +48,6 @@
           %a{:href => "/privacy_policy"} Privacy Policy
           %a{:href => "/terms_of_business"} Terms of Business
     #newsletter-form{:style => "display:none"}= render :partial => "email_logs/newsletter_subscription"
-    = render :partial => "shared/google_analytics"
     = render :partial => "shared/crazy_egg"
     = yield :javascripts
     = javascript_include_tag 'sessioncam'
