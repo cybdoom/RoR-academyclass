@@ -9,7 +9,7 @@ set :repo_url, "git@bitbucket.org:jonathon-horsman/academyclass.git"
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
 # Default deploy_to directory is /var/www/my_app
-set :deploy_to, '/home/ubuntu/academyclass'
+#set :deploy_to, '/home/ubuntu/academyclass'
 
 # Default value for :scm is :git
 # set :scm, :git
