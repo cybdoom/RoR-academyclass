@@ -4,7 +4,17 @@ module ApplicationHelper
   def slugify(s)
     s.gsub(/ \-/, '-').gsub(/\- /, '-').gsub(/  /, ' ').gsub(/ /, '-').gsub(/&/, 'and').gsub(/[^A-Za-z0-9\-\/()]/, "")
   end
-  
+
+  # helper for get course from url
+  def search_course_from_url(course_name)
+    Course.all.each do |c|
+      if course_name == c.name.gsub(/ \-/, '-').gsub(/\- /, '-').gsub(/  /, ' ').gsub(/ /, '-').gsub(/&/, 'and').gsub(/[^A-Za-z0-9\-\/()]/, "")
+        return current_course = c.id
+        break
+      end
+    end
+  end
+
   def display_flash
     flash.map do |key, msg|
       return content_tag(:div, msg, :class => "flash-#{key}")

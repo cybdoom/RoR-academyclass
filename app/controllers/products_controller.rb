@@ -47,6 +47,9 @@ class ProductsController < ApplicationController
     @page = "product"
     render :layout => "application"
   end
+
+  def current_product
+  end
   
   def destroy
     @product.destroy

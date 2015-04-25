@@ -1,3 +1,10 @@
+- course_name = URI::parse(request.original_url).path.split('/')[4].to_s
+- course = search_course_from_url(course_name)
+- if course.is_a? Integer
+  - course = Course.for_product_page(@product.id).where(id: course).first
+- else
+  - course = Course.for_product_page(@product.id).first
+
 .course_information{"data-page-tracker" => "#{@product.product_parent.encode_name}-#{@product.encode_name}"}
   .header
     - if course.logo.file?

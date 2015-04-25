@@ -20,9 +20,14 @@
   = render :partial => "image"
   .course_buttons_wrapper
     %ul.course_buttons
+
       - product_courses.each do |c|
+
+        - @course_name = c.name.gsub(/&/, "and").gsub(/ /, "-")
+        - @parent_product = ProductParent.where(id: @product.product_parent_id).first
+
         %li.course_link
-          = link_to "##{c.anchor}" do 
+          = link_to "#{course_current_path(:course => slugify(c.name), :product => slugify(@product.name), :product_parent => slugify(@parent_product.name))}##{c.name}" do 
             %span.course_name= c.name
             %span.course_level{:class => "course_level_#{c.level_number}"}= c.level_number
           %ul

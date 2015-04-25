@@ -26,6 +26,9 @@ class ProductParentsController < ApplicationController
   def new
     @product_parent = ProductParent.new
   end
+
+  def current_product
+  end
   
   def create
     @product_parent = ProductParent.new(params[:product_parent])
