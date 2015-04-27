@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   cache_sweeper :product_sweeper, :only => [:create, :update, :destroy, :select_course]
   caches_page :show
-  before_filter :check_admin, :except => :show
+  before_filter :check_admin, :except => [:show, :current]
   before_filter :find_product, :only => [:edit, :destroy, :update]
   layout "admin", :except => :show
 
