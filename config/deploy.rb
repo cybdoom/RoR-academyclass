@@ -39,7 +39,7 @@ namespace :deploy do
 
   desc 'Restart application'
   task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
+    on roles(:all), in: :sequence, wait: 5 do
       # Your restart mechanism here, for example:
       execute :echo, release_path.join('tmp/restart.txt')
       execute "echo 'Test deploy restart'"
