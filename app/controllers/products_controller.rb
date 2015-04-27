@@ -48,7 +48,12 @@ class ProductsController < ApplicationController
     render :layout => "application"
   end
 
-  def current_product
+  def current
+    @parent = params[:product_parent].gsub(/\-/, " ")
+    @product = Product.find_by_name(@name = product_name)
+    return render template: "products/not_found", layout: "application" if @product.nil?
+    @page = "product"
+    render :layout => "application"
   end
   
   def destroy

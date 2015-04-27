@@ -27,7 +27,7 @@ Academyclass::Application.routes.draw do
   match 'academy_class_club' => 'cms#club', :as => :ac_club
   match '/training/:product_parent/:product-training-course' => 'products#show', :as => :training_product
   match '/training/:product_parent/:product/:product2-training-course' => 'products#show'
-  match '/training/:product_parent/:product-training-course/:course' => 'products#show', :as => :course_current
+  match '/training/:product_parent/:product-training-course/:course' => 'products#current', :as => :course_current
   match '/training/:product_parent/:product-training-course/:id/:course' => 'courses#show', :as => :course_product_parent
   
   
