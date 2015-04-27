@@ -5,7 +5,7 @@ class CmsController < ApplicationController
     @page     = "home"
     @content  = Page.find_by_name("home").content
     @families = Family.includes({:products => :product_parent}).order(:position)
-    @news     = News.published.order("sticky DESC, created_at DESC").limit(4)
+    @news     = News.published.order("created_at DESC").limit(4)
   end
   
   def consultancy
