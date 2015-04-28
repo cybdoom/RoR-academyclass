@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150223202154) do
+ActiveRecord::Schema.define(:version => 20150428054151) do
 
   create_table "answers", :force => true do |t|
     t.integer "survey_response_id"
@@ -177,6 +177,8 @@ ActiveRecord::Schema.define(:version => 20150223202154) do
     t.string  "logo_file_name"
     t.string  "palette_image_file_name"
     t.string  "qa_category"
+    t.string  "head"
+    t.text    "head_subject"
   end
 
   create_table "email_logs", :force => true do |t|

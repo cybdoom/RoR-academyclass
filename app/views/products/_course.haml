@@ -5,6 +5,11 @@
 - else
   - course = Course.for_product_page(@product.id).first
 
+%div.head_subject
+  %p
+    %strong= course.head
+  = course.head_subject
+
 .course_information{"data-page-tracker" => "#{@product.product_parent.encode_name}-#{@product.encode_name}"}
   .header
     - if course.logo.file?
