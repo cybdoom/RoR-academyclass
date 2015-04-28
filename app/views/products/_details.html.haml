@@ -1,7 +1,10 @@
 - @included_templates = []
 
-= render :partial => "products/course"
-  
+- if get_style_course(@product)
+  = render :partial => "products/course"
+- else
+  = render :partial => "products/course", :collection => product_courses
+
 #guarantee-wrapper{:style => "display:none;"}
   = render "cms/guarantee"
 #discount-wrapper{:style => "display:none;"}

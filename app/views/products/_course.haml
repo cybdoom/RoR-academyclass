@@ -1,9 +1,10 @@
-- course_name = URI::parse(request.original_url).path.split('/')[4].to_s
-- course = search_course_from_url(course_name)
-- if course.is_a? Integer
-  - course = Course.for_product_page(@product.id).where(id: course).first
-- else
-  - course = Course.for_product_page(@product.id).first
+- if get_style_course(@product)
+  - course_name = URI::parse(request.original_url).path.split('/')[4].to_s
+  - course = search_course_from_url(course_name)
+  - if course.is_a? Integer
+    - course = Course.for_product_page(@product.id).where(id: course).first
+  - else
+    - course = Course.for_product_page(@product.id).first
 
 %div.head_subject
   %p

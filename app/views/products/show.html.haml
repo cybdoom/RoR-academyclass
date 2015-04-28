@@ -27,9 +27,14 @@
         - @parent_product = ProductParent.where(id: @product.product_parent_id).first
 
         %li.course_link
-          = link_to "#{course_current_path(:course => slugify(c.name), :product => slugify(@product.name), :product_parent => slugify(@parent_product.name))}" do 
-            %span.course_name= c.name
-            %span.course_level{:class => "course_level_#{c.level_number}"}= c.level_number
+          - if get_style_course(@product)
+            = link_to "#{course_current_path(:course => slugify(c.name), :product => slugify(@product.name), :product_parent => slugify(@parent_product.name))}" do
+              %span.course_name= c.name
+              %span.course_level{:class => "course_level_#{c.level_number}"}= c.level_number
+          - else
+            = link_to "##{c.anchor}" do
+              %span.course_name= c.name
+              %span.course_level{:class => "course_level_#{c.level_number}"}= c.level_number
           %ul
             %li.level_text
               %span.title Level:
@@ -48,3 +53,5 @@
     - unless @product.description.blank?
       =raw textilize @product.description
 = render '/shared/partner_logos'
+- if get_style_course(@product) == false
+  = render "products/details"

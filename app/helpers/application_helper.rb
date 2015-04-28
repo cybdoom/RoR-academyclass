@@ -15,6 +15,16 @@ module ApplicationHelper
     end
   end
 
+  # helper for get style course
+  def get_style_course(product)
+    if product.name == 'Illustrator' || product.name == 'Photoshop'
+      @style = true
+    else
+      @style = false
+    end
+    return @style
+  end
+
   def display_flash
     flash.map do |key, msg|
       return content_tag(:div, msg, :class => "flash-#{key}")
