@@ -17,7 +17,7 @@ module ApplicationHelper
 
   # helper for get style course
   def get_style_course(product)
-    if product.name == 'Illustrator' || product.name == 'Photoshop'
+    if product.name == 'Mac OS' || product.name == 'Edge' || product.name == 'Wordpress' || product.name == 'iOS App Developer'
       @style = true
     else
       @style = false
