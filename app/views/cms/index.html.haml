@@ -31,7 +31,9 @@
       = image_tag("homepage_family_box/arrow-down.png", :alt => "Arrow Down", :title => "Scroll Down", :class => "image-down")
 
 .boxed-content=raw textilize @content
-
+- @news.each do |news|
+  = news.title
+  %br
 .row
   - @news.each do |news|
     .post-block
