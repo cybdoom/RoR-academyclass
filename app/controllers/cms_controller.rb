@@ -1,5 +1,5 @@
 class CmsController < ApplicationController
-  caches_page "index", "consultancy", "creative_services", "aboutus", "training", "private_training", "what_clients_say", "meet_the_instructors", "certifications", "terms_and_conditions", "privacy_policy", "terms_of_business", "sitemap", "club", "certification", "training_vouchers", "blended_learning"
+  caches_page "consultancy", "creative_services", "aboutus", "training", "private_training", "what_clients_say", "meet_the_instructors", "certifications", "terms_and_conditions", "privacy_policy", "terms_of_business", "sitemap", "club", "certification", "training_vouchers", "blended_learning"
   
   def index
     @page     = "home"
