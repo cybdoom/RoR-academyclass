@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150428054151) do
+ActiveRecord::Schema.define(:version => 20150517185215) do
 
   create_table "answers", :force => true do |t|
     t.integer "survey_response_id"
@@ -197,6 +197,7 @@ ActiveRecord::Schema.define(:version => 20150428054151) do
     t.string   "company"
     t.string   "interest"
     t.datetime "dispatched_at"
+    t.text     "link"
   end
 
   create_table "events", :force => true do |t|

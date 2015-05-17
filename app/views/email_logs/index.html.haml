@@ -14,6 +14,7 @@
       .type Type
       .recipient Recipient
       .message Subject
+      .url Url
       
     - @email_logs.each do |e|
       %li{:class => cycle("alt_row",""), :onclick => "document.location='" + email_log_path(e) + "'"}
@@ -22,4 +23,5 @@
         .type= e.type_name
         .recipient= e.recipient_name
         .message= truncate(e.subject, {:length => 80})
+        .url= e.link
   = will_paginate @email_logs

@@ -5,5 +5,6 @@
     = f.input :name
     = f.input :email
     = f.input :course_id, :as => :hidden
+    = f.input :link, :input_html => { :value => request.original_url.to_s }, :as => :hidden
   = f.actions do
     = f.action :submit, :label => "Send Me An Email"

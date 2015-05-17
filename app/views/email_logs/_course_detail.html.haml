@@ -17,3 +17,6 @@
       = @email.subject
   - if @email.course
     %li= render :partial => "salesperson"
+  %li
+    %label Url
+    = @email.link

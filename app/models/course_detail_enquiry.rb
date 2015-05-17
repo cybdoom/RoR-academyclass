@@ -1,6 +1,6 @@
 class CourseDetailEnquiry < EmailLog
   # Created when someone clicks the "email me the details" link
-  attr_accessible :name, :email, :course_id
+  attr_accessible :name, :email, :course_id, :link
   belongs_to :course
   validates_presence_of :course_id
   before_validation :set_subject, :on => :create
