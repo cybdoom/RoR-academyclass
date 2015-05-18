@@ -23,3 +23,6 @@
   %li
     %p=raw nl2br(@email.enquiry)
   %li= render :partial => "salesperson"
+  %li
+    %label Url
+    = @email.link
