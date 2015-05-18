@@ -33,3 +33,6 @@
     %label Interest in other courses:
     = @email.opt_in ? "Yes" : "No"
   %li= render :partial => "salesperson"
+  %li
+    %label Url:
+    = @email.link

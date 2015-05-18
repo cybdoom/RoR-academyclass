@@ -1,5 +1,5 @@
 class CourseEnquiry < EmailLog
-  attr_accessible :name, :email, :phone, :location, :enquiry, :date, :course_id, :opt_in
+  attr_accessible :name, :email, :phone, :location, :enquiry, :date, :course_id, :opt_in, :link
   validates_presence_of :course_id
   belongs_to :course
   before_validation :set_subject, :on => :create
