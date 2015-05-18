@@ -43,7 +43,7 @@
       %p{style: "width: 1px; height: 1px; overflow: hidden;"}
         Please leave following field blank:
         = text_field_tag :fcomment
-      = f.input :link, :input_html => { :value => request.original_url.to_s }, :as => :hidden
+      = f.input :link, :input_html => { :value => request.original_url.to_s }
     = f.actions do
       %input#contact_submit{:type => "button", :value => "Submit", :style => "width:auto", :title => "Great! I'm done."}
 %h2 Addresses
