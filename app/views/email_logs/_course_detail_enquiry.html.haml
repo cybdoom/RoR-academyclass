@@ -6,6 +6,6 @@
     = f.input :email
     = f.input :course_id, :as => :hidden
     - if session[:url]
-      = f.input :link, :input_html => { :value => session[:url] }
+      = f.input :link, :input_html => { :value => session[:url] }, :as => :hidden
   = f.actions do
     = f.action :submit, :label => "Send Me An Email"
