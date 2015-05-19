@@ -3,7 +3,7 @@
   
   %head
     %link{:rel=>"icon", :href=>"/images/favicon.ico", :type=>"image/x-icon"}
-    %title= yield(:meta_title)
+    %title= session[:url]
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
     %meta{:name => "description", :content => yield(:meta_description) || ""}
     %meta{:name => "keywords", :content => yield(:meta_keywords) || ""}
