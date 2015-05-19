@@ -36,6 +36,7 @@ class EmailLogsController < ApplicationController
     @email = EmailLog.find(params[:id])
     @email.sales_contact_id = params[:email_log][:sales_contact_id]
     if @email.save
+      params[:url] = ''
       render :nothing => true
     else
       render :nothing => true, :status => 500

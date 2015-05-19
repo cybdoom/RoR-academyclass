@@ -16,6 +16,8 @@
     = render :partial => "shared/google_analytics"
     
   %body{:id => body_tag_id}
+    - if params[:utm_source]
+      - session[:url] = request.original_url.to_s
     #mainbody
       = render :partial => "shared/menu"
       = render 'shared/banners'
