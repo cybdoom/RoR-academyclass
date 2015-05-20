@@ -17,6 +17,7 @@
     
   %body{:id => body_tag_id}
     .white
+      lol
       -# @url_array = request.original_url.to_s.split('?')
       -# if @url_array.length == 2
         -# session[:url] = request.original_url.to_s
@@ -24,7 +25,7 @@
       - if session[:url] == ""
         empty
       - else
-        full
+        = session[:url]
       = link_to "academyclass", "http://test.academyclass.com/"  
     #mainbody
       = render :partial => "shared/menu"
