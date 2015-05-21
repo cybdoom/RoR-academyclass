@@ -21,13 +21,9 @@
       - @referer_url = request.referer
       - @current_url = request.original_url
       - if @referer_url
-        lol1
-        %br
         - @ref_url = @referer_url.split('/')[2]
         - @cur_url = @current_url.split('/')[2]
         - if @ref_url != @cur_url
-          lol2
-          %br
           - session[:url] = request.referer
 
     #mainbody
