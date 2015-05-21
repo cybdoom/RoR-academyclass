@@ -17,16 +17,9 @@
     
   %body{:id => body_tag_id}
     .white
-      lol
-      -# @url_array = request.original_url.to_s.split('?')
-      -# if @url_array.length == 2
-        -# session[:url] = request.original_url.to_s
-      - session[:url] = request.referer
-      - if session[:url] == ""
-        empty
-      - else
-        = session[:url]
-      = link_to "academyclass", "http://test.academyclass.com/"  
+      = get_url_session
+      %br
+      = request.referer
     #mainbody
       = render :partial => "shared/menu"
       = render 'shared/banners'

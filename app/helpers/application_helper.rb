@@ -25,6 +25,23 @@ module ApplicationHelper
     return @style
   end
 
+  # get url from previws site
+  def get_url_session
+    if !session[:url]
+      session[:url] = ''
+    end
+    @referer_url = request.referer
+    @current_url = request.original_url
+    if @referer_url
+      @ref_url = @referer_url.split('/')[2]
+      @cur_url = @current_url.split('/')[2]
+      if @ref_url != @cur_url
+        session[:url] = request.referer
+      end
+    end
+    return session[:url]
+  end
+
   def display_flash
     flash.map do |key, msg|
       return content_tag(:div, msg, :class => "flash-#{key}")
