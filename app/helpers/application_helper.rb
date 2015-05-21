@@ -32,6 +32,8 @@ module ApplicationHelper
     if @referer_url
       @ref_url = @referer_url.split('/')[2]
       @cur_url = @current_url.split('/')[2]
+      puts @ref_url.to_s + 'lol'
+      puts @cur_url.to_s + 'lol'
       if @ref_url != @cur_url
         session[:url] = request.referer
       end
