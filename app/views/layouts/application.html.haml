@@ -29,10 +29,7 @@
           lol2
           %br
           - session[:url] = request.referer
-      = session[:url]
-      %br
-      = link_to 'academyclass', 'http://test.academyclass.com'
-      
+
     #mainbody
       = render :partial => "shared/menu"
       = render 'shared/banners'
