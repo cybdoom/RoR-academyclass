@@ -27,9 +27,6 @@ module ApplicationHelper
 
   # get url from previws site
   def get_url_session
-    if !session[:url]
-      session[:url] = ''
-    end
     @referer_url = request.referer
     @current_url = request.original_url
     if @referer_url
