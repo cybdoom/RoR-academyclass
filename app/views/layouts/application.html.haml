@@ -17,15 +17,26 @@
     
   %body{:id => body_tag_id}
     .white
-
       - @referer_url = request.referer
       - @current_url = request.original_url
+
+      = '1: ' + @referer_url.to_s
+      %br
+      = '2: ' + @current_url.to_s
+      %br
+
       - if @referer_url
         - @ref_url = @referer_url.split('/')[2]
         - @cur_url = @current_url.split('/')[2]
+
+        = '3: ' + @ref_url.to_s
+        %br
+        = '4: ' + @cur_url.to_s
+        %br
+
         - if @ref_url != @cur_url
           - session[:url] = request.referer
-
+          = '5: ' + session[:url].to_s
     #mainbody
       = render :partial => "shared/menu"
       = render 'shared/banners'
