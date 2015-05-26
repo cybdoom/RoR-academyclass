@@ -35,7 +35,7 @@
         %br
 
         - if @ref_url != @cur_url
-          - session[:url] = request.original_url
+          - session[:url] = request.referer.to_s + ' & ' + request.original_url.to_s
           = '5: ' + session[:url].to_s
       params:
       %br
