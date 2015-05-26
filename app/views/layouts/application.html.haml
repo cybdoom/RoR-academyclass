@@ -37,6 +37,13 @@
         - if @ref_url != @cur_url
           - session[:url] = request.original_url
           = '5: ' + session[:url].to_s
+      params:
+      %br
+      = params[:utm_source]
+      = params[:utm_medium]
+      = params[:utm_term]
+      = params[:utm_content]
+      = params[:utm_campaign]
     #mainbody
       = render :partial => "shared/menu"
       = render 'shared/banners'
