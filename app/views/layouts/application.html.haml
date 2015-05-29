@@ -28,13 +28,14 @@
       = '2: ' + @current_url.to_s
       %br
 
-      - @ref_url = @referer_url.split('/')[2]
-      - @cur_url = @current_url.split('/')[2]
+      - if @referer_url
+        - @ref_url = @referer_url.split('/')[2]
+        - @cur_url = @current_url.split('/')[2]
 
-      = '3: ' + @ref_url.to_s
-      %br
-      = '4: ' + @cur_url.to_s
-      %br
+        = '3: ' + @ref_url.to_s
+        %br
+        = '4: ' + @cur_url.to_s
+        %br
 
         - if @ref_url != @cur_url
           - session[:url] = request.referer.to_s + ' & ' + request.original_url.to_s
