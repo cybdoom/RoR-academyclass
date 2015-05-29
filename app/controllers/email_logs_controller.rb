@@ -1,6 +1,5 @@
 class EmailLogsController < ApplicationController
   before_filter :check_admin, :only => [:index, :update, :destroy, :show]
-  caches_page :new
   layout "admin", :only => [:index, :show]
   
   def index
