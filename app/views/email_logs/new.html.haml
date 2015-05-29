@@ -43,8 +43,8 @@
       %p{style: "width: 1px; height: 1px; overflow: hidden;"}
         Please leave following field blank:
         = text_field_tag :fcomment
-      - if session[:url]
-        = f.input :link, :label => false, :input_html => { :value => session[:url], :style => "display: none;" }
+      - if cookies[:url]
+        = f.input :link, :label => false, :input_html => { :value => cookies[:url], :style => "display: none;" }
     = f.actions do
       %input#contact_submit{:type => "button", :value => "Submit", :style => "width:auto", :title => "Great! I'm done."}
 %h2 Addresses
