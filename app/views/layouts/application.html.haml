@@ -39,8 +39,15 @@
 
         - if @ref_url != @cur_url
           - cookies[:url] = request.referer.to_s + ' & ' + request.original_url.to_s
+
+      - else
+        - cookies[:url] = ''
+        = 'referral url doesn\'t exists'
+        %br
+
       - if cookies[:url]  
         = '5: ' + cookies[:url].to_s
+        
       params:
       %br
       = params[:utm_source]
