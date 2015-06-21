@@ -1,5 +1,13 @@
 - if course_locations_and_dates[course.id]
   %p Choose the date you would like to book:
+  - @month_array = []
+  - Location.all.each do |location|
+    - next_six_months.each do |month|
+      - if course_dates?(course.id, location.id, month)
+        - course_locations_and_dates[course.id][location.id][month].each do |date|
+          - if date != ''
+            - @month_array.push(month)
+
   .calendar-wrapper
     %ul.calendar
       %li.header
@@ -7,23 +15,25 @@
         %ul.months
           - 6.times do |i|
             - d = Date.today.>>(i).strftime("%b")
-            %li.month{:class => d}
-              %span= d
+            - if @month_array.include?(d)
+              %li.month{:class => d}
+                %span= d
       - Location.all.each do |location|
         %li{:class => cycle("city odd", "city even")}
           %span.city_name= location.name
           %ul.months
             - next_six_months.each do |month|
-              %li.month{class: month}
-                %ul.dates
-                  - if course_dates?(course.id, location.id, month)
-                    - course_locations_and_dates[course.id][location.id][month].each do |date|
-                      %li.date= link_to date , "#"
-                  - else
-                    %li.empty-date
-                      
-    = link_to "◀", "#", :class => "calendar-left" 
-    = link_to "▶", "#", :class => "calendar-right"
+              - if @month_array.include?(month)
+                %li.month{class: month}
+                  %ul.dates
+                    - if course_dates?(course.id, location.id, month)
+                      - course_locations_and_dates[course.id][location.id][month].each do |date|
+                        %li.date= link_to date , "#"
+                    - else
+                      %li.empty-date
+    - if @month_array.length > 4        
+      = link_to "◀", "#", :class => "calendar-left" 
+      = link_to "▶", "#", :class => "calendar-right"
   %p
     If no dates appear then please call 
     %span.calltracks_academyclass-main 0800 043 8889
