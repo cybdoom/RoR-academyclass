@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150517185215) do
+ActiveRecord::Schema.define(:version => 20150629200009) do
 
   create_table "answers", :force => true do |t|
     t.integer "survey_response_id"
@@ -163,14 +163,14 @@ ActiveRecord::Schema.define(:version => 20150517185215) do
     t.string  "level",                   :limit => 50
     t.integer "duration"
     t.string  "hours"
-    t.decimal "cost",                                  :precision => 8, :scale => 2
+    t.string  "cost"
     t.string  "name"
     t.text    "who_for"
     t.text    "assumed_knowledge"
     t.text    "you_will_learn"
     t.text    "outline"
     t.integer "level_number"
-    t.boolean "publish_xml",                                                         :default => true
+    t.boolean "publish_xml",                           :default => true
     t.text    "overview"
     t.integer "course_template_id"
     t.text    "what_you_get"

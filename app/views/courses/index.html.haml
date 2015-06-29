@@ -19,6 +19,6 @@
         .title= c.name
         .xml= c.publish_xml ? "Y" : "N"
         .qa_category= c.qa_category
-        .cost=raw display_cost c
+        .cost= c.cost
         .edit-link= link_to "Edit", edit_course_path(c)
         .delete-link= link_to "Delete", course_path(c.id, :page => @page), :confirm => "This will delete all associated course dates too.\n\nAre you sure?", :method => :delete

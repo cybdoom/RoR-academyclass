@@ -1,45 +1,20 @@
-development:
-  adapter: mysql2
-  encoding: utf8
-  database: academyclass_development
-  username: admin_dev
-  password: Uhp9ZKFQT2
-  host: localhost
-  pool: 5
-  timeout: 5000
-
-production:
-  adapter: mysql2
-  encoding: utf8
-  database: academyclass
-  username: admin
-  password: ppo4vkdss4vyzyjk
-  host: localhost
-
-test:
-  adapter: mysql2
-  encoding: utf8
-  database: academyclass_test
-  user: root
-  pool: 5
-  timeout: 5000
-
+#development:
+#  adapter: mysql2
+#  encoding: utf8
+#  database: academyclass_development
+#  username: admin_dev
+#  password: Uhp9ZKFQT2
+#  host: localhost
+#  pool: 5
+#  timeout: 5000
 
 #production:
 #  adapter: mysql2
 #  encoding: utf8
 #  database: academyclass
-#  user: root
-#  pool: 5
-#  timeout: 5000
-
-#development:
-#  adapter: mysql2
-#  encoding: utf8
-#  database: academyclass
-#  user: root
-#  pool: 5
-#  timeout: 5000
+#  username: admin
+#  password: ppo4vkdss4vyzyjk
+#  host: localhost
 
 #test:
 #  adapter: mysql2
@@ -48,3 +23,28 @@ test:
 #  user: root
 #  pool: 5
 #  timeout: 5000
+
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  database: academyclass
+  user: root
+  pool: 5
+  timeout: 5000
+
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: academyclass
+  user: root
+  pool: 5
+  timeout: 5000
+
+test:
+  adapter: mysql2
+  encoding: utf8
+  database: academyclass_test
+  user: root
+  pool: 5
+  timeout: 5000

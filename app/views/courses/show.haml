@@ -41,7 +41,7 @@
             %span.value= pluralize(course.hours, "Hour")
           %li.cost
             %span.title Cost:
-            %span.value=raw display_cost(course)
+            %span.value= course.cost
       .date-picker= render :partial => "products/choose_date", :locals => {:course => course}
       .course-enquire
         %h4

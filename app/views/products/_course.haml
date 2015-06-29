@@ -47,7 +47,7 @@
           %span.value= pluralize(course.hours, "Hour")
         %li.cost
           %span.title Cost:
-          %span.value=raw display_cost(course)
+          %span.value= course.cost
       .date-picker= render :partial => "products/choose_date", :locals => {:course => course}
       .acg-acd-links
         %span.guarantee-link= link_to "Academy Class Guarantee", "#guarantee-wrapper", :rel => "facebox"

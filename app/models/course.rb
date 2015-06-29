@@ -10,7 +10,7 @@ class Course < ActiveRecord::Base
   has_one :sales_courses_list
   validates_presence_of :name
   validates_numericality_of :duration, :only_integer => true
-  validates_numericality_of :cost
+#  validates_numericality_of :cost
   before_validation :clean_data
 
   scope :ordered, order(:name)
