@@ -7,7 +7,7 @@ xml.root("xmlns:xsi" => "http://www.w3.org/2001/XMLSchema-instance", "xsi:noName
       xml.description textilize(course.description)
       xml.details textilize(course.outline)
       xml.delivery 6
-      xml.price display_cost_plaintext(course)
+      xml.price course.cost
       xml.infolink "http://www.academyclass.com#{course.url}"
       xml.areas do
         if @locations[course.id]

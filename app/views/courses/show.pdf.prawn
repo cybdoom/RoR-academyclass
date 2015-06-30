@@ -34,7 +34,7 @@ pdf.bounding_box([50, pdf.bounds.top - 120], :width  => pdf.bounds.width - 100, 
     pdf.table([ ["<color rgb='#{section_header_color}'>Level:</color>", @course.level],
                 ["<color rgb='#{section_header_color}'>Duration:</color>", "#{@course.duration} Days"],
                 ["<color rgb='#{section_header_color}'>Time:</color>", "9:30 AM - 4:30 PM"],
-                ["<color rgb='#{section_header_color}'>Cost:</color>", display_cost_plaintext(@course)]
+                ["<color rgb='#{section_header_color}'>Cost:</color>", @course.cost]
               ],  
               :cell_style => {:inline_format => true, :padding => 0, :borders => [] },
               :column_widths => [60, 300])
