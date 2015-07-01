@@ -2,7 +2,7 @@
 module CoursesHelper
 
   def display_cost(course)
-    return "&pound;#{"%01d" % course.cost} <small>ex VAT</small>" if course.cost && course.cost > 0
+    return "&pound;#{"%01d" % course.cost} <small>ex VAT</small>" if course.cost
     return "Call for details";
   end
   
