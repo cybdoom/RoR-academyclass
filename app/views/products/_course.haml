@@ -48,7 +48,7 @@
         %li.cost
           %span.title Cost:
           - if course.cost != "Call for details" && course.cost
-            %span.value= "£" + course.cost + " plus VAT"
+            %span.value= "£" + course.cost + " ex VAT"
           - else
             %span.value Call for detail
       .date-picker= render :partial => "products/choose_date", :locals => {:course => course}
