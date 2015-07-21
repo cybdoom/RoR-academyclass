@@ -1,13 +1,13 @@
 !!! 5
 %html{html_attrs}
-  
+
   %head
     %link{:rel=>"icon", :href=>"/images/favicon.ico", :type=>"image/x-icon"}
     %title= yield(:meta_title)
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
     %meta{:name => "description", :content => yield(:meta_description) || ""}
     %meta{:name => "keywords", :content => yield(:meta_keywords) || ""}
-    %meta{:name => "copyright", :content => "Copyright Academy Class Ltd - 2012"}
+    %meta{:name => "copyright", :content => "Copyright Academy Class Ltd - 2015"}
     = render partial: "shared/smart_code"
     = javascript_include_tag 'application', 'http://widgets.twimg.com/j/2/widget.js'
     = stylesheet_link_tag 'application'
@@ -17,7 +17,7 @@
     %script{:src => "http://www.altabold1.com/js/48374.js", :type => "text/javascript"}
     %noscript
       %img{:src => "http://www.altabold1.com/48374.png", :style => "display:none;"}/
-    
+
   %body{:id => body_tag_id}
     .white
       - @referer_url = request.referer
@@ -45,9 +45,9 @@
         = 'referral url doesn\'t exists'
         %br
 
-      - if cookies[:url]  
+      - if cookies[:url]
         = '5: ' + cookies[:url].to_s
-        
+
       params:
       %br
       = params[:utm_source]
@@ -81,7 +81,7 @@
           = raw si.content
       #footer
         %p
-          All information is copyright&copy; to Academy Class 2006 - 2012.
+          All information is copyright&copy; to Academy Class 2006 - 2015.
           %br
           %a{:href => "/terms_and_conditions"} Website Terms
           %a{:href => "/privacy_policy"} Privacy Policy
