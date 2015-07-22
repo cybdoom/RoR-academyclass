@@ -47,7 +47,7 @@
           %span.value= pluralize(course.hours, "Hour")
         %li.cost
           %span.title Cost:
-          - if course.cost != "Call for details" && course.cost
+          - if course.cost != "Call for Details" && course.cost != nil && course.cost != '' && course.cost != "Call for details"
             %span.value= "£" + course.cost + " ex VAT"
           - else
             %span.value Call for detail
