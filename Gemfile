@@ -31,6 +31,9 @@ gem 'youtube_it'
 gem "friendly_id", "~> 4.0.10"
 gem 'rvm1-capistrano3', require: false
 gem "ckeditor"
+gem 'activeadmin'
+gem 'sass-rails', "  ~> 3.2.3"
+gem "meta_search", '>= 1.1.0.pre'
 
 group :assets do
   gem 'sass-rails', "  ~> 3.2.3"
