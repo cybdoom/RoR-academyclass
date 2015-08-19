@@ -1,0 +1,26 @@
+- content_for :breadcrumbs do
+  = link_to "Home", root_path
+  = breadcrumb_link_to "Fundings", funding_item_index_path
+  = breadcrumb_link_to @funding.title, funding_item_show_path(@funding)
+- content_for :meta_title do
+  Academy Class - Fundings - #{@funding.title}
+
+.news
+  %h2= @funding.title
+  .published Published on #{funding_date_val @funding.published_at}
+  %div.fun-o
+    %div.fun-t Funding Start Date 
+    %div.fun-d= @funding.available_from.strftime("%m/%d/%Y")
+    %div.fun-t Funding End Date 
+    %div.fun-d= @funding.ending_on.strftime("%m/%d/%Y")
+    %div.fun-t Funding Partner
+    %div.fun-e
+      - if @funding.partner_link != nil && @funding.partner_link != ''
+        = link_to @funding.partner, "#{@funding.partner_link}", class: 'fun-l'
+      - else
+        = link_to @funding.partner, "#", class: 'fun-l'
+    
+  %br
+  %br
+  .news-content= raw @funding.content
+  .clearfix

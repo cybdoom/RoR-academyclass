@@ -19,4 +19,5 @@
         .created_at= display_admin_date n.created_at
         .published_at= news_date_val(n.published_at) rescue nil
         .edit-link= link_to "Edit", edit_funding_path(n)
-        .delete-link= link_to "Delete", n, :confirm => "Are you sure?", :method => :delete
+        .delete-link= link_to "Delete", funding_destroy_path(n),  :method => :delete, :confirm => "Are you sure?"
+    = will_paginate @fundings

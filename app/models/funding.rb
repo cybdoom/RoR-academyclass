@@ -2,7 +2,7 @@ class Funding < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
   
-  validates_presence_of :title, :description, :content
+  validates_presence_of :title, :description, :content, :partner, :available_from, :ending_on
 
   has_attached_file :image, :styles => {:medium => "300x300>", :icon => "110x110>", :large => "710>x" }, :whiny => false # allow non-image uploads
 

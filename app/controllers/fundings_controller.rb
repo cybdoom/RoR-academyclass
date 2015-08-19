@@ -1,5 +1,5 @@
 class FundingsController < InheritedResources::Base
-	before_filter :find_funding, only: [:edit, :update, :destroy]
+	before_filter :find_funding, only: [:edit, :update, :funding_destroy]
 	layout "admin"
 
   def index
@@ -24,7 +24,7 @@ class FundingsController < InheritedResources::Base
     save_funding "Funding updated successfully"
   end
 
-  def destroy
+  def funding_destroy
     @funding.destroy
     redirect_to fundings_path
   end

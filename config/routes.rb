@@ -1,7 +1,10 @@
 Academyclass::Application.routes.draw do
 
-  resources :fundings
+  
 
+
+  get "funding_item/index"
+  get "funding_item/show"
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -17,8 +20,7 @@ Academyclass::Application.routes.draw do
 
   resources :news_pages, :news
 
-  match 'funding' => 'news#fundings', :as => :funding
-  match 'funding_show/:id' => 'news#show_funding', :as => :funding_show
+  match 'funding_destroy/:id'  => 'fundings#funding_destroy', :as => :funding_destroy
 
   match 'courses.xml' => 'courses#courses', :as => :xml_courses, :format => :xml
   match 'courses.csv' => 'courses#export', as: :csv_courses, format: :csv
@@ -43,7 +45,7 @@ Academyclass::Application.routes.draw do
   match 'auth/:provider/callback' => 'user_sessions#auth_callback'
   match 'auth/failure' => 'user_sessions#auth_failure'
 
-  resources :product_parents, :products, :courses, :families, :events, :course_dates, :referrers, :user_sessions, :users, :payment_responses, :instructors, :booking_amendments
+  resources :product_parents, :products, :courses, :families, :events, :course_dates, :referrers, :user_sessions, :users, :payment_responses, :instructors, :booking_amendments, :fundings
   resources :booking_forms do
     member do
       post 'complete'

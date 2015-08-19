@@ -1,0 +1,2 @@
+module FundingItemHelper
+end

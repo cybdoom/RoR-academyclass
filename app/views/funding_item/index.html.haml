@@ -1,6 +1,6 @@
 - content_for :breadcrumbs do
   = link_to "Home", root_path
-  = breadcrumb_link_to "Fundings", funding_path
+  = breadcrumb_link_to "Fundings", funding_item_index_path
 - content_for :meta_title do
   Academy Class - Fundings
 
@@ -11,7 +11,7 @@
       %h2= funding.title
       .published Published on #{funding_date_val funding.published_at}
       .description= raw funding.description
-      = link_to "Read More", funding_show_path(funding)
+      = link_to "Read More", funding_item_show_path(id: funding.id)
     .clearfix
 
 = will_paginate @fundings
