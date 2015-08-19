@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @funding.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @funding.description %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @funding.content %>
+</p>
+
+<p>
+  <b>Sticky:</b>
+  <%= @funding.sticky %>
+</p>
+
+<p>
+  <b>Slug:</b>
+  <%= @funding.slug %>
+</p>
+
+<p>
+  <b>Published at:</b>
+  <%= @funding.published_at %>
+</p>
+
+<p>
+  <b>Publish:</b>
+  <%= @funding.publish %>
+</p>
+
+<p>
+  <b>Partner:</b>
+  <%= @funding.partner %>
+</p>
+
+<p>
+  <b>Partner link:</b>
+  <%= @funding.partner_link %>
+</p>
+
+<p>
+  <b>Available from:</b>
+  <%= @funding.available_from %>
+</p>
+
+<p>
+  <b>Ending on:</b>
+  <%= @funding.ending_on %>
+</p>
+
+
+<%= link_to 'Edit', edit_funding_path(@funding) %> |
+<%= link_to 'Back', fundings_path %>

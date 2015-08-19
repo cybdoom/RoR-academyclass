@@ -1,0 +1,20 @@
+= semantic_form_for @funding, :html => {:multipart => true} do |p|  
+  = p.inputs do
+    = p.input :title
+    .no-float-label
+      = p.input :description, as: :ckeditor, input_html: {class: "basic-input"}
+    .no-float-label
+      = p.input :content, as: :ckeditor, input_html: {class: "basic-input"}
+    = p.input :sticky
+    = p.input :image
+    = p.input :custom_published_at
+    = p.input :partner,        input_html: {class: "basic-input funding_text", style: "height: 12px;"}
+    = p.input :partner_link,   input_html: {class: "basic-input funding_text", style: "height: 12px;"}
+    = p.input :available_from, as: :text, input_html: {class: "basic-input funding_text", style: "height: 12px;"}
+    = p.input :ending_on,      as: :text, input_html: {class: "basic-input funding_text", style: "height: 12px;"}
+  %fieldset.actions
+    %ol
+      %li.action.input_action
+        = p.submit "#{@funding.new_record? ? "Create" : "Update"} Fundings"
+        = p.submit "#{@funding.new_record? ? "Create" : "Update"} Fundings and #{@funding.published_at ? "Unpublish" : "Publish"}"
+

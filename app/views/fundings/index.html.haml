@@ -1,0 +1,22 @@
+- content_head do
+  = link_to "Add Funding", new_funding_path, :class => "button"
+  %h2 Fundings
+
+= content_box do
+  %ul.table.news
+    %li.header
+      .title Title
+      .sticky Sticky
+      .created_at Created At
+      .published_at Published At
+    - @fundings.each do |n|
+      %li{:class => cycle("alt_row","")}
+        .image
+          -if n.image.present?
+            = image_tag n.image.url(:icon)
+        .title= n.title
+        .sticky= n.sticky
+        .created_at= display_admin_date n.created_at
+        .published_at= news_date_val(n.published_at) rescue nil
+        .edit-link= link_to "Edit", edit_funding_path(n)
+        .delete-link= link_to "Delete", n, :confirm => "Are you sure?", :method => :delete

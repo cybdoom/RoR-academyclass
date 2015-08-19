@@ -1,5 +1,8 @@
 Academyclass::Application.routes.draw do
 
+  resources :fundings
+
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
@@ -13,6 +16,9 @@ Academyclass::Application.routes.draw do
   end
 
   resources :news_pages, :news
+
+  match 'funding' => 'news#fundings', :as => :funding
+  match 'funding_show/:id' => 'news#show_funding', :as => :funding_show
 
   match 'courses.xml' => 'courses#courses', :as => :xml_courses, :format => :xml
   match 'courses.csv' => 'courses#export', as: :csv_courses, format: :csv
