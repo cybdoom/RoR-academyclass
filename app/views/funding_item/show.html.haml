@@ -9,16 +9,32 @@
   %h2= @funding.title
   .published Published on #{funding_date_val @funding.published_at}
   %div.fun-o
-    %div.fun-t Funding Start Date 
-    %div.fun-d= @funding.available_from.strftime("%m/%d/%Y")
-    %div.fun-t Funding End Date 
-    %div.fun-d= @funding.ending_on.strftime("%m/%d/%Y")
-    %div.fun-t Funding Partner
-    %div.fun-e
-      - if @funding.partner_link != nil && @funding.partner_link != ''
+
+    - if @funding.partner != '' && @funding.partner_link != ''
+      %div.fun-t Start Date 
+      %div.fun-d= @funding.available_from.strftime("%m/%d/%Y")
+      %div.fun-t End Date 
+      %div.fun-d= @funding.ending_on.strftime("%m/%d/%Y")
+      %div.fun-t Partner
+      %div.fun-e
         = link_to @funding.partner, "#{@funding.partner_link}", class: 'fun-l'
-      - else
-        = link_to @funding.partner, "#", class: 'fun-l'
+
+    - elsif @funding.partner != '' && @funding.partner_link == ''
+      %div.fun-t Start Date 
+      %div.fun-d= @funding.available_from.strftime("%m/%d/%Y")
+      %div.fun-t End Date 
+      %div.fun-d= @funding.ending_on.strftime("%m/%d/%Y")
+      %div.fun-t Partner
+      %div.fun-e.fun-l= @funding.partner
+
+    - elsif @funding.partner == '' && @funding.partner_link == ''
+      %div.fun-t-f Start Date 
+      %div.fun-d-f= @funding.available_from.strftime("%m/%d/%Y")
+      %div.fun-t-f End Date 
+      %div.fun-d-f= @funding.ending_on.strftime("%m/%d/%Y")
+
+
+          
     
   %br
   %br
