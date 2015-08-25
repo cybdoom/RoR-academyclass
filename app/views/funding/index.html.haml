@@ -11,7 +11,7 @@
       %h2= funding.title
       .published Published on #{funding_date_val funding.published_at}
       .description= raw funding.description
-      = link_to "Read More", request.original_url + '/' + funding.title.to_s
+      = link_to "Read More", request.original_url + '/' + funding.slug.to_s
     .clearfix
 
 = will_paginate @fundings
