@@ -1,5 +1,5 @@
 - content_head do
-  = link_to "Add Funding", new_funding_path, :class => "button"
+  = link_to "Add Funding", new_funding_admin_path, :class => "button"
   %h2 Fundings
 
 = content_box do
@@ -18,6 +18,6 @@
         .sticky= n.sticky
         .created_at= display_admin_date n.created_at
         .published_at= news_date_val(n.published_at) rescue nil
-        .edit-link= link_to "Edit", edit_funding_path(n)
+        .edit-link= link_to "Edit", edit_funding_admin_path(n)
         .delete-link= link_to "Delete", funding_destroy_path(n),  :method => :delete, :confirm => "Are you sure?"
     = will_paginate @fundings

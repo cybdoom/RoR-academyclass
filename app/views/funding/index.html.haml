@@ -1,0 +1,17 @@
+- content_for :breadcrumbs do
+  = link_to "Home", root_path
+  = breadcrumb_link_to "Funding", request.original_url
+- content_for :meta_title do
+  Academy Class - Funding
+
+- @fundings.each do |funding|
+  .news-item
+    = image_tag funding.image.url(:medium)
+    .info
+      %h2= funding.title
+      .published Published on #{funding_date_val funding.published_at}
+      .description= raw funding.description
+      = link_to "Read More", request.original_url + '/' + funding.title.to_s
+    .clearfix
+
+= will_paginate @fundings

@@ -1,0 +1,42 @@
+- content_for :breadcrumbs do
+  = link_to "Home", root_path
+  = breadcrumb_link_to "Funding", funding_path
+  = breadcrumb_link_to @funding.title, request.original_url
+- content_for :meta_title do
+  Academy Class - Funding - #{@funding.title}
+
+.news
+  %h2= @funding.title
+  .published Published on #{funding_date_val @funding.published_at}
+  %div.fun-o
+
+    - if @funding.partner != '' && @funding.partner_link != ''
+      %div.fun-t Start Date 
+      %div.fun-d= @funding.available_from.strftime("%m/%d/%Y")
+      %div.fun-t End Date 
+      %div.fun-d= @funding.ending_on.strftime("%m/%d/%Y")
+      %div.fun-t Partner
+      %div.fun-e
+        = link_to @funding.partner, "#{@funding.partner_link}", class: 'fun-l'
+
+    - elsif @funding.partner != '' && @funding.partner_link == ''
+      %div.fun-t Start Date 
+      %div.fun-d= @funding.available_from.strftime("%m/%d/%Y")
+      %div.fun-t End Date 
+      %div.fun-d= @funding.ending_on.strftime("%m/%d/%Y")
+      %div.fun-t Partner
+      %div.fun-e.fun-l= @funding.partner
+
+    - elsif @funding.partner == '' && @funding.partner_link == ''
+      %div.fun-t-f Start Date 
+      %div.fun-d-f= @funding.available_from.strftime("%m/%d/%Y")
+      %div.fun-t-f End Date 
+      %div.fun-d-f= @funding.ending_on.strftime("%m/%d/%Y")
+
+
+          
+    
+  %br
+  %br
+  .news-content= raw @funding.content
+  .clearfix

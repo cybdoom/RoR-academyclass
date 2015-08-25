@@ -1,4 +1,4 @@
-class Funding < ActiveRecord::Base
+class FundingAdmin < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
   

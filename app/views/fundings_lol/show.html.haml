@@ -1,7 +1,7 @@
 - content_for :breadcrumbs do
   = link_to "Home", root_path
-  = breadcrumb_link_to "Fundings", funding_item_index_path
-  = breadcrumb_link_to @funding.title, funding_item_show_path(@funding)
+  = breadcrumb_link_to "Fundings", fundings_path
+  = breadcrumb_link_to @funding.title, fundings_path(@funding)
 - content_for :meta_title do
   Academy Class - Fundings - #{@funding.title}
 
