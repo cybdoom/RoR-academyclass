@@ -37,7 +37,7 @@
               %span.course_level{:class => "course_level_#{c.level_number}"}= c.level_number
           %ul
             %li.level_text
-              %span.title Level:
+              %span.title Levell:
               %span.value= c.level
             %li.duration
               %span.title Duration:
@@ -53,5 +53,5 @@
     - unless @product.description.blank?
       =raw textilize @product.description
 = render '/shared/partner_logos'
-- if get_style_course(@product) == false
+- if !get_style_course(@product)
   = render "products/details"

@@ -17,11 +17,13 @@ module ApplicationHelper
 
   # helper for get style course
   def get_style_course(product)
-    if product.name == 'Mac OS' || product.name == 'Edge' || product.name == 'Wordpress' || product.name == 'iOS App Developer'
-      @style = true
-    else
-      @style = false
-    end
+    # you can specify a single product name
+    # example
+    # if product.name == 'Mac OS' || product.name == 'Edge' || product.name == 'Wordpress' || product.name == 'iOS App Developer'
+      # @style = true
+    # else
+      # @style = false
+    # end
     return @style
   end
 
