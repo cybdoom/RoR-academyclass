@@ -62,7 +62,7 @@ namespace :qa do
             "End" => date.end_date.strftime("%Y-%m-%dT16:30:00"),
             "ID" => date.id.to_s,
             "Location" => date.location.name,
-            "Price" => date.course.cost,
+            "Price" => date.course.cost.gsub(/[^0-9\.]+/, '').to_f,
             "Currency" => "GBP",
             "Vendor" => date.course.products.first.product_parent.name,
             "Title" => date.course.name,
@@ -75,13 +75,6 @@ namespace :qa do
       end
     end
 
-
-#<?xml version="1.0" encoding="UTF-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://psp.qa.com/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-#<soap:Body><tns:UploadCoursesStandard xmlns="http://psp.qa.com/"><request><TrainingProviderGUID>dc169588-43e6-4976-be93-30f58e982fac</TrainingProviderGUID><SharedSecret>Acad3myC1a55</SharedSecret><Courses><Course><Code>198</Code><Start>2012-07-30T09:30:00</Start><End>2012-08-01T16:30:00</End><ID>12979</ID><Location>London</Location><Language>en-GB</Language><Price>697.0</Price><Currency>GBP</Currency><Vendor>Adobe</Vendor><Title>Indesign 301: Super Hot Shot</Title><Spaces>10</Spaces><Category>Adobe (BA)</Category></Course></Courses></request></tns:UploadCoursesStandard></soap:Body></soap:Envelope>
-
-#<?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-#<soap:Body><UploadCoursesStandard     xmlns="http://psp.qa.com/"><request><TrainingProviderGUID>dc169588-43e6-4976-be93-30f58e982fac</TrainingProviderGUID><SharedSecret>Acad3myC1a55</SharedSecret><Courses><Course><Code>7052</Code><Start>2012-07-30T09:00:00</Start><End>2012-07-31T17:30:00</End><ID>4132985</ID><Location>827</Location><Language>en-GB</Language><Price>390.00</Price><Currency>GBP</Currency><Vendor>Microsoft</Vendor><Title>M10778 for Vinci</Title><Spaces>1</Spaces><Category /></Course><Course><Code>M6425</Code><Start>2012-07-30T09:00:00</Start><End>2012-08-03T16:30:00</End><ID>4132214</ID><Location>827</Location><Language>en-GB</Language><Price>1750.00</Price><Currency>GBP</Currency><Vendor>Microsoft</Vendor><Title>Configuring and Troubleshooting Windows Server 2008 Active Directory Domain Services</Title><Spaces>3</Spaces><Category>Microsoft (IT)</Category></Course></Courses></request></UploadCoursesStandard></soap:Body></soap:Envelope>
-
     params = {
       :request => {
         "TrainingProviderGUID" => GUID,
@@ -93,11 +86,9 @@ namespace :qa do
     response = client.request :upload_courses_standard, :xmlns => "http://psp.qa.com/" do
       soap.body = params
     end
+
   end
 
   task :publish => [:environment, :publish_courses, :publish_dates] do
 	end
 end
-
-
-#<?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><soap:Body><UploadCourseOverview xmlns="http://psp.qa.com/"><TrainingProviderGUID>dc169588-43e6-4976-be93-30f58e982fac</TrainingProviderGUID><SharedSecret>Acad3myC1a55</SharedSecret><CourseCode>1</CourseCode><Overview>ttt</Overview><Prerequisites>tttt</Prerequisites><Objectives>tttt</Objectives><Outline>tttt</Outline></UploadCourseOverview></soap:Body></soap:Envelope>
