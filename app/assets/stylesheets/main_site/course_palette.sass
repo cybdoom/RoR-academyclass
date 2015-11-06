@@ -154,8 +154,23 @@ $nav-height: 29px
         font-weight: 700
         height: 29px
         padding-top: 10px
+        margin-bottom: -10px
         position: relative
         top: -10px
+        &:before
+          background: transparent image-url("course_border.png") no-repeat center%
+          content: ''
+          display: block
+          width: 251px
+          height: 106px
+          position: absolute
+          top: 0
+          left: 0
+        &:hover
+          background: transparent
+          top: 0
+          height: 29px
+          padding-top: 0
       &.phone
         color: #FFF
         float: right
