@@ -157,16 +157,18 @@ $nav-height: 29px
         margin-bottom: -10px
         position: relative
         top: -10px
+        z-index: 20
         &:before
           background: transparent image-url("course_border.png") no-repeat center
           background-size: 100% 100%
           content: ""
-          display: none
+          display: block
           width: 168px
           height: 70px
           position: absolute
           top: -13px
           left: -10px
+          z-index: 10
         &:hover,
         &.selected
           background: transparent
