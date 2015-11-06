@@ -159,18 +159,22 @@ $nav-height: 29px
         top: -10px
         &:before
           background: transparent image-url("course_border.png") no-repeat center
-          content: ''
-          display: block
-          width: 251px
-          height: 106px
+          background-size: 100% 100%
+          content: ""
+          display: none
+          width: 168px
+          height: 70px
           position: absolute
-          top: 0
-          left: 0
-        &:hover
+          top: -13px
+          left: -10px
+        &:hover,
+        &.selected
           background: transparent
           top: 0
           height: 29px
           padding-top: 0
+          &:before
+            display: none
       &.phone
         color: #FFF
         float: right

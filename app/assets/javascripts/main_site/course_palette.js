@@ -139,7 +139,7 @@ $(document).ready(function() {
       show_outline($list_item.closest('.nav').siblings('.data-container'));
     } else if ($link_name == 'WHAT YOU GET') {
       show_what_you_get($list_item.closest('.nav').siblings('.data-container'), $(this));
-    } else if ($link_name == 'ENQUIRE') {
+    } else if ($link_name == 'ENQUIRE NOW') {
       show_enquire($list_item.closest('.nav').siblings('.data-container'));
     }
     return false;
