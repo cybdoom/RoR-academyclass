@@ -4,7 +4,7 @@
     = render :partial => "videos/menu"
   #videos-left-panel= render :partial => 'sidebar'   
   #main-feature
-      %iframe{:src => @video.video_url, :width => 640, :height => 480, :frameborder => 0, :webkitAllowFullScreen => "webkitAllowFullScreen", :mozallowfullscreen => "mozallowfullscreen", :allowFullScreen => "allowFullScreen"}
+    %iframe{:src => @video.video_url, :width => 640, :height => 480, :frameborder => 0, :webkitAllowFullScreen => "webkitAllowFullScreen", :mozallowfullscreen => "mozallowfullscreen", :allowFullScreen => "allowFullScreen"}
   #latest-videos
     %h4 Latest Videos
     %ul= render :partial => "featured", :collection => featured_videos
