@@ -13,7 +13,7 @@
         .image
           -if i.image.present?
             = image_tag i.image.url(:icon)
-        .description= truncate(i.link, :length => 140, :omission => "...")
+        .description= truncate(i.link, :length => 120, :omission => "...")
         .edit-link= link_to "Edit", edit_admin_background_image_path(i)
         .delete-link= link_to "Delete", [:admin, i], method: :delete, data: { confirm: 'Are you sure?' }
   = will_paginate @background_images
