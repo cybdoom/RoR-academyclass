@@ -1,4 +1,5 @@
 set :stage, :production
+set :ssh_options, { :forward_agent => false }
 set :branch, :stage
 set :rails_env, 'production'
 set :domain, "test.academyclass.com"
