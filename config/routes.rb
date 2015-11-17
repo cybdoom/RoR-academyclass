@@ -1,5 +1,6 @@
 Academyclass::Application.routes.draw do
 
+
   get "funding/:id", to: "funding#show"
   get "funding/", to: "funding#index"
 
@@ -12,7 +13,7 @@ Academyclass::Application.routes.draw do
   match "/bartercard", to: redirect("/")
 
   namespace :admin do
-    resources :news, :sidebar_items
+    resources :news, :sidebar_items, :background_images
   end
 
   resources :news_pages, :news

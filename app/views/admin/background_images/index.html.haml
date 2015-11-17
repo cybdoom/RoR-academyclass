@@ -1,0 +1,19 @@
+- content_head do
+  - if @background_images.count == 0 
+    = link_to "Add Background image", new_admin_background_image_path, :class => "button"
+  %h2 Background image
+
+= content_box do
+  %ul.table.news
+    %li.header
+      .image
+      .description Link
+    - @background_images.each do |i|
+      %li{:class => cycle("alt_row","")}
+        .image
+          -if i.image.present?
+            = image_tag i.image.url(:icon)
+        .description= truncate(i.link, :length => 140, :omission => "...")
+        .edit-link= link_to "Edit", edit_admin_background_image_path(i)
+        .delete-link= link_to "Delete", [:admin, i], method: :delete, data: { confirm: 'Are you sure?' }
+  = will_paginate @background_images
