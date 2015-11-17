@@ -1,4 +1,5 @@
 set :stage, :production
+set :branch, :stage
 set :rails_env, 'production'
 set :domain, "test.academyclass.com"
 set :application, "test.academyclass.com"
