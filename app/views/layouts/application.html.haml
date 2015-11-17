@@ -17,8 +17,16 @@
     %script{:src => "http://www.altabold1.com/js/48374.js", :type => "text/javascript"}
     %noscript
       %img{:src => "http://www.altabold1.com/48374.png", :style => "display:none;"}/
-
-  %body{:id => body_tag_id}
+  
+  - if BackgroundImage.count > 0
+    - @image = BackgroundImage.first.image.url
+    - @link  = BackgroundImage.first.link
+  - else
+    - @image = 'assets/background-gradient.gif'
+    - @link  = '#'
+    
+  %body{:id => body_tag_id, :style => "background: url('#{@image}')"}
+    %a{:href => @link , :style => "position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: url('#{@image}')"}
     .white
       - @referer_url = request.referer
       - @current_url = request.original_url

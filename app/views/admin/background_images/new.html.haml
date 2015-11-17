@@ -1,0 +1,8 @@
+= semantic_form_for [:admin, @background_image], :html => {:multipart => true} do |p|  
+  = p.inputs do
+    = p.input :link
+    = p.input :image
+  %fieldset.actions
+    %ol
+      %li.action.input_action
+        = p.submit "#{@background_image.new_record? ? "Create" : "Update"} Background image"

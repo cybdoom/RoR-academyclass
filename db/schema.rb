@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150825111054) do
+ActiveRecord::Schema.define(:version => 20151117143414) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -27,6 +27,13 @@ ActiveRecord::Schema.define(:version => 20150825111054) do
   add_index "active_admin_comments", ["author_type", "author_id"], :name => "index_active_admin_comments_on_author_type_and_author_id"
   add_index "active_admin_comments", ["namespace"], :name => "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_active_admin_comments_on_resource_type_and_resource_id"
+
+  create_table "admin_background_images", :force => true do |t|
+    t.string   "title"
+    t.text     "link"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -51,6 +58,17 @@ ActiveRecord::Schema.define(:version => 20150825111054) do
     t.integer "option"
     t.text    "answer"
     t.integer "survey_question_id"
+  end
+
+  create_table "background_images", :force => true do |t|
+    t.string   "title"
+    t.text     "link"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "banners", :force => true do |t|
