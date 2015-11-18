@@ -6,14 +6,15 @@
 = content_box do
   %ul.table.news
     %li.header
-      .image
+      .title Title
       .description Link
     - @background_images.each do |i|
       %li{:class => cycle("alt_row","")}
         .image
           -if i.image.present?
             = image_tag i.image.url(:icon)
-        .description= truncate(i.link, :length => 120, :omission => "...")
+        .title= i.title
+        .description= truncate(i.link, :length => 100, :omission => "...")
         .edit-link= link_to "Edit", edit_admin_background_image_path(i)
         .delete-link= link_to "Delete", [:admin, i], method: :delete, data: { confirm: 'Are you sure?' }
   = will_paginate @background_images
