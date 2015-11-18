@@ -1,7 +1,7 @@
 = semantic_form_for [:admin, @background_image], :html => {:multipart => true} do |p|  
   = p.inputs do
     = p.input :title
-    = p.input :link, input_html: {class: "basic-input"}
+    = p.input :link, input_html: {class: "basic-input", rows: 1, style: "resize: none;"}
     = p.input :image
   %fieldset.actions
     %ol
