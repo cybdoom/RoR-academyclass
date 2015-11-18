@@ -21,12 +21,14 @@
   - if BackgroundImage.count > 0
     - @image = BackgroundImage.first.image.url
     - @link  = BackgroundImage.first.link
+    - @title = BackgroundImage.first.title
   - else
     - @image = 'assets/background-gradient.gif'
     - @link  = '#'
+    - @title = 'academyclass'
     
   %body{:id => body_tag_id, :style => "background: url('#{@image}')"}
-    %a{:href => @link , :style => "position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: url('#{@image}')"}
+    %a{:href => @link, title: @title, :style => "position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: url('#{@image}')"}
     .white
       - @referer_url = request.referer
       - @current_url = request.original_url
