@@ -13,7 +13,7 @@ production:
   encoding: utf8
   database: academyclass
   username: admin
-  password: ppo4vkdss4vyzyjk
+  password: uxfxZRosth
   host: localhost
 
 test:
